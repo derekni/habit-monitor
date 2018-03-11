@@ -7,12 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7D2E9EF02051C57800F81311 /* OptionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D2E9EEF2051C57800F81311 /* OptionController.swift */; };
+		7D2E9EF22051C8CF00F81311 /* OptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D2E9EF12051C8CF00F81311 /* OptionTableViewCell.swift */; };
+		7D2E9EF4205508D900F81311 /* OptionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D2E9EF3205508D900F81311 /* OptionTableViewController.swift */; };
 		7D5955E82049D3DF008E2C9C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5955E72049D3DF008E2C9C /* AppDelegate.swift */; };
 		7D5955EA2049D3DF008E2C9C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5955E92049D3DF008E2C9C /* ViewController.swift */; };
 		7D5955ED2049D3DF008E2C9C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D5955EB2049D3DF008E2C9C /* Main.storyboard */; };
 		7D5955EF2049D3DF008E2C9C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D5955EE2049D3DF008E2C9C /* Assets.xcassets */; };
 		7D5955F22049D3DF008E2C9C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D5955F02049D3DF008E2C9C /* LaunchScreen.storyboard */; };
 		7D5955FD2049D3DF008E2C9C /* Habit_MonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5955FC2049D3DF008E2C9C /* Habit_MonitorTests.swift */; };
+		7D59560C2049E9AD008E2C9C /* MyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D59560B2049E9AD008E2C9C /* MyButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,6 +30,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7D2E9EEF2051C57800F81311 /* OptionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionController.swift; sourceTree = "<group>"; };
+		7D2E9EF12051C8CF00F81311 /* OptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionTableViewCell.swift; sourceTree = "<group>"; };
+		7D2E9EF3205508D900F81311 /* OptionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionTableViewController.swift; sourceTree = "<group>"; };
 		7D5955E42049D3DF008E2C9C /* Habit Monitor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Habit Monitor.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D5955E72049D3DF008E2C9C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7D5955E92049D3DF008E2C9C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -36,6 +43,7 @@
 		7D5955F82049D3DF008E2C9C /* Habit MonitorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Habit MonitorTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D5955FC2049D3DF008E2C9C /* Habit_MonitorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Habit_MonitorTests.swift; sourceTree = "<group>"; };
 		7D5955FE2049D3DF008E2C9C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7D59560B2049E9AD008E2C9C /* MyButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,12 +85,16 @@
 		7D5955E62049D3DF008E2C9C /* Habit Monitor */ = {
 			isa = PBXGroup;
 			children = (
+				7D59560B2049E9AD008E2C9C /* MyButton.swift */,
 				7D5955E72049D3DF008E2C9C /* AppDelegate.swift */,
 				7D5955E92049D3DF008E2C9C /* ViewController.swift */,
 				7D5955EB2049D3DF008E2C9C /* Main.storyboard */,
 				7D5955EE2049D3DF008E2C9C /* Assets.xcassets */,
 				7D5955F02049D3DF008E2C9C /* LaunchScreen.storyboard */,
 				7D5955F32049D3DF008E2C9C /* Info.plist */,
+				7D2E9EEF2051C57800F81311 /* OptionController.swift */,
+				7D2E9EF12051C8CF00F81311 /* OptionTableViewCell.swift */,
+				7D2E9EF3205508D900F81311 /* OptionTableViewController.swift */,
 			);
 			path = "Habit Monitor";
 			sourceTree = "<group>";
@@ -200,7 +212,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				7D5955EA2049D3DF008E2C9C /* ViewController.swift in Sources */,
+				7D2E9EF02051C57800F81311 /* OptionController.swift in Sources */,
+				7D2E9EF4205508D900F81311 /* OptionTableViewController.swift in Sources */,
+				7D2E9EF22051C8CF00F81311 /* OptionTableViewCell.swift in Sources */,
 				7D5955E82049D3DF008E2C9C /* AppDelegate.swift in Sources */,
+				7D59560C2049E9AD008E2C9C /* MyButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -354,7 +370,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4HA626TXG6;
 				INFOPLIST_FILE = "Habit Monitor/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ni-labs.Habit-Monitor";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -368,7 +386,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4HA626TXG6;
 				INFOPLIST_FILE = "Habit Monitor/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ni-labs.Habit-Monitor";
 				PRODUCT_NAME = "$(TARGET_NAME)";
