@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="mav-YH-Mff">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="DpX-9n-zb6">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -19,7 +19,7 @@
         <!--Title-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Habit_Monitor" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="PointsViewController" customModule="Habit_Monitor" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -70,9 +70,12 @@
                                 <state key="normal" backgroundImage="Options">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <segue destination="mav-YH-Mff" kind="show" identifier="PointsToOptions" id="fV8-f0-7Xz"/>
+                                </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.61568627450000002" green="0.75686274509999996" blue="0.51372549020000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.0039215686269999999" green="0.47450980390000003" blue="0.43529411759999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Yyg-lK-egg" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="098-0w-pRO"/>
                             <constraint firstItem="Qag-a2-1aV" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="120" id="HfB-Nd-lrE"/>
@@ -96,36 +99,35 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1397" y="301"/>
+            <point key="canvasLocation" x="1373" y="64"/>
         </scene>
-        <!--Option Controller-->
+        <!--Option Table View Controller-->
         <scene sceneID="nsD-ln-U1s">
             <objects>
-                <tableViewController id="mav-YH-Mff" customClass="OptionController" customModule="Habit_Monitor" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="FVy-Fu-Qs0">
+                <tableViewController id="mav-YH-Mff" customClass="OptionTableViewController" customModule="Habit_Monitor" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="FVy-Fu-Qs0">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Ng3-zT-271" customClass="OptionTableViewCell" customModule="Habit_Monitor" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="320" height="90"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="OptionTableViewCell" id="Ng3-zT-271" customClass="OptionTableViewCell" customModule="Habit_Monitor" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="320" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ng3-zT-271" id="aQk-a9-sck" customClass="OptionTableViewCell" customModule="Habit_Monitor" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="89.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="49.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yhg-sb-QfQ">
-                                            <rect key="frame" x="16" y="11" width="288" height="68"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mTL-vr-UjX">
+                                            <rect key="frame" x="16" y="3" width="288" height="43"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="32"/>
-                                            <state key="normal" title="Button">
-                                                <color key="titleColor" red="0.0039215686269999999" green="0.47450980390000003" blue="0.43529411759999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            </state>
-                                        </button>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="24"/>
+                                            <color key="textColor" red="0.0039215686269999999" green="0.47450980390000003" blue="0.43529411759999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="optionButton" destination="yhg-sb-QfQ" id="aix-xN-U1D"/>
+                                    <outlet property="optionLabel" destination="mTL-vr-UjX" id="1kl-79-zNu"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -137,7 +139,74 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Eii-ss-zgS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="557" y="301"/>
+            <point key="canvasLocation" x="484" y="300"/>
+        </scene>
+        <!--Task View Controller-->
+        <scene sceneID="dip-Yu-QqV">
+            <objects>
+                <viewController id="DpX-9n-zb6" customClass="TaskViewController" customModule="Habit_Monitor" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0H8-4W-yo9">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fH9-QT-4KB" customClass="MyButton" customModule="Habit_Monitor" customModuleProvider="target">
+                                <rect key="frame" x="278" y="20" width="30" height="30"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="32"/>
+                                <state key="normal" title="+">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="rounded" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hsW-da-cBo">
+                                <rect key="frame" x="0.0" y="82" width="320" height="486"/>
+                                <color key="backgroundColor" red="0.0039215686269999999" green="0.47450980390000003" blue="0.43529411759999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TaskViewCell" id="hCZ-qH-msK" customClass="TaskTableViewCell" customModule="Habit_Monitor" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hCZ-qH-msK" id="eqj-8D-ST7">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="49.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rfp-8V-gbH">
+                                                    <rect key="frame" x="15" y="11" width="290" height="28"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                                    <color key="textColor" red="0.0039215686269999999" green="0.47450980390000003" blue="0.43529411759999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="task" destination="rfp-8V-gbH" id="1uN-zu-vIn"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="To-do" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zT9-su-csL">
+                                <rect key="frame" x="0.0" y="20" width="320" height="35"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="36"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0039215686269999999" green="0.47450980390000003" blue="0.43529411759999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="zT9-su-csL" firstAttribute="top" secondItem="9jv-9c-tiO" secondAttribute="top" id="PUh-ez-9rH"/>
+                            <constraint firstItem="hsW-da-cBo" firstAttribute="bottom" secondItem="9jv-9c-tiO" secondAttribute="bottom" id="a62-uH-T7n"/>
+                            <constraint firstItem="fH9-QT-4KB" firstAttribute="top" secondItem="9jv-9c-tiO" secondAttribute="top" id="cWf-PE-PEf"/>
+                            <constraint firstItem="hsW-da-cBo" firstAttribute="trailing" secondItem="9jv-9c-tiO" secondAttribute="trailing" id="cmn-eY-cuF"/>
+                            <constraint firstItem="hsW-da-cBo" firstAttribute="leading" secondItem="9jv-9c-tiO" secondAttribute="leading" id="eS0-EU-deS"/>
+                            <constraint firstItem="9jv-9c-tiO" firstAttribute="trailing" secondItem="fH9-QT-4KB" secondAttribute="trailing" constant="12" id="tZa-Fz-69V"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="9jv-9c-tiO"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hmP-qv-vUG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1237.5" y="804.92957746478874"/>
         </scene>
     </scenes>
     <resources>

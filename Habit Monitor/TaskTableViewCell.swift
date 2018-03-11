@@ -1,17 +1,17 @@
 //
-//  OptionTableViewCell.swift
+//  TaskTableViewCell.swift
 //  Habit Monitor
 //
-//  Created by Whip Master on 3/8/18.
+//  Created by Whip Master on 3/11/18.
 //  Copyright © 2018 NiLabs. All rights reserved.
 //
 
 import UIKit
 
-class OptionTableViewCell: UITableViewCell {
+class TaskTableViewCell: UITableViewCell {
 
     //MARK: Properties
-    @IBOutlet weak var optionLabel: UILabel!
+    @IBOutlet weak var task: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -23,5 +23,5 @@ class OptionTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
+
 }

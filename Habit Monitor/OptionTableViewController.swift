@@ -12,6 +12,7 @@ class OptionTableViewController: UITableViewController {
     
     //MARK: Properties
     var buttons = ["Points","To-do","Rewards","History","Savings","Resolutions"]
+    let cellIdentifier = "OptionTableViewCell"
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,27 +29,28 @@ class OptionTableViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return buttons.count
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? OptionTableViewCell else {
+            fatalError("This cell is not an OptionTableViewCell")
+        }
+        cell.optionLabel.text = buttons[indexPath.row]
+        
         return cell
     }
-    */
 
     /*
     // Override to support conditional editing of the table view.

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class PointsViewController: UIViewController {
     
     // MARK: Properties
     var points = UserDefaults().integer(forKey: "myPoints");
@@ -40,7 +40,6 @@ class ViewController: UIViewController {
         UserDefaults.standard.set(points, forKey: "myPoints")
         label.text = String(points)
     }
-
     
     override var prefersStatusBarHidden: Bool {
         return true
