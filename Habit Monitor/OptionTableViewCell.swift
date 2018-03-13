@@ -11,7 +11,6 @@ import UIKit
 class OptionTableViewCell: UITableViewCell {
 
     //MARK: Properties
-    @IBOutlet weak var optionLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

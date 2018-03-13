@@ -11,8 +11,6 @@ import UIKit
 class OptionTableViewController: UITableViewController {
     
     //MARK: Properties
-    var buttons = ["Points","To-do","Rewards","History","Savings","Resolutions"]
-    let cellIdentifier = "OptionTableViewCell"
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,22 +32,13 @@ class OptionTableViewController: UITableViewController {
     }
     
     // MARK: - Table view data source
-
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return buttons.count
-    }
-
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? OptionTableViewCell else {
-            fatalError("This cell is not an OptionTableViewCell")
-        }
-        cell.optionLabel.text = buttons[indexPath.row]
-        
-        return cell
+        return 6
     }
 
     /*

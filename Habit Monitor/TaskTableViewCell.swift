@@ -2,7 +2,7 @@
 //  TaskTableViewCell.swift
 //  Habit Monitor
 //
-//  Created by Whip Master on 3/11/18.
+//  Created by Whip Master on 3/13/18.
 //  Copyright © 2018 NiLabs. All rights reserved.
 //
 
@@ -10,8 +10,8 @@ import UIKit
 
 class TaskTableViewCell: UITableViewCell {
 
-    //MARK: Properties
-    @IBOutlet weak var task: UILabel!
+    // MARK: Properties
+    @IBOutlet weak var myTask: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

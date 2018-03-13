@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7D23FB952056C1B700DACA49 /* Tasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D23FB942056C1B700DACA49 /* Tasks.swift */; };
+		7D23FB972056CBD400DACA49 /* Points.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D23FB962056CBD400DACA49 /* Points.swift */; };
+		7D23FB992056CE0500DACA49 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D23FB982056CE0500DACA49 /* AddViewController.swift */; };
 		7D2E9EF22051C8CF00F81311 /* OptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D2E9EF12051C8CF00F81311 /* OptionTableViewCell.swift */; };
 		7D2E9EF4205508D900F81311 /* OptionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D2E9EF3205508D900F81311 /* OptionTableViewController.swift */; };
 		7D2E9EF62055166B00F81311 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 7D2E9EF52055166B00F81311 /* README.md */; };
@@ -17,8 +20,10 @@
 		7D5955F22049D3DF008E2C9C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D5955F02049D3DF008E2C9C /* LaunchScreen.storyboard */; };
 		7D5955FD2049D3DF008E2C9C /* Habit_MonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5955FC2049D3DF008E2C9C /* Habit_MonitorTests.swift */; };
 		7D59560C2049E9AD008E2C9C /* MyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D59560B2049E9AD008E2C9C /* MyButton.swift */; };
+		7D94DD6520585BD0002724AE /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D94DD6420585BD0002724AE /* TaskTableViewCell.swift */; };
+		7D94DD672058600E002724AE /* Savings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D94DD662058600E002724AE /* Savings.swift */; };
+		7D94DD6920586066002724AE /* SavingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D94DD6820586066002724AE /* SavingsViewController.swift */; };
 		7D9F927220552A55003A5CBD /* TaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9F927120552A55003A5CBD /* TaskViewController.swift */; };
-		7D9F927420552D66003A5CBD /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9F927320552D66003A5CBD /* TaskTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,6 +37,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7D23FB942056C1B700DACA49 /* Tasks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tasks.swift; sourceTree = "<group>"; };
+		7D23FB962056CBD400DACA49 /* Points.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Points.swift; sourceTree = "<group>"; };
+		7D23FB982056CE0500DACA49 /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 		7D2E9EF12051C8CF00F81311 /* OptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionTableViewCell.swift; sourceTree = "<group>"; };
 		7D2E9EF3205508D900F81311 /* OptionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionTableViewController.swift; sourceTree = "<group>"; };
 		7D2E9EF52055166B00F81311 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -46,8 +54,10 @@
 		7D5955FC2049D3DF008E2C9C /* Habit_MonitorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Habit_MonitorTests.swift; sourceTree = "<group>"; };
 		7D5955FE2049D3DF008E2C9C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7D59560B2049E9AD008E2C9C /* MyButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyButton.swift; sourceTree = "<group>"; };
+		7D94DD6420585BD0002724AE /* TaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableViewCell.swift; sourceTree = "<group>"; };
+		7D94DD662058600E002724AE /* Savings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Savings.swift; sourceTree = "<group>"; };
+		7D94DD6820586066002724AE /* SavingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavingsViewController.swift; sourceTree = "<group>"; };
 		7D9F927120552A55003A5CBD /* TaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewController.swift; sourceTree = "<group>"; };
-		7D9F927320552D66003A5CBD /* TaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,17 +100,22 @@
 		7D5955E62049D3DF008E2C9C /* Habit Monitor */ = {
 			isa = PBXGroup;
 			children = (
+				7D5955F02049D3DF008E2C9C /* LaunchScreen.storyboard */,
+				7D5955EB2049D3DF008E2C9C /* Main.storyboard */,
 				7D59560B2049E9AD008E2C9C /* MyButton.swift */,
 				7D5955E72049D3DF008E2C9C /* AppDelegate.swift */,
 				7D5955E92049D3DF008E2C9C /* PointsViewController.swift */,
-				7D5955EB2049D3DF008E2C9C /* Main.storyboard */,
-				7D5955EE2049D3DF008E2C9C /* Assets.xcassets */,
-				7D5955F02049D3DF008E2C9C /* LaunchScreen.storyboard */,
-				7D5955F32049D3DF008E2C9C /* Info.plist */,
+				7D23FB962056CBD400DACA49 /* Points.swift */,
 				7D2E9EF12051C8CF00F81311 /* OptionTableViewCell.swift */,
 				7D2E9EF3205508D900F81311 /* OptionTableViewController.swift */,
+				7D94DD6420585BD0002724AE /* TaskTableViewCell.swift */,
 				7D9F927120552A55003A5CBD /* TaskViewController.swift */,
-				7D9F927320552D66003A5CBD /* TaskTableViewCell.swift */,
+				7D23FB942056C1B700DACA49 /* Tasks.swift */,
+				7D23FB982056CE0500DACA49 /* AddViewController.swift */,
+				7D94DD6820586066002724AE /* SavingsViewController.swift */,
+				7D94DD662058600E002724AE /* Savings.swift */,
+				7D5955EE2049D3DF008E2C9C /* Assets.xcassets */,
+				7D5955F32049D3DF008E2C9C /* Info.plist */,
 			);
 			path = "Habit Monitor";
 			sourceTree = "<group>";
@@ -218,11 +233,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7D9F927420552D66003A5CBD /* TaskTableViewCell.swift in Sources */,
+				7D94DD6920586066002724AE /* SavingsViewController.swift in Sources */,
+				7D23FB952056C1B700DACA49 /* Tasks.swift in Sources */,
 				7D5955EA2049D3DF008E2C9C /* PointsViewController.swift in Sources */,
+				7D94DD6520585BD0002724AE /* TaskTableViewCell.swift in Sources */,
+				7D23FB992056CE0500DACA49 /* AddViewController.swift in Sources */,
 				7D2E9EF4205508D900F81311 /* OptionTableViewController.swift in Sources */,
 				7D2E9EF22051C8CF00F81311 /* OptionTableViewCell.swift in Sources */,
+				7D23FB972056CBD400DACA49 /* Points.swift in Sources */,
 				7D5955E82049D3DF008E2C9C /* AppDelegate.swift in Sources */,
+				7D94DD672058600E002724AE /* Savings.swift in Sources */,
 				7D59560C2049E9AD008E2C9C /* MyButton.swift in Sources */,
 				7D9F927220552A55003A5CBD /* TaskViewController.swift in Sources */,
 			);
