@@ -21,7 +21,7 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
         taskTable.delegate = self
         taskTable.dataSource = self
 
-        self.taskTable.reloadData()
+        taskTable.reloadData()
         print("data reloaded")
     }
 
@@ -68,6 +68,13 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
         print("creating table")
         print(tasks![indexPath.row])
         return cell
+    }
+    
+    func tableView(_ taskTable: UITableView, didSelectRowAt indexPath: IndexPath) {
+        points! = points! + 1
+        UserDefaults.standard.set(points!, forKey: "myPoints")
+        deleteTaskData(completedTask: String(describing: tasks![indexPath.row]))
+        taskTable.reloadData()
     }
     
 }

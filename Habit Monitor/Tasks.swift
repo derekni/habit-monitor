@@ -21,3 +21,12 @@ func fetchTaskData() -> [String]? {
         return nil
     }
 }
+
+func deleteTaskData(completedTask: String) {
+    if let index = tasks?.index(of: completedTask) {
+        tasks!.remove(at: index)
+    } else {
+        print("nothing was deleted")
+    }
+    UserDefaults.standard.set(tasks, forKey: "tasks")
+}
