@@ -14,19 +14,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        
+        //points
         if let point = fetchPointsData() {
             points = point
         } else {
             points = 0
         }
-        
+        //tasks
         if let task = fetchTaskData() {
             tasks = task
         } else {
             tasks = [String]()
         }
-        
+        //reminders
+        if let reminder = fetchReminderData() {
+            reminders = reminder
+        } else {
+            reminders = [String]()
+        }
+        //savings
         if let saving = fetchSavingsData() {
             savings = saving
         } else {
@@ -48,6 +54,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         savePointsData(points: points!)
         saveTaskData(tasks: tasks!)
         saveSavingsData(savings: savings!)
+        saveReminderData(reminders: reminders!)
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
@@ -64,6 +71,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         savePointsData(points: points!)
         saveTaskData(tasks: tasks!)
         saveSavingsData(savings: savings!)
+        saveReminderData(reminders:reminders!)
     }
 
 }

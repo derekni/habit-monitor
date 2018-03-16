@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddViewController: UIViewController {
+class AddTaskViewController: UIViewController {
 
     // MARK: Properties
     @IBOutlet weak var textField: UITextField!

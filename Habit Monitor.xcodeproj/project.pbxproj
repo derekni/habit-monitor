@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		7D23FB952056C1B700DACA49 /* Tasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D23FB942056C1B700DACA49 /* Tasks.swift */; };
 		7D23FB972056CBD400DACA49 /* Points.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D23FB962056CBD400DACA49 /* Points.swift */; };
-		7D23FB992056CE0500DACA49 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D23FB982056CE0500DACA49 /* AddViewController.swift */; };
+		7D23FB992056CE0500DACA49 /* AddTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D23FB982056CE0500DACA49 /* AddTaskViewController.swift */; };
 		7D2E9EF22051C8CF00F81311 /* OptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D2E9EF12051C8CF00F81311 /* OptionTableViewCell.swift */; };
 		7D2E9EF4205508D900F81311 /* OptionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D2E9EF3205508D900F81311 /* OptionTableViewController.swift */; };
 		7D2E9EF62055166B00F81311 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 7D2E9EF52055166B00F81311 /* README.md */; };
@@ -23,6 +23,11 @@
 		7D94DD6520585BD0002724AE /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D94DD6420585BD0002724AE /* TaskTableViewCell.swift */; };
 		7D94DD672058600E002724AE /* Savings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D94DD662058600E002724AE /* Savings.swift */; };
 		7D94DD6920586066002724AE /* SavingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D94DD6820586066002724AE /* SavingsViewController.swift */; };
+		7D94DD6B205AE096002724AE /* RewardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D94DD6A205AE096002724AE /* RewardsViewController.swift */; };
+		7D94DD6D205AE8EA002724AE /* RemindersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D94DD6C205AE8EA002724AE /* RemindersViewController.swift */; };
+		7D94DD71205AE971002724AE /* Reminders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D94DD70205AE971002724AE /* Reminders.swift */; };
+		7D94DD73205AE9E9002724AE /* RemindersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D94DD72205AE9E9002724AE /* RemindersTableViewCell.swift */; };
+		7D94DD75205B58A2002724AE /* AddReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D94DD74205B58A2002724AE /* AddReminderViewController.swift */; };
 		7D9F927220552A55003A5CBD /* TaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9F927120552A55003A5CBD /* TaskViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -39,7 +44,7 @@
 /* Begin PBXFileReference section */
 		7D23FB942056C1B700DACA49 /* Tasks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tasks.swift; sourceTree = "<group>"; };
 		7D23FB962056CBD400DACA49 /* Points.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Points.swift; sourceTree = "<group>"; };
-		7D23FB982056CE0500DACA49 /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
+		7D23FB982056CE0500DACA49 /* AddTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskViewController.swift; sourceTree = "<group>"; };
 		7D2E9EF12051C8CF00F81311 /* OptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionTableViewCell.swift; sourceTree = "<group>"; };
 		7D2E9EF3205508D900F81311 /* OptionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionTableViewController.swift; sourceTree = "<group>"; };
 		7D2E9EF52055166B00F81311 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -57,6 +62,11 @@
 		7D94DD6420585BD0002724AE /* TaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableViewCell.swift; sourceTree = "<group>"; };
 		7D94DD662058600E002724AE /* Savings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Savings.swift; sourceTree = "<group>"; };
 		7D94DD6820586066002724AE /* SavingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavingsViewController.swift; sourceTree = "<group>"; };
+		7D94DD6A205AE096002724AE /* RewardsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardsViewController.swift; sourceTree = "<group>"; };
+		7D94DD6C205AE8EA002724AE /* RemindersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersViewController.swift; sourceTree = "<group>"; };
+		7D94DD70205AE971002724AE /* Reminders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reminders.swift; sourceTree = "<group>"; };
+		7D94DD72205AE9E9002724AE /* RemindersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersTableViewCell.swift; sourceTree = "<group>"; };
+		7D94DD74205B58A2002724AE /* AddReminderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReminderViewController.swift; sourceTree = "<group>"; };
 		7D9F927120552A55003A5CBD /* TaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -104,14 +114,19 @@
 				7D5955EB2049D3DF008E2C9C /* Main.storyboard */,
 				7D59560B2049E9AD008E2C9C /* MyButton.swift */,
 				7D5955E72049D3DF008E2C9C /* AppDelegate.swift */,
-				7D2E9EF12051C8CF00F81311 /* OptionTableViewCell.swift */,
 				7D2E9EF3205508D900F81311 /* OptionTableViewController.swift */,
+				7D2E9EF12051C8CF00F81311 /* OptionTableViewCell.swift */,
 				7D5955E92049D3DF008E2C9C /* PointsViewController.swift */,
 				7D23FB962056CBD400DACA49 /* Points.swift */,
-				7D94DD6420585BD0002724AE /* TaskTableViewCell.swift */,
 				7D9F927120552A55003A5CBD /* TaskViewController.swift */,
+				7D94DD6420585BD0002724AE /* TaskTableViewCell.swift */,
 				7D23FB942056C1B700DACA49 /* Tasks.swift */,
-				7D23FB982056CE0500DACA49 /* AddViewController.swift */,
+				7D23FB982056CE0500DACA49 /* AddTaskViewController.swift */,
+				7D94DD6C205AE8EA002724AE /* RemindersViewController.swift */,
+				7D94DD72205AE9E9002724AE /* RemindersTableViewCell.swift */,
+				7D94DD70205AE971002724AE /* Reminders.swift */,
+				7D94DD74205B58A2002724AE /* AddReminderViewController.swift */,
+				7D94DD6A205AE096002724AE /* RewardsViewController.swift */,
 				7D94DD6820586066002724AE /* SavingsViewController.swift */,
 				7D94DD662058600E002724AE /* Savings.swift */,
 				7D5955EE2049D3DF008E2C9C /* Assets.xcassets */,
@@ -233,13 +248,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7D94DD71205AE971002724AE /* Reminders.swift in Sources */,
 				7D94DD6920586066002724AE /* SavingsViewController.swift in Sources */,
+				7D94DD6B205AE096002724AE /* RewardsViewController.swift in Sources */,
+				7D94DD73205AE9E9002724AE /* RemindersTableViewCell.swift in Sources */,
 				7D23FB952056C1B700DACA49 /* Tasks.swift in Sources */,
 				7D5955EA2049D3DF008E2C9C /* PointsViewController.swift in Sources */,
+				7D94DD75205B58A2002724AE /* AddReminderViewController.swift in Sources */,
 				7D94DD6520585BD0002724AE /* TaskTableViewCell.swift in Sources */,
-				7D23FB992056CE0500DACA49 /* AddViewController.swift in Sources */,
+				7D23FB992056CE0500DACA49 /* AddTaskViewController.swift in Sources */,
 				7D2E9EF4205508D900F81311 /* OptionTableViewController.swift in Sources */,
 				7D2E9EF22051C8CF00F81311 /* OptionTableViewCell.swift in Sources */,
+				7D94DD6D205AE8EA002724AE /* RemindersViewController.swift in Sources */,
 				7D23FB972056CBD400DACA49 /* Points.swift in Sources */,
 				7D5955E82049D3DF008E2C9C /* AppDelegate.swift in Sources */,
 				7D94DD672058600E002724AE /* Savings.swift in Sources */,
