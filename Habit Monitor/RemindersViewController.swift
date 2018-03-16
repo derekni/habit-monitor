@@ -71,7 +71,7 @@ class RemindersViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func tableView(_ reminderTable: UITableView, didSelectRowAt indexPath: IndexPath) {
-        deleteReminderData(completedReminder: String(describing: tasks![indexPath.row]))
+        deleteReminderData(completedReminder: String(describing: reminders![indexPath.row]))
         reminderTable.reloadData()
     }
 

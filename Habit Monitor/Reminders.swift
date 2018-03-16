@@ -23,7 +23,7 @@ func fetchReminderData() -> [String]? {
 }
 
 func deleteReminderData(completedReminder: String) {
-    if let index = tasks?.index(of: completedReminder) {
+    if let index = reminders?.index(of: completedReminder) {
         reminders!.remove(at: index)
     } else {
         print("nothing was deleted")
