@@ -36,12 +36,6 @@ class PointsViewController: UIViewController {
         label.text = String(points!)
     }
     
-    @IBAction func addPoints(_ sender: UIButton) {
-        points = points! + 1
-        UserDefaults.standard.set(points, forKey: "myPoints")
-        label.text = String(points!)
-    }
-    
     override var prefersStatusBarHidden: Bool {
         return true
     }

@@ -23,6 +23,9 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
 
         taskTable.reloadData()
         print("data reloaded")
+        
+        taskTable.tableFooterView = UIView(frame: .zero)
+        taskTable.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: taskTable.frame.size.width, height: 1))
     }
 
     override func didReceiveMemoryWarning() {

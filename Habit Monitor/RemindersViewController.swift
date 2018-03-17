@@ -23,6 +23,9 @@ class RemindersViewController: UIViewController, UITableViewDelegate, UITableVie
         
         reminderTable.reloadData()
         print("data reloaded")
+        
+        reminderTable.tableFooterView = UIView(frame: .zero)
+        reminderTable.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: reminderTable.frame.size.width, height: 1))
     }
     
     override func didReceiveMemoryWarning() {
