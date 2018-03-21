@@ -28,10 +28,14 @@ class SavingsViewController: UIViewController {
     // MARK: Actions
     
     @IBAction func addSavings(_ sender: Any) {
-        points = points! - 1
-        savings = savings! + 1
-        UserDefaults.standard.set(savings, forKey:"mySavings")
-        UserDefaults.standard.set(points, forKey:"myPoints")
+        if (points! > 0) {
+            points! = points! - 1
+            savings! = savings! + 1
+            UserDefaults.standard.set(savings!, forKey:"mySavings")
+            UserDefaults.standard.set(points!, forKey:"myPoints")
+        } else {
+            print("not enough points to add to savings")
+        }
         savedLabel.text = String(savings!)
     }
     

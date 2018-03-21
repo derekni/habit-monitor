@@ -28,13 +28,6 @@ class PointsViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-    // MARK: Actions
-    @IBAction func subtractPoints(_ sender: UIButton) {
-        points = points! - 1
-        UserDefaults.standard.set(points, forKey: "myPoints")
-        label.text = String(points!)
-    }
     
     override var prefersStatusBarHidden: Bool {
         return true

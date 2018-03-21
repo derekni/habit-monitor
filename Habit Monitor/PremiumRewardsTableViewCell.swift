@@ -1,16 +1,16 @@
 //
-//  RewardsTableViewCell.swift
+//  PremiumRewardsTableViewCell.swift
 //  Habit Monitor
 //
-//  Created by Whip Master on 3/16/18.
+//  Created by Whip Master on 3/17/18.
 //  Copyright © 2018 NiLabs. All rights reserved.
 //
 
 import UIKit
 
-class RewardsTableViewCell: UITableViewCell {
+class PremiumRewardsTableViewCell: UITableViewCell {
     // MARK: Properties
-    @IBOutlet weak var myRewards: UILabel!
+    @IBOutlet weak var myPremiumReward: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -21,15 +21,16 @@ class RewardsTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+        
         let val = findValue()
-        points! = points! - val
-        UserDefaults.standard.set(points!, forKey: "myPoints")
-        print("reward used: " + myRewards.text! + " with value " + String(val))
+        savings! = savings! - val
+        UserDefaults.standard.set(savings!, forKey: "mySavings")
+        print("reward used: " + myPremiumReward.text! + " with value " + String(val))
     }
-    
+
     func findValue() -> Int {
-        let str = myRewards.text!
-        if let val = rewardsDict![str] {
+        let str = myPremiumReward.text!
+        if let val = premiumRewardsDict![str] {
             return val
         } else {
             return 0

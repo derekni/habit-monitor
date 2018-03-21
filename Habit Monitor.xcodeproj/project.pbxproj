@@ -33,6 +33,7 @@
 		7DA81AB7205C8B4800266224 /* Rewards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA81AB6205C8B4800266224 /* Rewards.swift */; };
 		7DA81AB9205C8C8E00266224 /* PremiumRewards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA81AB8205C8C8E00266224 /* PremiumRewards.swift */; };
 		7DA81ABB205C925200266224 /* RewardsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA81ABA205C925200266224 /* RewardsTableViewController.swift */; };
+		7DA81ABD205DB51A00266224 /* PremiumRewardsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA81ABC205DB51A00266224 /* PremiumRewardsTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +77,7 @@
 		7DA81AB6205C8B4800266224 /* Rewards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rewards.swift; sourceTree = "<group>"; };
 		7DA81AB8205C8C8E00266224 /* PremiumRewards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiumRewards.swift; sourceTree = "<group>"; };
 		7DA81ABA205C925200266224 /* RewardsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardsTableViewController.swift; sourceTree = "<group>"; };
+		7DA81ABC205DB51A00266224 /* PremiumRewardsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiumRewardsTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +139,7 @@
 				7D94DD78205B6D24002724AE /* HabitsTableViewController.swift */,
 				7DA81ABA205C925200266224 /* RewardsTableViewController.swift */,
 				7DA81AB4205C8A2900266224 /* RewardsTableViewCell.swift */,
+				7DA81ABC205DB51A00266224 /* PremiumRewardsTableViewCell.swift */,
 				7DA81AB6205C8B4800266224 /* Rewards.swift */,
 				7DA81AB8205C8C8E00266224 /* PremiumRewards.swift */,
 				7D94DD6820586066002724AE /* SavingsViewController.swift */,
@@ -268,6 +271,7 @@
 				7D5955EA2049D3DF008E2C9C /* PointsViewController.swift in Sources */,
 				7D94DD75205B58A2002724AE /* AddReminderViewController.swift in Sources */,
 				7D94DD6520585BD0002724AE /* TaskTableViewCell.swift in Sources */,
+				7DA81ABD205DB51A00266224 /* PremiumRewardsTableViewCell.swift in Sources */,
 				7D94DD79205B6D24002724AE /* HabitsTableViewController.swift in Sources */,
 				7D23FB992056CE0500DACA49 /* AddTaskViewController.swift in Sources */,
 				7D2E9EF4205508D900F81311 /* OptionTableViewController.swift in Sources */,

@@ -12,9 +12,6 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var habits = [String]()
-    var premiumRewards = [String]()
-    var premiumRewardsDict = [String: Int]()
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
@@ -39,18 +36,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             reminders = [String]()
         }
         
-        //habits
-        habits = ["Work Out", "Play tennis", "Practice piano", "Practice ukulele", "Learn Duolingo skill"]
-        
         //rewards
+        /*
         if let reward = fetchRewardsData() {
             rewards = reward
         } else {
             rewards = [String]()
         }
-        premiumRewards = ["Watch a movie"]
+        if let premiumReward = fetchPremiumRewardsData() {
+            premiumRewards = premiumReward
+        } else {
+            premiumRewards = [String]()
+        }
+        */
+        rewards = ["Watch anime","Buy bubble tea","Eat ramen","Eat fast food","Chillax"]
+        rewardsDict = [
+            "Watch anime": 1,
+            "Buy bubble tea": 1,
+            "Eat ramen": 1,
+            "Eat fast food": 2,
+            "Chillax": 2
+        ]
+        premiumRewards = ["Watch a movie", "Anime binge session"]
         premiumRewardsDict = [
-            "Watch a movie": 5
+            "Watch a movie": 5,
+            "Anime binge session": 10
         ]
         
         //savings
