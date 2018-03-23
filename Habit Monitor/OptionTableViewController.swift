@@ -8,6 +8,25 @@
 
 import UIKit
 
+//option cell
+class OptionTableViewCell: UITableViewCell {
+    
+    //MARK: Properties
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
+    }
+    
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+        
+        // Configure the view for the selected state
+    }
+    
+}
+
+//option controller
 class OptionTableViewController: UITableViewController {
     
     //MARK: Properties
@@ -41,7 +60,7 @@ class OptionTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 6
+        return 7
     }
 
     /*

@@ -8,6 +8,22 @@
 
 import UIKit
 
+//points
+var points:Int?
+
+func savePointsData(points:Int?) {
+    UserDefaults.standard.set(points, forKey: "myPoints")
+}
+
+func fetchPointsData() -> Int? {
+    if let point = UserDefaults.standard.integer(forKey: "myPoints") as? Int {
+        return point
+    } else {
+        return 0
+    }
+}
+
+//points controller
 class PointsViewController: UIViewController {
     
     // MARK: Properties

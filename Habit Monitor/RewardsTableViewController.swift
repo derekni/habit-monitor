@@ -8,21 +8,116 @@
 
 import UIKit
 
+//rewards
+var rewards:[String]?
+var rewardsDict:[String:Int]?
+
+func saveRewardsData(rewards:[String]?) {
+    UserDefaults.standard.set(rewards, forKey: "myRewards")
+}
+
+func saveRewardsDictData(rewardsDict:[String:Int]?) {
+    UserDefaults.standard.set(rewardsDict, forKey:"myRewardsDict")
+}
+
+func fetchRewardsData() -> [String]? {
+    if let reward = UserDefaults.standard.array(forKey: "myRewards") as? [String] {
+        return reward
+    } else {
+        return nil
+    }
+}
+
+func fetchRewardsDictData() -> [String:Int]? {
+    if let dict = UserDefaults.standard.dictionary(forKey: "myRewardsDict") as? [String:Int] {
+        return dict
+    } else {
+        return nil
+    }
+}
+
+func addReward(reward: String, value: Int) {
+    if reward != "" {
+        rewards!.append(reward)
+        UserDefaults.standard.set(rewards!, forKey: "myRewards")
+        rewardsDict![reward] = value
+        UserDefaults.standard.set(rewardsDict!, forKey: "myRewardsDict")
+    }
+}
+
+//premium rewards
+var premiumRewards:[String]?
+var premiumRewardsDict:[String:Int]?
+
+func savePremiumRewardsData(premiumRewards:[String]?) {
+    UserDefaults.standard.set(premiumRewards, forKey: "myPremiumRewards")
+}
+
+func savePremiumRewardsDictData(premiumRewardsDict:[String:Int]?) {
+    UserDefaults.standard.set(premiumRewardsDict, forKey:"myPremiumRewardsDict")
+}
+
+func fetchPremiumRewardsData() -> [String]? {
+    if let premiumReward = UserDefaults.standard.array(forKey: "myPremiumRewards") as? [String] {
+        return premiumReward
+    } else {
+        return nil
+    }
+}
+
+func fetchPremiumRewardsDictData() -> [String:Int]? {
+    if let dict = UserDefaults.standard.dictionary(forKey: "myPremiumRewardsDict") as? [String:Int] {
+        return dict
+    } else {
+        return nil
+    }
+}
+
+func addPremiumReward(premiumReward: String, value: Int) {
+    if premiumReward != "" {
+        premiumRewards!.append(premiumReward)
+        UserDefaults.standard.set(premiumRewards!, forKey: "myPremiumRewards")
+        premiumRewardsDict![premiumReward] = value
+        UserDefaults.standard.set(premiumRewardsDict!, forKey: "myPremiumRewardsDict")
+    }
+}
+
+//rewards cell
+class RewardsTableViewCell: UITableViewCell {
+    // MARK: Properties
+    @IBOutlet weak var myRewards: UILabel!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
+    }
+    
+}
+
+//premium rewards cell
+class PremiumRewardsTableViewCell: UITableViewCell {
+    // MARK: Properties
+    @IBOutlet weak var myPremiumReward: UILabel!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
+    }
+    
+}
+
+//rewards controller
 class RewardsTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        tableView.tableFooterView = UIView(frame: .zero)
+        tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 1))
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     override var prefersStatusBarHidden: Bool {

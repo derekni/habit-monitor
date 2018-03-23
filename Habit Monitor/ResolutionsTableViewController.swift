@@ -1,40 +1,33 @@
 //
-//  HabitsTableViewController.swift
+//  ResolutionsTableViewController.swift
 //  Habit Monitor
 //
-//  Created by Whip Master on 3/15/18.
+//  Created by Whip Master on 3/22/18.
 //  Copyright © 2018 NiLabs. All rights reserved.
 //
 
 import UIKit
 
-//habits
-var habits:[String]?
+//resolutions
+var resolutions:[String]?
 
-func saveHabitsData(habits:[String]?) {
-    UserDefaults.standard.set(habits, forKey: "myHabits")
+func saveResolutionData(resolutions:[String]?) {
+    UserDefaults.standard.set(resolutions, forKey: "myResolutions")
 }
 
-func fetchHabitsData() -> [String]? {
-    if let habit = UserDefaults.standard.array(forKey: "myHabits") as? [String] {
-        return habit
+func fetchResolutionData() -> [String]? {
+    if let resolution = UserDefaults.standard.array(forKey: "myResolutions") as? [String] {
+        return resolution
     } else {
         return nil
     }
 }
 
-func addHabit(habit: String) {
-    if habit != "" {
-        habits!.append(habit)
-        UserDefaults.standard.set(habits!, forKey: "myHabits")
-    }
-}
-
-//habits cell
-class HabitsTableViewCell: UITableViewCell {
+//resolutions cell
+class ResolutionsTableViewCell: UITableViewCell {
     
     // MARK: Properties
-    @IBOutlet weak var myHabit: UILabel!
+    @IBOutlet weak var myResolution: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -49,18 +42,18 @@ class HabitsTableViewCell: UITableViewCell {
     
 }
 
-//habits controller
-class HabitsTableViewController: UITableViewController {
+class ResolutionsTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         tableView.tableFooterView = UIView(frame: .zero)
         tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 1))
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
     
     override var prefersStatusBarHidden: Bool {
@@ -74,20 +67,17 @@ class HabitsTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return habits!.count
+        return resolutions!.count
     }
-    
+
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "HabitsTableViewCell", for: indexPath) as? HabitsTableViewCell else {
-            fatalError("This cell is not an HabitsTableViewCell")
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ResolutionsTableViewCell", for: indexPath) as? ResolutionsTableViewCell else {
+            fatalError("Cell is not a ResolutionsTableViewCell")
         }
-        cell.myHabit.text = habits![indexPath.row]
+
+        cell.myResolution.text = resolutions![indexPath.row]
+        
         return cell
     }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        points! = points! + 1
-        UserDefaults.standard.set(points!, forKey: "myPoints")
-        self.performSegue(withIdentifier: "HabitsToPoints", sender: self)
-    }
+
 }

@@ -8,6 +8,50 @@
 
 import UIKit
 
+//reminders
+var reminders:[String]?
+
+func saveReminderData(reminders:[String]?) {
+    UserDefaults.standard.set(reminders, forKey: "reminders")
+}
+
+func fetchReminderData() -> [String]? {
+    if let reminder = UserDefaults.standard.array(forKey: "reminders") as? [String] {
+        return reminder
+    } else {
+        return nil
+    }
+}
+
+func deleteReminderData(completedReminder: String) {
+    if let index = reminders?.index(of: completedReminder) {
+        reminders!.remove(at: index)
+    } else {
+        print("nothing was deleted")
+    }
+    UserDefaults.standard.set(reminders, forKey: "reminders")
+}
+
+//reminders cell
+class RemindersTableViewCell: UITableViewCell {
+    
+    // MARK: Properties
+    @IBOutlet weak var myReminder: UILabel!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
+    }
+    
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+        
+        // Configure the view for the selected state
+    }
+    
+}
+
+//reminders controller
 class RemindersViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     //MARK: Properties
@@ -20,9 +64,6 @@ class RemindersViewController: UIViewController, UITableViewDelegate, UITableVie
         // Do any additional setup after loading the view.
         reminderTable.delegate = self
         reminderTable.dataSource = self
-        
-        reminderTable.reloadData()
-        print("data reloaded")
         
         reminderTable.tableFooterView = UIView(frame: .zero)
         reminderTable.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: reminderTable.frame.size.width, height: 1))
@@ -49,9 +90,6 @@ class RemindersViewController: UIViewController, UITableViewDelegate, UITableVie
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        print("stuff is appearing")
-        print(reminders!)
-        print(reminders!.count)
         self.reminderTable.reloadData()
     }
     
@@ -68,8 +106,6 @@ class RemindersViewController: UIViewController, UITableViewDelegate, UITableVie
             fatalError("This cell is not an ReminderTableViewCell")
         }
         cell.myReminder.text = reminders![indexPath.row]
-        print("creating table")
-        print(reminders![indexPath.row])
         return cell
     }
     

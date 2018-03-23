@@ -29,45 +29,79 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             tasks = [String]()
         }
         
+        //habits
+        if let habit = fetchHabitsData() {
+            habits = habit
+        } else {
+            habits = [String]()
+        }
+
         //reminders
         if let reminder = fetchReminderData() {
             reminders = reminder
         } else {
             reminders = [String]()
         }
-        
+
         //rewards
-        /*
         if let reward = fetchRewardsData() {
             rewards = reward
         } else {
             rewards = [String]()
         }
+        if let rewardDict = fetchRewardsDictData() {
+            rewardsDict = rewardDict
+        } else {
+            rewardsDict = [String:Int]()
+        }
+        
+        //premium rewards
         if let premiumReward = fetchPremiumRewardsData() {
             premiumRewards = premiumReward
         } else {
             premiumRewards = [String]()
         }
-        */
-        rewards = ["Watch anime","Buy bubble tea","Eat ramen","Eat fast food","Chillax"]
+        if let premiumRewardDict = fetchPremiumRewardsDictData() {
+            premiumRewardsDict = premiumRewardDict
+        } else {
+            premiumRewardsDict = [String:Int]()
+        }
+ 
+        //rewards
+        /*
+        rewards = ["Watch anime","Watch YouTube", "Buy bubble tea","Eat ramen","Eat fast food","Chillax"]
         rewardsDict = [
             "Watch anime": 1,
+            "Watch YouTube": 1,
             "Buy bubble tea": 1,
             "Eat ramen": 1,
             "Eat fast food": 2,
             "Chillax": 2
         ]
+        saveRewardsData(rewards: rewards)
+        saveRewardsDictData(rewardsDict: rewardsDict)
+
         premiumRewards = ["Watch a movie", "Anime binge session"]
         premiumRewardsDict = [
             "Watch a movie": 5,
-            "Anime binge session": 10
+            "Anime binge session": 5
         ]
+        savePremiumRewardsData(premiumRewards: premiumRewards)
+        savePremiumRewardsDictData(premiumRewardsDict: premiumRewardsDict)
+        */
         
         //savings
         if let saving = fetchSavingsData() {
             savings = saving
         } else {
             savings = 0
+        }
+        
+        //resolutions
+        if let resolution = fetchResolutionData() {
+            resolutions = resolution
+        } else {
+            resolutions = [String]()
         }
         
         return true

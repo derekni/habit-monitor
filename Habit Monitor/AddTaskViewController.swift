@@ -31,12 +31,6 @@ class AddTaskViewController: UIViewController {
     @IBAction func addPressed(_ sender: Any) {
         if (textField.text != nil) && textField.text != "" {
             tasks!.append(textField.text!)
-            textField.text = ""
-            textField.placeholder = "Add more?"
-            for element in tasks! {
-                print(element)
-                print(type(of: element))
-            }
             UserDefaults.standard.set(tasks, forKey: "tasks")
         }
     }

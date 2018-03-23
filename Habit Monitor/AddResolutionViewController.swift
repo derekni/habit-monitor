@@ -1,24 +1,24 @@
 //
-//  AddReminderViewController.swift
+//  AddResolutionViewController.swift
 //  Habit Monitor
 //
-//  Created by Whip Master on 3/15/18.
+//  Created by Whip Master on 3/23/18.
 //  Copyright © 2018 NiLabs. All rights reserved.
 //
 
 import UIKit
 
-class AddReminderViewController: UIViewController {
-
+class AddResolutionViewController: UIViewController {
+    
     // MARK: Properties
-    @IBOutlet weak var newReminder: UITextField!
+    @IBOutlet weak var textField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         // Do any additional setup after loading the view.
     }
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -29,10 +29,10 @@ class AddReminderViewController: UIViewController {
     }
     
     @IBAction func addPressed(_ sender: Any) {
-        if (newReminder.text != nil) && newReminder.text != "" {
-            reminders!.append(newReminder.text!)
-            UserDefaults.standard.set(reminders, forKey: "reminders")
+        if (textField.text != nil) && textField.text != "" {
+            resolutions!.append(textField.text!)
+            UserDefaults.standard.set(resolutions, forKey: "myResolutions")
         }
     }
-
+    
 }

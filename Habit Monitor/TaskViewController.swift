@@ -8,6 +8,50 @@
 
 import UIKit
 
+//tasks
+var tasks:[String]?
+
+func saveTaskData(tasks:[String]?) {
+    UserDefaults.standard.set(tasks, forKey: "tasks")
+}
+
+func fetchTaskData() -> [String]? {
+    if let task = UserDefaults.standard.array(forKey: "tasks") as? [String] {
+        return task
+    } else {
+        return nil
+    }
+}
+
+func deleteTaskData(completedTask: String) {
+    if let index = tasks?.index(of: completedTask) {
+        tasks!.remove(at: index)
+    } else {
+        print("nothing was deleted")
+    }
+    UserDefaults.standard.set(tasks, forKey: "tasks")
+}
+
+//task cell
+class TaskTableViewCell: UITableViewCell {
+    
+    // MARK: Properties
+    @IBOutlet weak var myTask: UILabel!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
+    }
+    
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+        
+        // Configure the view for the selected state
+    }
+    
+}
+
+//task controller
 class TaskViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     //MARK: Properties
