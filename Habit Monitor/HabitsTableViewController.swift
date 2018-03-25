@@ -86,6 +86,8 @@ class HabitsTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let habit = habits![indexPath.row]
+        addHistory(hist: habit)
         points! = points! + 1
         UserDefaults.standard.set(points!, forKey: "myPoints")
         self.performSegue(withIdentifier: "HabitsToPoints", sender: self)

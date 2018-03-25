@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina5_9" orientation="portrait">
+    <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -22,23 +21,23 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="PointsViewController" customModule="Habit_Monitor" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fyh-Wi-SBf">
-                                <rect key="frame" x="80" y="331.66666666666669" width="215" height="119.33333333333331"/>
+                                <rect key="frame" x="80" y="307.5" width="215" height="119.5"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="100"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Points" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qag-a2-1aV">
-                                <rect key="frame" x="80" y="164" width="215" height="57.666666666666657"/>
+                                <rect key="frame" x="80" y="140" width="215" height="57.5"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="48"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="spatial" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yyg-lK-egg">
-                                <rect key="frame" x="20" y="64" width="29" height="29"/>
+                                <rect key="frame" x="20" y="40" width="29" height="29"/>
                                 <viewLayoutGuide key="safeArea" id="64X-ri-kqz"/>
                                 <state key="normal" backgroundImage="Options">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -75,17 +74,17 @@
             <objects>
                 <viewController id="l38-Oe-WaB" customClass="AddResolutionViewController" customModule="Habit_Monitor" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zYC-1n-TG8">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="50a-uh-LX9">
-                                <rect key="frame" x="40" y="144" width="295" height="30"/>
+                                <rect key="frame" x="40" y="120" width="295" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k2o-CQ-aaE">
-                                <rect key="frame" x="150" y="204" width="75" height="33"/>
+                                <rect key="frame" x="150" y="180" width="75" height="33"/>
                                 <color key="backgroundColor" red="0.0039215686269999999" green="0.47450980390000003" blue="0.43529411759999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                                 <state key="normal" title="Add">
@@ -142,7 +141,7 @@
             <objects>
                 <tableViewController id="RAh-FO-obl" customClass="ResolutionsTableViewController" customModule="Habit_Monitor" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="ScR-aQ-w2A">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <navigationBar key="tableHeaderView" contentMode="scaleToFill" id="YGU-Tv-eeQ">
@@ -156,7 +155,7 @@
                                 <navigationItem title="Resolutions" id="HFh-fo-J2V">
                                     <barButtonItem key="leftBarButtonItem" style="plain" id="gZT-zD-ArR">
                                         <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="qrV-pn-mpE">
-                                            <rect key="frame" x="16" y="7.6666666666666679" width="29" height="29.000000000000004"/>
+                                            <rect key="frame" x="16" y="7.5" width="29" height="29"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal" backgroundImage="Options">
                                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -176,18 +175,18 @@
                             </items>
                         </navigationBar>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ResolutionsTableViewCell" rowHeight="60" id="Lne-D4-0QE" customClass="ResolutionsTableViewCell" customModule="Habit_Monitor" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="72" width="375" height="60"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ResolutionsTableViewCell" id="Lne-D4-0QE" customClass="ResolutionsTableViewCell" customModule="Habit_Monitor" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="72" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Lne-D4-0QE" id="hHd-rq-sAM">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="59.666666666666664"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hmy-v8-GtR">
-                                            <rect key="frame" x="16" y="11" width="288" height="38"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Resolution label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hmy-v8-GtR">
+                                            <rect key="frame" x="16" y="0.0" width="343" height="44"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="24"/>
-                                            <color key="textColor" red="0.0039215686269999999" green="0.47450980390000003" blue="0.43529411759999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                            <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -205,14 +204,14 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kGy-n0-H9h" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-712.5" y="688.73239436619724"/>
+            <point key="canvasLocation" x="-712.79999999999995" y="688.66995073891633"/>
         </scene>
         <!--About View Controller-->
         <scene sceneID="CpB-YP-ngm">
             <objects>
                 <viewController id="OnZ-BN-Pl5" customClass="AboutViewController" customModule="Habit_Monitor" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gbP-BG-lFy">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dNe-PA-oug">
@@ -226,7 +225,7 @@
                                     <navigationItem title="About" id="jnD-Fv-qT8">
                                         <barButtonItem key="leftBarButtonItem" style="plain" id="ktO-t9-uva">
                                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="aVL-Nj-SgP">
-                                                <rect key="frame" x="16" y="7.6666666666666679" width="29" height="29.000000000000004"/>
+                                                <rect key="frame" x="16" y="7.5" width="29" height="29"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" backgroundImage="Options">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -239,9 +238,14 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="This app was made by Derek Ni." lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PJI-6b-sfQ">
-                                <rect key="frame" x="28" y="95" width="265" height="378"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" lineBreakMode="wordWrap" numberOfLines="0" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PJI-6b-sfQ">
+                                <rect key="frame" x="16" y="44" width="343" height="506"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <mutableString key="text">Habit Monitor is an iOS app to help monitor habits and keep the user on track of tasks and resolutions.
+
+This app uses a system of points and rewards to motivate the user to follow healthy habits and curb unhealthy ones. It rewards points when the user accomplishes a task on a To-Do list or follows a healthy habit. These points can be used to earn 'rewards' that the user can add in the rewards section, such as watching TV, going out to drink bubble tea, or buying clothes. The app can also track resolutions that the user has added, which the users can check to see if they are following their resolutions. Users can see their past accomplishments and rewards through the history tab of the app, and users can save their points in a savings tab to save up for bigger rewards.
+
+This app was made by Derek Ni.</mutableString>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -253,17 +257,16 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aEj-NA-e8W" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-395.625" y="-171.12676056338029"/>
+            <point key="canvasLocation" x="-396" y="-171.36431784107947"/>
         </scene>
         <!-- -->
         <scene sceneID="nsD-ln-U1s">
             <objects>
                 <tableViewController id="mav-YH-Mff" customClass="OptionTableViewController" customModule="Habit_Monitor" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="FVy-Fu-Qs0">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="separatorColor" red="0.0039215686269999999" green="0.47450980390000003" blue="0.43529411759999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <navigationBar key="tableHeaderView" contentMode="scaleToFill" id="5jp-rC-Ogo">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
@@ -278,19 +281,19 @@
                         <sections>
                             <tableViewSection id="n5S-mM-eag">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="65" id="Ng3-zT-271" customClass="OptionTableViewCell" customModule="Habit_Monitor" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="44" width="375" height="65"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="60" id="Ng3-zT-271" customClass="OptionTableViewCell" customModule="Habit_Monitor" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ng3-zT-271" id="aQk-a9-sck" customClass="OptionTableViewCell" customModule="Habit_Monitor" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="64.666666666666671"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="59.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XVS-Wo-g4A">
-                                                    <rect key="frame" x="16" y="11" width="288" height="43"/>
+                                                    <rect key="frame" x="16" y="11" width="343" height="38"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="32"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="28"/>
                                                     <state key="normal" title="Points">
-                                                        <color key="titleColor" red="0.0039215686269999999" green="0.47450980390000003" blue="0.43529411759999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
                                                     <connections>
                                                         <segue destination="BYZ-38-t0r" kind="show" identifier="OptionsToPoints" id="c2j-az-uxu"/>
@@ -299,19 +302,19 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="65" id="c4u-MF-OYy" customClass="OptionTableViewCell" customModule="Habit_Monitor" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="109" width="375" height="65"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="60" id="c4u-MF-OYy" customClass="OptionTableViewCell" customModule="Habit_Monitor" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="104" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="c4u-MF-OYy" id="iOQ-oG-YUA" customClass="OptionTableViewCell" customModule="Habit_Monitor" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="64.666666666666671"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="59.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l7Y-js-p9P">
-                                                    <rect key="frame" x="16" y="11" width="288" height="43"/>
+                                                    <rect key="frame" x="16" y="11" width="343" height="38"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="32"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="28"/>
                                                     <state key="normal" title="To-do">
-                                                        <color key="titleColor" red="0.0039215686269999999" green="0.47450980390000003" blue="0.43529411759999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
                                                     <connections>
                                                         <segue destination="E6K-Hv-nLV" kind="show" identifier="OptionsToTasks" id="HRO-jB-fL8"/>
@@ -320,19 +323,19 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="65" id="h42-sw-c33" customClass="OptionTableViewCell" customModule="Habit_Monitor" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="174" width="375" height="65"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="60" id="h42-sw-c33" customClass="OptionTableViewCell" customModule="Habit_Monitor" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="164" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="h42-sw-c33" id="wHA-9f-gcb" customClass="OptionTableViewCell" customModule="Habit_Monitor" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="64.666666666666671"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="59.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kkv-YG-hWo">
-                                                    <rect key="frame" x="16" y="11" width="288" height="43"/>
+                                                    <rect key="frame" x="16" y="11" width="343" height="38"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="32"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="28"/>
                                                     <state key="normal" title="Rewards">
-                                                        <color key="titleColor" red="0.0039215686269999999" green="0.47450980390000003" blue="0.43529411759999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
                                                     <connections>
                                                         <segue destination="aXV-nS-K1v" kind="show" identifier="OptionsToRewards" id="4Sb-5w-ubP"/>
@@ -341,19 +344,19 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="65" id="czd-a0-Jus" customClass="OptionTableViewCell" customModule="Habit_Monitor" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="239" width="375" height="65"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="60" id="czd-a0-Jus" customClass="OptionTableViewCell" customModule="Habit_Monitor" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="224" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="czd-a0-Jus" id="gR8-0y-csn" customClass="OptionTableViewCell" customModule="Habit_Monitor" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="64.666666666666671"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="59.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ma3-Pw-UZh">
-                                                    <rect key="frame" x="16" y="11" width="288" height="43"/>
+                                                    <rect key="frame" x="16" y="11" width="343" height="38"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="32"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="28"/>
                                                     <state key="normal" title="History">
-                                                        <color key="titleColor" red="0.0039215686269999999" green="0.47450980390000003" blue="0.43529411759999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
                                                     <connections>
                                                         <segue destination="QRr-hP-z41" kind="show" identifier="OptionsToHistory" id="8lA-w8-c4h"/>
@@ -362,19 +365,19 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="65" id="y9N-wH-JMs" customClass="OptionTableViewCell" customModule="Habit_Monitor" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="304" width="375" height="65"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="60" id="y9N-wH-JMs" customClass="OptionTableViewCell" customModule="Habit_Monitor" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="284" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="y9N-wH-JMs" id="gDV-gf-hda" customClass="OptionTableViewCell" customModule="Habit_Monitor" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="64.666666666666671"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="59.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bjf-Qi-QWm">
-                                                    <rect key="frame" x="16" y="11" width="288" height="43"/>
+                                                    <rect key="frame" x="16" y="11" width="343" height="38"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="32"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="28"/>
                                                     <state key="normal" title="Savings">
-                                                        <color key="titleColor" red="0.0039215686269999999" green="0.47450980390000003" blue="0.43529411759999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
                                                     <connections>
                                                         <segue destination="MCW-YR-Lia" kind="show" identifier="OptionsToSavings" id="JMx-Bo-OCF"/>
@@ -383,19 +386,19 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="65" id="CjT-w6-XvB" customClass="OptionTableViewCell" customModule="Habit_Monitor" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="369" width="375" height="65"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="60" id="CjT-w6-XvB" customClass="OptionTableViewCell" customModule="Habit_Monitor" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="344" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="CjT-w6-XvB" id="N2U-m7-hzJ" customClass="OptionTableViewCell" customModule="Habit_Monitor" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="64.666666666666671"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="59.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aIi-Xr-nhu">
-                                                    <rect key="frame" x="16" y="11" width="288" height="43"/>
+                                                    <rect key="frame" x="16" y="11" width="343" height="38"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="32"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="28"/>
                                                     <state key="normal" title="Resolutions">
-                                                        <color key="titleColor" red="0.0039215686269999999" green="0.47450980390000003" blue="0.43529411759999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
                                                     <connections>
                                                         <segue destination="RAh-FO-obl" kind="show" identifier="OptionsToResolutions" id="bew-oR-f3W"/>
@@ -404,19 +407,19 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="65" id="42g-cL-zRC" customClass="OptionTableViewCell" customModule="Habit_Monitor" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="434" width="375" height="65"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="60" id="42g-cL-zRC" customClass="OptionTableViewCell" customModule="Habit_Monitor" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="404" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="42g-cL-zRC" id="aLu-Fi-ju2" customClass="OptionTableViewCell" customModule="Habit_Monitor" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="64.666666666666671"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="59.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RC6-Xb-v08">
-                                                    <rect key="frame" x="16" y="11" width="288" height="43"/>
+                                                    <rect key="frame" x="16" y="11" width="343" height="38"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="32"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="28"/>
                                                     <state key="normal" title="About">
-                                                        <color key="titleColor" red="0.0039215686269999999" green="0.47450980390000003" blue="0.43529411759999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
                                                     <connections>
                                                         <segue destination="OnZ-BN-Pl5" kind="show" identifier="OptionsToAbout" id="NRA-8j-XDe"/>
@@ -437,18 +440,18 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Eii-ss-zgS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="724" y="349"/>
+            <point key="canvasLocation" x="724" y="348.57571214392806"/>
         </scene>
         <!--Savings-->
         <scene sceneID="8mB-Jd-Jj7">
             <objects>
                 <viewController id="MCW-YR-Lia" customClass="SavingsViewController" customModule="Habit_Monitor" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4WW-hS-SZn">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UlS-xR-L6E">
-                                <rect key="frame" x="136" y="614" width="103" height="79"/>
+                                <rect key="frame" x="136" y="503" width="103" height="79"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="56"/>
                                 <state key="normal" title="+">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -459,7 +462,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="spatial" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hbu-3Z-5RY">
-                                <rect key="frame" x="20" y="64" width="29" height="29"/>
+                                <rect key="frame" x="20" y="40" width="29" height="29"/>
                                 <viewLayoutGuide key="safeArea" id="Smt-aA-FK7"/>
                                 <state key="normal" backgroundImage="Options">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -469,13 +472,13 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Savings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RNz-15-c8t">
-                                <rect key="frame" x="66" y="164" width="243" height="57.666666666666657"/>
+                                <rect key="frame" x="66" y="140" width="243" height="57.5"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="48"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vRY-dZ-qTM">
-                                <rect key="frame" x="80" y="321.66666666666669" width="215" height="143.33333333333331"/>
+                                <rect key="frame" x="80" y="297.5" width="215" height="143.5"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="120"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -511,7 +514,7 @@
             <objects>
                 <tableViewController id="QRr-hP-z41" customClass="HistoryTableViewController" customModule="Habit_Monitor" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="NpP-aK-SUx">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <navigationBar key="tableHeaderView" contentMode="scaleToFill" id="jko-Jy-5bq">
@@ -525,7 +528,7 @@
                                 <navigationItem title="History" id="7Mr-ta-Ux6">
                                     <barButtonItem key="leftBarButtonItem" style="plain" id="dhr-1P-bq2">
                                         <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="oDA-qe-nkF">
-                                            <rect key="frame" x="16" y="7.6666666666666679" width="29" height="29.000000000000004"/>
+                                            <rect key="frame" x="16" y="7.5" width="29" height="29"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal" backgroundImage="Options">
                                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -539,13 +542,33 @@
                             </items>
                         </navigationBar>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Bsl-My-xbi">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="HistoryTableViewCell" id="Bsl-My-xbi" customClass="HistoryTableViewCell" customModule="Habit_Monitor" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="72" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Bsl-My-xbi" id="DKi-f6-yiR">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Activity label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hvv-t1-975">
+                                            <rect key="frame" x="16" y="-1" width="343" height="44"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Time label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bpL-qF-Mlk">
+                                            <rect key="frame" x="261" y="25" width="98" height="16"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="activityLabel" destination="hvv-t1-975" id="vAV-xf-84A"/>
+                                    <outlet property="dateLabel" destination="bpL-qF-Mlk" id="aSi-b2-hzX"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -556,45 +579,35 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MIq-BJ-oMO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2119" y="1242"/>
+            <point key="canvasLocation" x="2117.5999999999999" y="1241.8290854572715"/>
         </scene>
         <!--To-Do-->
         <scene sceneID="dip-Yu-QqV">
             <objects>
                 <viewController id="DpX-9n-zb6" customClass="TaskViewController" customModule="Habit_Monitor" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0H8-4W-yo9">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hsW-da-cBo">
-                                <rect key="frame" x="0.0" y="44" width="375" height="685"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="574"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="separatorColor" red="0.0039215686269999999" green="0.47450980390000003" blue="0.43529411759999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TaskTableViewCell" rowHeight="60" id="hCZ-qH-msK" customClass="TaskTableViewCell" customModule="Habit_Monitor" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="60"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TaskTableViewCell" id="hCZ-qH-msK" customClass="TaskTableViewCell" customModule="Habit_Monitor" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hCZ-qH-msK" id="eqj-8D-ST7">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="59.666666666666664"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rfp-8V-gbH">
-                                                    <rect key="frame" x="15" y="11" width="345" height="38"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="24"/>
-                                                    <color key="textColor" red="0.0039215686269999999" green="0.47450980390000003" blue="0.43529411759999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="To-do label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rfp-8V-gbH">
+                                                    <rect key="frame" x="15" y="0.0" width="345" height="44"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                                    <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <constraints>
-                                                <constraint firstItem="rfp-8V-gbH" firstAttribute="centerY" secondItem="eqj-8D-ST7" secondAttribute="centerY" id="06B-fY-oYw"/>
-                                                <constraint firstItem="rfp-8V-gbH" firstAttribute="top" secondItem="eqj-8D-ST7" secondAttribute="topMargin" id="FQa-UB-iKy"/>
-                                                <constraint firstItem="rfp-8V-gbH" firstAttribute="bottom" secondItem="eqj-8D-ST7" secondAttribute="bottomMargin" id="Lk5-y2-rbs"/>
-                                                <constraint firstItem="rfp-8V-gbH" firstAttribute="leading" secondItem="eqj-8D-ST7" secondAttribute="leadingMargin" id="c9j-2r-a4G"/>
-                                                <constraint firstItem="rfp-8V-gbH" firstAttribute="centerX" secondItem="eqj-8D-ST7" secondAttribute="centerX" id="iBg-Aj-4CA"/>
-                                                <constraint firstItem="rfp-8V-gbH" firstAttribute="leading" secondItem="eqj-8D-ST7" secondAttribute="leadingMargin" id="jQH-Pn-RSU"/>
-                                                <constraint firstItem="rfp-8V-gbH" firstAttribute="trailing" secondItem="eqj-8D-ST7" secondAttribute="trailingMargin" id="jSx-fP-c5m"/>
-                                                <constraint firstItem="rfp-8V-gbH" firstAttribute="bottom" secondItem="eqj-8D-ST7" secondAttribute="bottomMargin" id="vEi-gV-Xo0"/>
-                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="myTask" destination="rfp-8V-gbH" id="VTH-C4-cJY"/>
@@ -609,7 +622,6 @@
                             </tableView>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wFA-2t-YCW">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                                <color key="backgroundColor" red="0.0039215686269999999" green="0.47450980390000003" blue="0.43529411759999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="barTintColor" red="0.0039215686269999999" green="0.47450980390000003" blue="0.43529411759999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <textAttributes key="titleTextAttributes">
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -618,7 +630,7 @@
                                     <navigationItem title="To-Do" id="pXs-Nv-xoY">
                                         <barButtonItem key="leftBarButtonItem" style="plain" id="tW7-P5-R8T">
                                             <button key="customView" opaque="NO" contentMode="scaleToFill" semanticContentAttribute="spatial" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" id="psG-AV-2EO">
-                                                <rect key="frame" x="16" y="7.6666666666666679" width="29" height="29.000000000000004"/>
+                                                <rect key="frame" x="16" y="7.5" width="29" height="29"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <viewLayoutGuide key="safeArea" id="fNy-9q-tjy"/>
                                                 <state key="normal" backgroundImage="Options">
@@ -679,41 +691,35 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hmP-qv-vUG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2544" y="-2329"/>
+            <point key="canvasLocation" x="2543.1999999999998" y="-2330.5418719211825"/>
         </scene>
         <!--Reminders-->
         <scene sceneID="UDO-Rm-Soz">
             <objects>
                 <viewController id="Wux-nw-teh" customClass="RemindersViewController" customModule="Habit_Monitor" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="r2I-7l-cBa">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="729"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="oxf-4k-voD">
-                                <rect key="frame" x="0.0" y="44" width="375" height="685"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="574"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="separatorColor" red="0.0039215686269999999" green="0.47450980390000003" blue="0.43529411759999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="RemindersTableViewCell" rowHeight="60" id="qOe-At-JO3" customClass="RemindersTableViewCell" customModule="Habit_Monitor" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="60"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="RemindersTableViewCell" id="qOe-At-JO3" customClass="RemindersTableViewCell" customModule="Habit_Monitor" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qOe-At-JO3" id="s6T-hz-TL0">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="59.666666666666664"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="emd-BD-2on">
-                                                    <rect key="frame" x="15" y="11" width="345" height="38"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="24"/>
-                                                    <color key="textColor" red="0.0039215686269999999" green="0.47450980390000003" blue="0.43529411759999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Reminder label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="emd-BD-2on">
+                                                    <rect key="frame" x="15" y="0.0" width="345" height="44"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                                    <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <constraints>
-                                                <constraint firstItem="emd-BD-2on" firstAttribute="leading" secondItem="s6T-hz-TL0" secondAttribute="leadingMargin" id="2Km-gU-L6C"/>
-                                                <constraint firstItem="emd-BD-2on" firstAttribute="centerX" secondItem="s6T-hz-TL0" secondAttribute="centerX" id="4QW-iD-MSd"/>
-                                                <constraint firstItem="emd-BD-2on" firstAttribute="bottom" secondItem="s6T-hz-TL0" secondAttribute="bottomMargin" id="N0f-5v-9Jy"/>
-                                                <constraint firstItem="emd-BD-2on" firstAttribute="centerY" secondItem="s6T-hz-TL0" secondAttribute="centerY" id="bkH-5l-4Cc"/>
-                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="myReminder" destination="emd-BD-2on" id="iOa-DG-wE5"/>
@@ -724,7 +730,6 @@
                             </tableView>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Qz-9p-ds4">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                                <color key="backgroundColor" red="0.0039215686269999999" green="0.47450980390000003" blue="0.43529411759999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="barTintColor" red="0.0039215686269999999" green="0.47450980390000003" blue="0.43529411759999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <textAttributes key="titleTextAttributes">
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -733,7 +738,7 @@
                                     <navigationItem title="Reminders" id="qBb-Uc-POT">
                                         <barButtonItem key="leftBarButtonItem" style="plain" id="h9Q-aq-s4R">
                                             <button key="customView" opaque="NO" contentMode="scaleToFill" semanticContentAttribute="spatial" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" id="RUx-hR-lRn">
-                                                <rect key="frame" x="16" y="7.6666666666666679" width="29" height="29.000000000000004"/>
+                                                <rect key="frame" x="16" y="7.5" width="29" height="29"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <viewLayoutGuide key="safeArea" id="pme-Rk-huZ"/>
                                                 <state key="normal" backgroundImage="Options">
@@ -780,18 +785,17 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9y3-xx-5H4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2543" y="-671"/>
+            <point key="canvasLocation" x="2541.5999999999999" y="-671.67487684729065"/>
         </scene>
         <!--Habits-->
         <scene sceneID="i5n-TW-9Rt">
             <objects>
                 <tableViewController id="PH3-D4-hK8" customClass="HabitsTableViewController" customModule="Habit_Monitor" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="TLt-Hn-M2b">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="729"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="separatorColor" red="0.0039215686269999999" green="0.47450980390000003" blue="0.43529411759999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <navigationBar key="tableHeaderView" contentMode="scaleToFill" id="4xf-ty-t72">
+                        <navigationBar key="tableHeaderView" contentMode="scaleToFill" misplaced="YES" id="4xf-ty-t72">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <color key="barTintColor" red="0.0039215686269999999" green="0.47450980390000003" blue="0.43529411759999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -802,7 +806,7 @@
                                 <navigationItem title="Habits" id="jPd-5d-Q7X">
                                     <barButtonItem key="leftBarButtonItem" style="plain" id="UWB-cm-6GT">
                                         <button key="customView" opaque="NO" contentMode="scaleToFill" semanticContentAttribute="spatial" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" id="hgx-Wh-72h">
-                                            <rect key="frame" x="16" y="7.6666666666666679" width="29" height="29.000000000000004"/>
+                                            <rect key="frame" x="16" y="7.5" width="29" height="29"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <viewLayoutGuide key="safeArea" id="0GS-Ao-uXg"/>
                                             <state key="normal" backgroundImage="Options">
@@ -817,18 +821,18 @@
                             </items>
                         </navigationBar>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="HabitsTableViewCell" rowHeight="60" id="AUl-20-dzk" customClass="HabitsTableViewCell" customModule="Habit_Monitor" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="72" width="375" height="60"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="HabitsTableViewCell" id="AUl-20-dzk" customClass="HabitsTableViewCell" customModule="Habit_Monitor" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="72" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="AUl-20-dzk" id="Gto-4q-wob">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="59.666666666666664"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tgc-Yl-QVz">
-                                            <rect key="frame" x="16" y="0.0" width="288" height="60"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Habit label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tgc-Yl-QVz">
+                                            <rect key="frame" x="16" y="0.0" width="343" height="44"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="24"/>
-                                            <color key="textColor" red="0.0039215686269999999" green="0.47450980390000003" blue="0.43529411759999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                            <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -851,24 +855,24 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fdc-9H-Rkj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2542.5" y="-1521.1267605633802"/>
+            <point key="canvasLocation" x="2541.5999999999999" y="-1521.4285714285716"/>
         </scene>
         <!--Add Reminder View Controller-->
         <scene sceneID="eet-P6-ckR">
             <objects>
                 <viewController id="1QQ-Lw-KAK" customClass="AddReminderViewController" customModule="Habit_Monitor" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xIl-eS-gZG">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gqq-JZ-RD0">
-                                <rect key="frame" x="40" y="144" width="295" height="30"/>
+                                <rect key="frame" x="40" y="120" width="295" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Szd-pt-2VL">
-                                <rect key="frame" x="150" y="204" width="75" height="33"/>
+                                <rect key="frame" x="150" y="180" width="75" height="33"/>
                                 <color key="backgroundColor" red="0.0039215686269999999" green="0.47450980390000003" blue="0.43529411759999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                                 <state key="normal" title="Add">
@@ -922,11 +926,11 @@
             <objects>
                 <viewController id="S0Q-f7-rhc" customClass="AddTaskViewController" customModule="Habit_Monitor" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Zkh-sm-Sf6">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="a8x-MP-e0l">
-                                <rect key="frame" x="40" y="144" width="295" height="30"/>
+                                <rect key="frame" x="40" y="120" width="295" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -950,7 +954,7 @@
                                 </items>
                             </navigationBar>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gEq-4x-EcN">
-                                <rect key="frame" x="150" y="204" width="75" height="33"/>
+                                <rect key="frame" x="150" y="180" width="75" height="33"/>
                                 <color key="backgroundColor" red="0.0039215686269999999" green="0.47450980390000003" blue="0.43529411759999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                                 <state key="normal" title="Add">
@@ -1007,10 +1011,9 @@
             <objects>
                 <tableViewController id="aXV-nS-K1v" customClass="RewardsTableViewController" customModule="Habit_Monitor" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="cqP-MJ-oG1">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="separatorColor" red="0.0039215686269999999" green="0.47450980390000003" blue="0.43529411759999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <navigationBar key="tableHeaderView" contentMode="scaleToFill" id="s2f-PH-TTa">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
@@ -1022,7 +1025,7 @@
                                 <navigationItem title="Rewards" id="KJD-TP-W5s">
                                     <barButtonItem key="leftBarButtonItem" style="plain" id="sjH-Ps-HG1">
                                         <button key="customView" opaque="NO" contentMode="left" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="CTY-A9-iQZ">
-                                            <rect key="frame" x="16" y="7.6666666666666679" width="29" height="29.000000000000004"/>
+                                            <rect key="frame" x="16" y="7.5" width="29" height="29"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal" backgroundImage="Options"/>
                                             <connections>
@@ -1038,14 +1041,14 @@
                                 <rect key="frame" x="0.0" y="72" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="NUm-ii-RvX" id="ONl-Gm-7Ep">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k3N-sh-qVJ">
-                                            <rect key="frame" x="16" y="0.0" width="288" height="44"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Reward label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k3N-sh-qVJ">
+                                            <rect key="frame" x="16" y="0.0" width="343" height="44"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
-                                            <color key="textColor" red="0.0039215686269999999" green="0.47450980390000003" blue="0.43529411759999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -1058,14 +1061,14 @@
                                 <rect key="frame" x="0.0" y="116" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="40T-UY-CHa" id="by3-OZ-p1f">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M4N-QY-Pit">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Premium reward label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M4N-QY-Pit">
                                             <rect key="frame" x="16" y="0.0" width="288" height="44"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
-                                            <color key="textColor" red="0.0039215686269999999" green="0.47450980390000003" blue="0.43529411759999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -1088,17 +1091,17 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AnY-Ta-8mN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2341.875" y="348.59154929577466"/>
+            <point key="canvasLocation" x="2341.5999999999999" y="348.02955665024632"/>
         </scene>
     </scenes>
     <resources>
         <image name="Options" width="29" height="29"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="jsX-UH-HV1"/>
-        <segue reference="G9C-UF-Jbf"/>
-        <segue reference="HCk-Mk-jsa"/>
-        <segue reference="qIU-e1-uho"/>
-        <segue reference="Fe9-nP-LIr"/>
+        <segue reference="HRO-jB-fL8"/>
+        <segue reference="JMx-Bo-OCF"/>
+        <segue reference="uQR-b1-C35"/>
+        <segue reference="bew-oR-f3W"/>
+        <segue reference="c2j-az-uxu"/>
     </inferredMetricsTieBreakers>
 </document>

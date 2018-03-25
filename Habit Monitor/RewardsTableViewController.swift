@@ -169,6 +169,8 @@ class RewardsTableViewController: UITableViewController {
             if points! < val {
                 print("reward " + rewards![indexPath.row] + " could not be used, not enough points")
             } else {
+                let reward = rewards![indexPath.row]
+                addHistory(hist: reward)
                 points! = points! - val
                 UserDefaults.standard.set(points!, forKey: "myPoints")
                 print("reward used: " + rewards![indexPath.row] + " with value " + String(val))
@@ -181,6 +183,8 @@ class RewardsTableViewController: UITableViewController {
             if savings! < val {
                 print("reward " + premiumRewards![indexPath.row] + " could not be used, not enough points")
             } else {
+                let premiumReward = premiumRewards![indexPath.row]
+                addHistory(hist: premiumReward)
                 savings! = savings! - val
                 UserDefaults.standard.set(savings!, forKey: "mySavings")
                 print("reward used: " + premiumRewards![indexPath.row] + " with value " + String(val))

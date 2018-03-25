@@ -66,7 +66,6 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
         taskTable.dataSource = self
 
         taskTable.reloadData()
-        print("data reloaded")
         
         taskTable.tableFooterView = UIView(frame: .zero)
         taskTable.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: taskTable.frame.size.width, height: 1))
@@ -93,9 +92,6 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        print("stuff is appearing")
-        print(tasks!)
-        print(tasks!.count)
         self.taskTable.reloadData()
     }
     
@@ -112,12 +108,12 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
             fatalError("This cell is not an TaskTableViewCell")
         }
         cell.myTask.text = tasks![indexPath.row]
-        print("creating table")
-        print(tasks![indexPath.row])
         return cell
     }
     
     func tableView(_ taskTable: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let task = tasks![indexPath.row]
+        addHistory(hist: task)
         points! = points! + 1
         UserDefaults.standard.set(points!, forKey: "myPoints")
         deleteTaskData(completedTask: String(describing: tasks![indexPath.row]))

@@ -97,13 +97,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             savings = 0
         }
         
+        //history
+        if let hist = fetchHistoryData() {
+            history = hist
+        } else {
+            history = [[String]]()
+        }
+        
         //resolutions
         if let resolution = fetchResolutionData() {
             resolutions = resolution
         } else {
             resolutions = [String]()
         }
-        
+
         return true
     }
 
