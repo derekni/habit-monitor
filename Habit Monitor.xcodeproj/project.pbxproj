@@ -16,13 +16,15 @@
 		7D5955EF2049D3DF008E2C9C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D5955EE2049D3DF008E2C9C /* Assets.xcassets */; };
 		7D5955F22049D3DF008E2C9C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D5955F02049D3DF008E2C9C /* LaunchScreen.storyboard */; };
 		7D5955FD2049D3DF008E2C9C /* Habit_MonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5955FC2049D3DF008E2C9C /* Habit_MonitorTests.swift */; };
+		7D7382F6206C04E8002FE875 /* Formatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7382F5206C04E8002FE875 /* Formatting.swift */; };
+		7D7382F8206C09CC002FE875 /* CustomRewardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7382F7206C09CC002FE875 /* CustomRewardViewController.swift */; };
+		7D7382FA206DDDE3002FE875 /* HabitsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7382F9206DDDE3002FE875 /* HabitsViewController.swift */; };
 		7D94DD6920586066002724AE /* SavingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D94DD6820586066002724AE /* SavingsViewController.swift */; };
 		7D94DD6D205AE8EA002724AE /* RemindersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D94DD6C205AE8EA002724AE /* RemindersViewController.swift */; };
 		7D94DD75205B58A2002724AE /* AddReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D94DD74205B58A2002724AE /* AddReminderViewController.swift */; };
-		7D94DD79205B6D24002724AE /* HabitsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D94DD78205B6D24002724AE /* HabitsTableViewController.swift */; };
 		7D9F927220552A55003A5CBD /* TaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9F927120552A55003A5CBD /* TaskViewController.swift */; };
-		7DA81ABB205C925200266224 /* RewardsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA81ABA205C925200266224 /* RewardsTableViewController.swift */; };
-		7DA81ABF206362CC00266224 /* HistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA81ABE206362CC00266224 /* HistoryTableViewController.swift */; };
+		7DA81ABB205C925200266224 /* RewardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA81ABA205C925200266224 /* RewardsViewController.swift */; };
+		7DA81ABF206362CC00266224 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA81ABE206362CC00266224 /* HistoryViewController.swift */; };
 		7DA81AC52063716800266224 /* ResolutionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA81AC42063716800266224 /* ResolutionsTableViewController.swift */; };
 		7DA81AC720640D2F00266224 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA81AC620640D2F00266224 /* AboutViewController.swift */; };
 		7DCAF684206582CA00D35B07 /* AddResolutionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DCAF683206582CA00D35B07 /* AddResolutionViewController.swift */; };
@@ -52,13 +54,15 @@
 		7D5955F82049D3DF008E2C9C /* Habit MonitorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Habit MonitorTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D5955FC2049D3DF008E2C9C /* Habit_MonitorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Habit_MonitorTests.swift; sourceTree = "<group>"; };
 		7D5955FE2049D3DF008E2C9C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7D7382F5206C04E8002FE875 /* Formatting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Formatting.swift; sourceTree = "<group>"; };
+		7D7382F7206C09CC002FE875 /* CustomRewardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomRewardViewController.swift; sourceTree = "<group>"; };
+		7D7382F9206DDDE3002FE875 /* HabitsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitsViewController.swift; sourceTree = "<group>"; };
 		7D94DD6820586066002724AE /* SavingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavingsViewController.swift; sourceTree = "<group>"; };
 		7D94DD6C205AE8EA002724AE /* RemindersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersViewController.swift; sourceTree = "<group>"; };
 		7D94DD74205B58A2002724AE /* AddReminderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReminderViewController.swift; sourceTree = "<group>"; };
-		7D94DD78205B6D24002724AE /* HabitsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitsTableViewController.swift; sourceTree = "<group>"; };
 		7D9F927120552A55003A5CBD /* TaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewController.swift; sourceTree = "<group>"; };
-		7DA81ABA205C925200266224 /* RewardsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardsTableViewController.swift; sourceTree = "<group>"; };
-		7DA81ABE206362CC00266224 /* HistoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewController.swift; sourceTree = "<group>"; };
+		7DA81ABA205C925200266224 /* RewardsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardsViewController.swift; sourceTree = "<group>"; };
+		7DA81ABE206362CC00266224 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		7DA81AC42063716800266224 /* ResolutionsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResolutionsTableViewController.swift; sourceTree = "<group>"; };
 		7DA81AC620640D2F00266224 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		7DCAF683206582CA00D35B07 /* AddResolutionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddResolutionViewController.swift; sourceTree = "<group>"; };
@@ -112,13 +116,15 @@
 				7D23FB982056CE0500DACA49 /* AddTaskViewController.swift */,
 				7D94DD6C205AE8EA002724AE /* RemindersViewController.swift */,
 				7D94DD74205B58A2002724AE /* AddReminderViewController.swift */,
-				7D94DD78205B6D24002724AE /* HabitsTableViewController.swift */,
-				7DA81ABA205C925200266224 /* RewardsTableViewController.swift */,
-				7DA81ABE206362CC00266224 /* HistoryTableViewController.swift */,
+				7D7382F9206DDDE3002FE875 /* HabitsViewController.swift */,
+				7DA81ABA205C925200266224 /* RewardsViewController.swift */,
+				7D7382F7206C09CC002FE875 /* CustomRewardViewController.swift */,
+				7DA81ABE206362CC00266224 /* HistoryViewController.swift */,
 				7D94DD6820586066002724AE /* SavingsViewController.swift */,
 				7DA81AC42063716800266224 /* ResolutionsTableViewController.swift */,
 				7DCAF683206582CA00D35B07 /* AddResolutionViewController.swift */,
 				7DA81AC620640D2F00266224 /* AboutViewController.swift */,
+				7D7382F5206C04E8002FE875 /* Formatting.swift */,
 				7D5955FB2049D3DF008E2C9C /* Habit MonitorTests */,
 				7D5955EE2049D3DF008E2C9C /* Assets.xcassets */,
 				7D5955F32049D3DF008E2C9C /* Info.plist */,
@@ -242,15 +248,17 @@
 				7D94DD6920586066002724AE /* SavingsViewController.swift in Sources */,
 				7DA81AC52063716800266224 /* ResolutionsTableViewController.swift in Sources */,
 				7D5955EA2049D3DF008E2C9C /* PointsViewController.swift in Sources */,
+				7D7382F6206C04E8002FE875 /* Formatting.swift in Sources */,
+				7D7382F8206C09CC002FE875 /* CustomRewardViewController.swift in Sources */,
 				7D94DD75205B58A2002724AE /* AddReminderViewController.swift in Sources */,
 				7DA81AC720640D2F00266224 /* AboutViewController.swift in Sources */,
-				7D94DD79205B6D24002724AE /* HabitsTableViewController.swift in Sources */,
 				7DCAF684206582CA00D35B07 /* AddResolutionViewController.swift in Sources */,
-				7DA81ABF206362CC00266224 /* HistoryTableViewController.swift in Sources */,
+				7DA81ABF206362CC00266224 /* HistoryViewController.swift in Sources */,
 				7D23FB992056CE0500DACA49 /* AddTaskViewController.swift in Sources */,
 				7D2E9EF4205508D900F81311 /* OptionTableViewController.swift in Sources */,
-				7DA81ABB205C925200266224 /* RewardsTableViewController.swift in Sources */,
+				7DA81ABB205C925200266224 /* RewardsViewController.swift in Sources */,
 				7D94DD6D205AE8EA002724AE /* RemindersViewController.swift in Sources */,
+				7D7382FA206DDDE3002FE875 /* HabitsViewController.swift in Sources */,
 				7D5955E82049D3DF008E2C9C /* AppDelegate.swift in Sources */,
 				7D9F927220552A55003A5CBD /* TaskViewController.swift in Sources */,
 			);

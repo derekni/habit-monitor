@@ -81,3 +81,48 @@ class ResolutionsTableViewController: UITableViewController {
     }
 
 }
+
+//resolution controller
+class ResolutionsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    // MARK: Properties
+    @IBOutlet weak var myResolutions: UITableView!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        myResolutions.delegate = self
+        myResolutions.dataSource = self
+        
+        myResolutions.tableFooterView = UIView(frame: .zero)
+        myResolutions.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: myResolutions.frame.size.width, height: 1))
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+    
+    func numberOfSections(in myResolutions: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ myResolutions: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return resolutions!.count
+    }
+    
+    func tableView(_ myResolutions: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = myResolutions.dequeueReusableCell(withIdentifier: "ResolutionsTableViewCell", for: indexPath) as? ResolutionsTableViewCell else {
+            fatalError("Cell is not a ResolutionsTableViewCell")
+        }
+        
+        cell.myResolution.text = resolutions![indexPath.row]
+        
+        return cell
+    }
+    
+}

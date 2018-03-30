@@ -55,15 +55,21 @@ class HistoryTableViewCell: UITableViewCell {
 }
 
 //history controller
-class HistoryTableViewController: UITableViewController {
-
+class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    // MARK: Properties
+    @IBOutlet weak var myHistory: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.tableFooterView = UIView(frame: .zero)
-        tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 1))
+        myHistory.delegate = self
+        myHistory.dataSource = self
+        
+        myHistory.tableFooterView = UIView(frame: .zero)
+        myHistory.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: myHistory.frame.size.width, height: 1))
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -72,27 +78,25 @@ class HistoryTableViewController: UITableViewController {
     override var prefersStatusBarHidden: Bool {
         return true
     }
-
-    // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
+    
+    func numberOfSections(in myHistory: UITableView) -> Int {
         return 1
     }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    
+    func tableView(_ myHistory: UITableView, numberOfRowsInSection section: Int) -> Int {
         return history!.count
     }
-
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "HistoryTableViewCell", for: indexPath) as? HistoryTableViewCell else {
+    
+    func tableView(_ myHistory: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = myHistory.dequeueReusableCell(withIdentifier: "HistoryTableViewCell", for: indexPath) as? HistoryTableViewCell else {
             fatalError("Cell is not a HistoryTableViewCell")
         }
-
+        
         // Configure the cell...
         cell.activityLabel.text = history![indexPath.row][0]
         cell.dateLabel.text = history![indexPath.row][1]
-
+        
         return cell
     }
-
+    
 }

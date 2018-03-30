@@ -107,63 +107,68 @@ class PremiumRewardsTableViewCell: UITableViewCell {
 }
 
 //rewards controller
-class RewardsTableViewController: UITableViewController {
-
+class RewardsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    // MARK: Properties
+    @IBOutlet weak var myRewards: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.tableFooterView = UIView(frame: .zero)
-        tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 1))
+        myRewards.delegate = self
+        myRewards.dataSource = self
+        
+        myRewards.tableFooterView = UIView(frame: .zero)
+        myRewards.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: myRewards.frame.size.width, height: 1))
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
-
+    
     override var prefersStatusBarHidden: Bool {
         return true
     }
     
-    // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
+    func numberOfSections(in myRewards: UITableView) -> Int {
         return 2
     }
     
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    func tableView(_ myRewards: UITableView, titleForHeaderInSection section: Int) -> String? {
         if (section == 0) {
             return "Rewards"
         } else {
             return "Premium Rewards"
         }
     }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    
+    func tableView(_ myRewards: UITableView, numberOfRowsInSection section: Int) -> Int {
         if (section == 0) {
             return rewards!.count
         } else {
             return premiumRewards!.count
         }
     }
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    //sjdfjsdfjdfj
+    func tableView(_ myRewards: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "RewardsTableViewCell", for: indexPath) as? RewardsTableViewCell else {
+            guard let cell = myRewards.dequeueReusableCell(withIdentifier: "RewardsTableViewCell", for: indexPath) as? RewardsTableViewCell else {
                 fatalError("cell isnt a reward cell")
             }
             cell.myRewards.text = rewards![indexPath.row]
             return cell
         } else if indexPath.section == 1 {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "PremiumRewardsTableViewCell", for: indexPath) as? PremiumRewardsTableViewCell else {
+            guard let cell = myRewards.dequeueReusableCell(withIdentifier: "PremiumRewardsTableViewCell", for: indexPath) as? PremiumRewardsTableViewCell else {
                 fatalError("cell isnt a premium reward cell")
             }
             cell.myPremiumReward.text = premiumRewards![indexPath.row]
             return cell
         }
-        return tableView.dequeueReusableCell(withIdentifier: "ReuseIdentifier", for: indexPath)
+        return myRewards.dequeueReusableCell(withIdentifier: "ReuseIdentifier", for: indexPath)
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ myRewards: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 0 {
             let val = findValue(text: rewards![indexPath.row], section: 0)
             if points! < val {
@@ -179,6 +184,9 @@ class RewardsTableViewController: UITableViewController {
             //later, add performsegue if the text is a custom choice, and do stuff in another view controller
             //like the add view controller
         } else if indexPath.section == 1 {
+            if (premiumRewards![indexPath.row] == "Buy reward") {
+                self.performSegue(withIdentifier:"PremiumRewardsToAdd", sender: self)
+            }
             let val = findValue(text: premiumRewards![indexPath.row], section: 1)
             if savings! < val {
                 print("reward " + premiumRewards![indexPath.row] + " could not be used, not enough points")
@@ -204,4 +212,5 @@ class RewardsTableViewController: UITableViewController {
             return val!
         }
     }
+    
 }
