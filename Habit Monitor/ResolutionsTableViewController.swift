@@ -126,3 +126,33 @@ class ResolutionsViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
 }
+
+//add resolution controller
+class AddResolutionViewController: UIViewController {
+    
+    // MARK: Properties
+    @IBOutlet weak var textField: UITextField!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        // Do any additional setup after loading the view.
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+    
+    @IBAction func addPressed(_ sender: Any) {
+        if (textField.text != nil) && textField.text != "" {
+            resolutions!.append(textField.text!)
+            UserDefaults.standard.set(resolutions, forKey: "myResolutions")
+        }
+    }
+    
+}

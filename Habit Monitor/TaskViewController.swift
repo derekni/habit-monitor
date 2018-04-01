@@ -117,7 +117,37 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
         points! = points! + 1
         UserDefaults.standard.set(points!, forKey: "myPoints")
         deleteTaskData(completedTask: String(describing: tasks![indexPath.row]))
-        taskTable.reloadData()
+        taskTable.deleteRows(at: [indexPath], with: UITableViewRowAnimation.right)
+    }
+    
+}
+
+//add task controller
+class AddTaskViewController: UIViewController {
+    
+    // MARK: Properties
+    @IBOutlet weak var textField: UITextField!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        // Do any additional setup after loading the view.
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+    
+    @IBAction func addPressed(_ sender: Any) {
+        if (textField.text != nil) && textField.text != "" {
+            tasks!.append(textField.text!)
+            UserDefaults.standard.set(tasks, forKey: "tasks")
+        }
     }
     
 }

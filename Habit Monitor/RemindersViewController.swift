@@ -111,7 +111,37 @@ class RemindersViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func tableView(_ reminderTable: UITableView, didSelectRowAt indexPath: IndexPath) {
         deleteReminderData(completedReminder: String(describing: reminders![indexPath.row]))
-        reminderTable.reloadData()
+        reminderTable.deleteRows(at: [indexPath], with: UITableViewRowAnimation.right)
     }
 
+}
+
+//add reminders controller
+class AddReminderViewController: UIViewController {
+    
+    // MARK: Properties
+    @IBOutlet weak var newReminder: UITextField!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        // Do any additional setup after loading the view.
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+    
+    @IBAction func addPressed(_ sender: Any) {
+        if (newReminder.text != nil) && newReminder.text != "" {
+            reminders!.append(newReminder.text!)
+            UserDefaults.standard.set(reminders, forKey: "reminders")
+        }
+    }
+    
 }

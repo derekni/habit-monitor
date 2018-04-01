@@ -15,6 +15,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
+        //point val
+        if let val = fetchPointVal() {
+            pointVal = val
+        } else {
+            pointVal = 0
+        }
+        
+        changePointVal(newVal: 5)
+        
         //points
         if let point = fetchPointsData() {
             points = point
@@ -66,25 +75,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         } else {
             premiumRewardsDict = [String:Int]()
         }
- 
+
         //rewards
         /*
-        rewards = ["Watch anime","Watch YouTube", "Buy bubble tea","Eat ramen","Eat fast food","Chillax"]
+        rewards = ["Watch anime", "Watch a movie", "Eat ramen", "Chillax"]
         rewardsDict = [
             "Watch anime": 1,
-            "Watch YouTube": 1,
-            "Buy bubble tea": 1,
+            "Watch a movie": 5,
             "Eat ramen": 1,
-            "Eat fast food": 2,
             "Chillax": 2
         ]
         saveRewardsData(rewards: rewards)
         saveRewardsDictData(rewardsDict: rewardsDict)
 
-        premiumRewards = ["Watch a movie", "Anime binge session"]
+        premiumRewards = ["Purchase"]
         premiumRewardsDict = [
-            "Watch a movie": 5,
-            "Anime binge session": 5
+            "Purchase": 0
         ]
         savePremiumRewardsData(premiumRewards: premiumRewards)
         savePremiumRewardsDictData(premiumRewardsDict: premiumRewardsDict)
