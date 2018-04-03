@@ -14,7 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        
+
         //point val
         if let val = fetchPointVal() {
             pointVal = val
@@ -44,7 +44,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         } else {
             habits = [String]()
         }
-
+        
+        //habits
+        /*
+        habits = ["Work out", "Play tennis", "Practice piano", "Practice ukulele", "Duolingo practice", "Upload to Github", "Be productive"]
+         saveHabitsData(habits: habits!)
+        */
+        
         //reminders
         if let reminder = fetchReminderData() {
             reminders = reminder

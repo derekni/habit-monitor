@@ -62,6 +62,8 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        UINavigationBar.appearance().isTranslucent = false
+        
         taskTable.delegate = self
         taskTable.dataSource = self
 
@@ -74,10 +76,6 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    override var prefersStatusBarHidden: Bool {
-        return true
     }
 
     /*
@@ -120,6 +118,13 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
         taskTable.deleteRows(at: [indexPath], with: UITableViewRowAnimation.right)
     }
     
+    func tableView(_ taskTable: UITableView, commit commitEditingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if commitEditingStyle == .delete {
+            deleteTaskData(completedTask: String(describing: tasks![indexPath.row]))
+            taskTable.deleteRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
+        }
+    }
+    
 }
 
 //add task controller
@@ -137,10 +142,6 @@ class AddTaskViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    override var prefersStatusBarHidden: Bool {
-        return true
     }
     
     @IBAction func addPressed(_ sender: Any) {

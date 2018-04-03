@@ -1,20 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="HelveticaNeue.ttc">
-            <string>HelveticaNeue</string>
-            <string>HelveticaNeue-Bold</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--Title-->
         <scene sceneID="tne-QT-ifu">
@@ -599,7 +593,7 @@ This app was made by Derek Ni.</string>
                                 <rect key="frame" x="0.0" y="44" width="375" height="574"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TaskTableViewCell" id="hCZ-qH-msK" customClass="TaskTableViewCell" customModule="Habit_Monitor" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TaskTableViewCell" id="hCZ-qH-msK" customClass="TaskTableViewCell" customModule="Habit_Monitor" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hCZ-qH-msK" id="eqj-8D-ST7">
@@ -711,7 +705,7 @@ This app was made by Derek Ni.</string>
                                 <rect key="frame" x="0.0" y="44" width="375" height="574"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="RemindersTableViewCell" id="qOe-At-JO3" customClass="RemindersTableViewCell" customModule="Habit_Monitor" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="RemindersTableViewCell" id="qOe-At-JO3" customClass="RemindersTableViewCell" customModule="Habit_Monitor" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qOe-At-JO3" id="s6T-hz-TL0">
@@ -909,7 +903,7 @@ This app was made by Derek Ni.</string>
                                         <barButtonItem key="leftBarButtonItem" title="&lt;" style="plain" id="VYx-ZH-cLp">
                                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <connections>
-                                                <segue destination="E6K-Hv-nLV" kind="show" identifier="CancelAddToReminders" action="showDetailViewController:sender:" id="jsX-UH-HV1"/>
+                                                <segue destination="E6K-Hv-nLV" kind="show" identifier="CancelAddToReminders" id="jsX-UH-HV1"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -1331,30 +1325,6 @@ This app was made by Derek Ni.</string>
             </objects>
             <point key="canvasLocation" x="3394" y="962"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="3dc-zb-h6u">
-            <objects>
-                <viewController id="g2I-4q-Hy7" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="ndJ-Z8-fH3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="①" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ADD-Mx-jfW">
-                                <rect key="frame" x="100" y="207" width="175" height="253"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="100"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="bZ1-Ba-bMA"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Jwy-SK-5aF" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="5196" y="593.25337331334333"/>
-        </scene>
         <!--Options View Controller-->
         <scene sceneID="cQZ-Hw-lW5">
             <objects>
@@ -1383,6 +1353,7 @@ This app was made by Derek Ni.</string>
                             </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="Yu9-DW-XP5"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TXh-ST-puX" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1394,12 +1365,12 @@ This app was made by Derek Ni.</string>
         <image name="Options" width="29" height="29"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="aGj-2i-5JR"/>
-        <segue reference="AO0-bP-hEw"/>
+        <segue reference="bR2-zT-SFh"/>
+        <segue reference="Gxz-rs-BMB"/>
         <segue reference="HxS-mS-cm8"/>
-        <segue reference="jsX-UH-HV1"/>
+        <segue reference="6FH-TI-GeJ"/>
         <segue reference="51C-4n-TYe"/>
         <segue reference="Y2T-2g-18P"/>
-        <segue reference="KHx-I2-9DE"/>
+        <segue reference="CtZ-ri-pxl"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -23,6 +23,15 @@ func fetchResolutionData() -> [String]? {
     }
 }
 
+func deleteResolution(deletedResolution: String) {
+    if let index = resolutions?.index(of: deletedResolution) {
+        resolutions!.remove(at: index)
+    } else {
+        print("nothing was deleted")
+    }
+    UserDefaults.standard.set(resolutions, forKey: "myResolutions")
+}
+
 //resolutions cell
 class ResolutionsTableViewCell: UITableViewCell {
     
@@ -40,46 +49,6 @@ class ResolutionsTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-}
-
-class ResolutionsTableViewController: UITableViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        tableView.tableFooterView = UIView(frame: .zero)
-        tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 1))
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    override var prefersStatusBarHidden: Bool {
-        return true
-    }
-
-    // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return resolutions!.count
-    }
-
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ResolutionsTableViewCell", for: indexPath) as? ResolutionsTableViewCell else {
-            fatalError("Cell is not a ResolutionsTableViewCell")
-        }
-
-        cell.myResolution.text = resolutions![indexPath.row]
-        
-        return cell
-    }
-
 }
 
 //resolution controller
@@ -103,10 +72,6 @@ class ResolutionsViewController: UIViewController, UITableViewDelegate, UITableV
         // Dispose of any resources that can be recreated.
     }
     
-    override var prefersStatusBarHidden: Bool {
-        return true
-    }
-    
     func numberOfSections(in myResolutions: UITableView) -> Int {
         return 1
     }
@@ -123,6 +88,13 @@ class ResolutionsViewController: UIViewController, UITableViewDelegate, UITableV
         cell.myResolution.text = resolutions![indexPath.row]
         
         return cell
+    }
+    
+    func tableView(_ myResolutions: UITableView, commit commitEditingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if commitEditingStyle == .delete {
+            deleteResolution(deletedResolution: String(describing: resolutions![indexPath.row]))
+            myResolutions.deleteRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
+        }
     }
     
 }
@@ -142,10 +114,6 @@ class AddResolutionViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    override var prefersStatusBarHidden: Bool {
-        return true
     }
     
     @IBAction func addPressed(_ sender: Any) {

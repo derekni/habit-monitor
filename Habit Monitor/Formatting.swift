@@ -87,9 +87,7 @@ extension Formatter {
     static let currency = NumberFormatter(numberStyle: .currency)
 }
 extension String {
-    var digits: [UInt8] { return characters.flatMap{ UInt8(String($0)) } }
-    // For Swift 4 or later just remove characters
-    // var digits: [UInt8] { return flatMap{ UInt8(String($0)) } }
+    var digits: [UInt8] { return compactMap{ UInt8(String($0)) } }
 }
 extension Collection where Iterator.Element == UInt8 {
     var string: String { return map(String.init).joined() }

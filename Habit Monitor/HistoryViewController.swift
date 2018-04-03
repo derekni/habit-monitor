@@ -79,10 +79,6 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
         // Dispose of any resources that can be recreated.
     }
     
-    override var prefersStatusBarHidden: Bool {
-        return true
-    }
-    
     func numberOfSections(in myHistory: UITableView) -> Int {
         return 1
     }

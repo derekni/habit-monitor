@@ -30,6 +30,15 @@ func addHabit(habit: String) {
     }
 }
 
+func deleteHabit(deletedHabit: String) {
+    if let index = habits?.index(of: deletedHabit) {
+        habits!.remove(at: index)
+    } else {
+        print("nothing was deleted")
+    }
+    UserDefaults.standard.set(habits, forKey: "myHabits")
+}
+
 //habits cell
 class HabitsTableViewCell: UITableViewCell {
     
@@ -70,10 +79,6 @@ class HabitsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         // Dispose of any resources that can be recreated.
     }
     
-    override var prefersStatusBarHidden: Bool {
-        return true
-    }
-    
     func numberOfSections(in myHabits: UITableView) -> Int {
         return 1
     }
@@ -96,6 +101,13 @@ class HabitsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         points! = points! + 1
         UserDefaults.standard.set(points!, forKey: "myPoints")
         self.performSegue(withIdentifier: "HabitsToPoints", sender: self)
+    }
+    
+    func tableView(_ myHabits: UITableView, commit commitEditingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if commitEditingStyle == .delete {
+            deleteHabit(deletedHabit: String(describing: habits![indexPath.row]))
+            myHabits.deleteRows(at: [indexPath], with: UITableViewRowAnimation.left)
+        }
     }
 
 }

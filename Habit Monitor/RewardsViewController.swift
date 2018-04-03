@@ -172,10 +172,6 @@ class RewardsViewController: UIViewController, UITableViewDelegate, UITableViewD
         // Dispose of any resources that can be recreated.
     }
     
-    override var prefersStatusBarHidden: Bool {
-        return true
-    }
-    
     func numberOfSections(in myRewards: UITableView) -> Int {
         return 2
     }
@@ -213,7 +209,12 @@ class RewardsViewController: UIViewController, UITableViewDelegate, UITableViewD
             }
             cell.myPremiumReward.text = premiumRewards![indexPath.row]
             if (premiumRewards![indexPath.row] != "Purchase") {
-                cell.rewardCost.text = String(findValue(text: premiumRewards![indexPath.row], section: 1))
+                let text = String(findValue(text: premiumRewards![indexPath.row], section: 1))
+                if (text == "0") {
+                    cell.rewardCost.text = "☆"
+                } else {
+                    cell.rewardCost.text = String(findValue(text: premiumRewards![indexPath.row], section: 1))
+                }
                 cell.rewardCost.bounds = CGRect(x: 0.0, y: 0.0, width: 34, height: 34)
                 cell.rewardCost.layer.cornerRadius = 34 / 2
                 cell.rewardCost.layer.borderWidth = 1.5
@@ -246,35 +247,35 @@ class RewardsViewController: UIViewController, UITableViewDelegate, UITableViewD
             if (premiumRewards![indexPath.row] == "Purchase") {
                 self.performSegue(withIdentifier:"PremiumRewardsToAdd", sender: self)
             } else {
-                if (points! > 0) {
-                    points! = points! - 1
-                    UserDefaults.standard.set(points!, forKey: "myPoints")
-                    let reward = premiumRewards![indexPath.row]
-                    let val = findValue(text: reward, section: 1) - 1
-                    premiumRewardsDict![reward] = val
-                    UserDefaults.standard.set(premiumRewardsDict, forKey: "myPremiumRewardsDict")
-                    if (val  == 0) {
-                        addHistory(hist: reward)
-                        deletePremiumReward(premiumReward: reward)
-                        myRewards.deleteRows(at: [indexPath], with: UITableViewRowAnimation.right)
+                let reward = premiumRewards![indexPath.row]
+                let val = findValue(text: reward, section: 1)
+                if (val == 0) {
+                    addHistory(hist: reward)
+                    deletePremiumReward(premiumReward: reward)
+                    myRewards.deleteRows(at: [indexPath], with: UITableViewRowAnimation.right)
+                } else {
+                    if (points! > 0) {
+                        points! = points! - 1
+                        UserDefaults.standard.set(points!, forKey: "myPoints")
+                        premiumRewardsDict![reward] = val - 1
+                        UserDefaults.standard.set(premiumRewardsDict, forKey: "myPremiumRewardsDict")
+                        myRewards.reloadData()
+                    } else {
+                        print("reward " + premiumRewards![indexPath.row] + " could not be used, not enough points")
                     }
-                } else {
-                    print("reward " + premiumRewards![indexPath.row] + " could not be used, not enough points")
                 }
-                /*
-                let val = findValue(text: premiumRewards![indexPath.row], section: 1)
-                if savings! < val {
-                    print("reward " + premiumRewards![indexPath.row] + " could not be used, not enough points")
-                } else {
-                    let premiumReward = premiumRewards![indexPath.row]
-                    addHistory(hist: premiumReward)
-                    savings! = savings! - val
-                    UserDefaults.standard.set(savings!, forKey: "mySavings")
-                    print("reward used: " + premiumRewards![indexPath.row] + " with value " + String(val))
-                }
-                self.performSegue(withIdentifier: "PremiumRewardsToSavings", sender: self)
-                 */
             }
+        }
+    }
+    
+    func tableView(_ myRewards: UITableView, commit commitEditingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if commitEditingStyle == .delete {
+            if (indexPath.section == 0) {
+                deleteReward(reward: String(describing: rewards![indexPath.row]))
+            } else {
+                deletePremiumReward(premiumReward: String(describing: premiumRewards![indexPath.row]))
+            }
+            myRewards.deleteRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
         }
     }
     
@@ -296,7 +297,7 @@ class AddRewardViewController: UIViewController {
     // MARK: Properties
     @IBOutlet weak var rewardType: UISegmentedControl!
     @IBOutlet weak var rewardName: UITextField!
-    @IBOutlet weak var rewardCost: UITextField!
+    @IBOutlet weak var rewardCost: CurrencyField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -307,10 +308,6 @@ class AddRewardViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    override var prefersStatusBarHidden: Bool {
-        return true
     }
     
     @IBAction func addPressed(_ sender: Any) {
@@ -343,10 +340,6 @@ class CustomRewardViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    override var prefersStatusBarHidden: Bool {
-        return true
     }
     
     @IBAction func redeemPressed(_ sender: Any) {
