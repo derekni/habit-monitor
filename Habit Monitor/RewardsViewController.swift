@@ -310,7 +310,7 @@ class AddRewardViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func addPressed(_ sender: Any) {
+    @IBAction func addTapped(_ sender: Any) {
         let name = rewardName.text
         let cost = Int(rewardCost.text!)
         let type = rewardType.titleForSegment(at: rewardType.selectedSegmentIndex)
@@ -342,7 +342,7 @@ class CustomRewardViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func redeemPressed(_ sender: Any) {
+    @IBAction func redeemTapped(_ sender: Any) {
         let reward = myReward.text
         let cost = myCost.doubleValue
         

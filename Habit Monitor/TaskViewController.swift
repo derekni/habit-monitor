@@ -77,21 +77,6 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        self.taskTable.reloadData()
-    }
     
     func numberOfSections(in taskTable: UITableView) -> Int {
         return 1
@@ -115,39 +100,35 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
         points! = points! + 1
         UserDefaults.standard.set(points!, forKey: "myPoints")
         deleteTaskData(completedTask: String(describing: tasks![indexPath.row]))
-        taskTable.deleteRows(at: [indexPath], with: UITableViewRowAnimation.right)
+        taskTable.deleteRows(at: [indexPath], with: .right)
     }
     
     func tableView(_ taskTable: UITableView, commit commitEditingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if commitEditingStyle == .delete {
             deleteTaskData(completedTask: String(describing: tasks![indexPath.row]))
-            taskTable.deleteRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
+            taskTable.deleteRows(at: [indexPath], with: .automatic)
         }
     }
     
-}
-
-//add task controller
-class AddTaskViewController: UIViewController {
-    
-    // MARK: Properties
-    @IBOutlet weak var textField: UITextField!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
+    @IBAction func composeTapped(_ sender: Any) {
+        let alert = UIAlertController(title: "Add To-Do", message: nil, preferredStyle: .alert)
+        alert.addTextField { (taskTF) in
+            taskTF.placeholder = "Enter To-Do"
+            taskTF.borderStyle = .roundedRect
+        }
+        let action = UIAlertAction(title: "Add", style: .default) { (_) in
+            guard let task = alert.textFields?.first?.text else { return }
+            self.add(task: task)
+        }
+        alert.addAction(action)
+        present(alert, animated: true)
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    @IBAction func addPressed(_ sender: Any) {
-        if (textField.text != nil) && textField.text != "" {
-            tasks!.append(textField.text!)
+    func add(task: String) {
+        if task != "" {
+            tasks!.append(task)
             UserDefaults.standard.set(tasks, forKey: "tasks")
+            taskTable.insertRows(at: [IndexPath(row: tasks!.count - 1, section: 0)], with: .automatic)
         }
     }
     

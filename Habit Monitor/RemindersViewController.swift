@@ -73,12 +73,7 @@ class RemindersViewController: UIViewController, UITableViewDelegate, UITableVie
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        self.reminderTable.reloadData()
-    }
-    
+
     func numberOfSections(in reminderTable: UITableView) -> Int {
         return 1
     }
@@ -97,32 +92,28 @@ class RemindersViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func tableView(_ reminderTable: UITableView, didSelectRowAt indexPath: IndexPath) {
         deleteReminderData(completedReminder: String(describing: reminders![indexPath.row]))
-        reminderTable.deleteRows(at: [indexPath], with: UITableViewRowAnimation.right)
-    }
-
-}
-
-//add reminders controller
-class AddReminderViewController: UIViewController {
-    
-    // MARK: Properties
-    @IBOutlet weak var newReminder: UITextField!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
+        reminderTable.deleteRows(at: [indexPath], with: .right)
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @IBAction func composeTapped(_ sender: Any) {
+        let alert = UIAlertController(title: "Add Reminder", message: nil, preferredStyle: .alert)
+        alert.addTextField { (reminderTF) in
+            reminderTF.placeholder = "Enter Reminder"
+            reminderTF.borderStyle = .roundedRect
+        }
+        let action = UIAlertAction(title: "Add", style: .default) { (_) in
+            guard let reminder = alert.textFields?.first?.text else { return }
+            self.add(reminder: reminder)
+        }
+        alert.addAction(action)
+        present(alert, animated: true)
     }
     
-    @IBAction func addPressed(_ sender: Any) {
-        if (newReminder.text != nil) && newReminder.text != "" {
-            reminders!.append(newReminder.text!)
+    func add(reminder: String) {
+        if reminder != "" {
+            reminders!.append(reminder)
             UserDefaults.standard.set(reminders, forKey: "reminders")
+            reminderTable.insertRows(at: [IndexPath(row: reminders!.count - 1, section: 0)], with: .automatic)
         }
     }
     

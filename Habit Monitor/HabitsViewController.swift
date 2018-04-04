@@ -109,5 +109,24 @@ class HabitsViewController: UIViewController, UITableViewDelegate, UITableViewDa
             myHabits.deleteRows(at: [indexPath], with: UITableViewRowAnimation.left)
         }
     }
-
+    
+    @IBAction func composeTapped(_ sender: Any) {
+        let alert = UIAlertController(title: "Add Habit", message: nil, preferredStyle: .alert)
+        alert.addTextField { (habitTF) in
+            habitTF.placeholder = "Enter Habit"
+            habitTF.borderStyle = .roundedRect
+        }
+        let action = UIAlertAction(title: "Add", style: .default) { (_) in
+            guard let habit = alert.textFields?.first?.text else { return }
+            self.add(habit: habit)
+        }
+        alert.addAction(action)
+        present(alert, animated: true)
+    }
+    
+    func add(habit: String) {
+        addHabit(habit: habit)
+        myHabits.insertRows(at: [IndexPath(row: habits!.count - 1, section: 0)], with: .automatic)
+    }
+    
 }

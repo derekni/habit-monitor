@@ -97,29 +97,25 @@ class ResolutionsViewController: UIViewController, UITableViewDelegate, UITableV
         }
     }
     
-}
-
-//add resolution controller
-class AddResolutionViewController: UIViewController {
-    
-    // MARK: Properties
-    @IBOutlet weak var textField: UITextField!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
+    @IBAction func composeTapped(_ sender: Any) {
+        let alert = UIAlertController(title: "Add Resolution", message: nil, preferredStyle: .alert)
+        alert.addTextField { (resolutionTF) in
+            resolutionTF.placeholder = "Enter Resolution"
+            resolutionTF.borderStyle = .roundedRect
+        }
+        let action = UIAlertAction(title: "Add", style: .default) { (_) in
+            guard let resolution = alert.textFields?.first?.text else { return }
+            self.add(resolution: resolution)
+        }
+        alert.addAction(action)
+        present(alert, animated: true)
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    @IBAction func addPressed(_ sender: Any) {
-        if (textField.text != nil) && textField.text != "" {
-            resolutions!.append(textField.text!)
+    func add(resolution: String) {
+        if resolution != "" {
+            resolutions!.append(resolution)
             UserDefaults.standard.set(resolutions, forKey: "myResolutions")
+            myResolutions.insertRows(at: [IndexPath(row: resolutions!.count - 1, section: 0)], with: .automatic)
         }
     }
     
