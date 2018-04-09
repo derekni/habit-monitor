@@ -99,12 +99,16 @@ class RemindersViewController: UIViewController, UITableViewDelegate, UITableVie
         let alert = UIAlertController(title: "Add Reminder", message: nil, preferredStyle: .alert)
         alert.addTextField { (reminderTF) in
             reminderTF.placeholder = "Enter Reminder"
-            reminderTF.borderStyle = .roundedRect
+            //reminderTF.borderStyle = .roundedRect
+        }
+        let cancel = UIAlertAction(title: "Cancel", style: .default) { (_) in
+            return
         }
         let action = UIAlertAction(title: "Add", style: .default) { (_) in
             guard let reminder = alert.textFields?.first?.text else { return }
             self.add(reminder: reminder)
         }
+        alert.addAction(cancel)
         alert.addAction(action)
         present(alert, animated: true)
     }

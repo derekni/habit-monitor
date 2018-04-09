@@ -114,12 +114,16 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
         let alert = UIAlertController(title: "Add To-Do", message: nil, preferredStyle: .alert)
         alert.addTextField { (taskTF) in
             taskTF.placeholder = "Enter To-Do"
-            taskTF.borderStyle = .roundedRect
+            //taskTF.borderStyle = .roundedRect
+        }
+        let cancel = UIAlertAction(title: "Cancel", style: .default) { (_) in
+            return
         }
         let action = UIAlertAction(title: "Add", style: .default) { (_) in
             guard let task = alert.textFields?.first?.text else { return }
             self.add(task: task)
         }
+        alert.addAction(cancel)
         alert.addAction(action)
         present(alert, animated: true)
     }

@@ -15,6 +15,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
 
+        //check if new day
+        let currentDate = getCurrentDate()
+        if (currentDate > fetchDateData()!) {
+            saveDateData(date: currentDate)
+            clearDoneHabits()
+            print(currentDate)
+        }
+        
         //point val
         if let val = fetchPointVal() {
             pointVal = val
@@ -22,7 +30,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             pointVal = 0
         }
         
-        changePointVal(newVal: 5)
+        //enabled habits
+        if let done = fetchDoneHabitsData() {
+            doneHabits = done
+        } else {
+            doneHabits = []
+        }
         
         //points
         if let point = fetchPointsData() {

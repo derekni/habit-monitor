@@ -96,3 +96,25 @@ extension Collection where Iterator.Element == UInt8 {
 extension Decimal {
     var number: NSDecimalNumber { return NSDecimalNumber(decimal: self) }
 }
+
+//date functions
+func getCurrentDate () -> Int {
+    let date = Date()
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "yyyyMMdd"
+    let currentDate = dateFormatter.string(from: date)
+    let currentDateInt = Int(currentDate)!
+    return currentDateInt
+}
+
+func saveDateData(date:Int?) {
+    UserDefaults.standard.set(date, forKey: "myDate")
+}
+
+func fetchDateData() -> Int? {
+    if let date = UserDefaults.standard.integer(forKey: "myDate") as? Int {
+        return date
+    } else {
+        return 0
+    }
+}

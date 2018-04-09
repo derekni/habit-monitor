@@ -10,9 +10,14 @@ import UIKit
 
 //habits
 var habits:[String]?
+var doneHabits:[String]?
 
 func saveHabitsData(habits:[String]?) {
     UserDefaults.standard.set(habits, forKey: "myHabits")
+}
+
+func saveDoneHabitsData(doneHabits:[String]?) {
+    UserDefaults.standard.set(doneHabits, forKey: "myDoneHabits")
 }
 
 func fetchHabitsData() -> [String]? {
@@ -20,6 +25,21 @@ func fetchHabitsData() -> [String]? {
         return habit
     } else {
         return nil
+    }
+}
+
+func fetchDoneHabitsData() -> [String]? {
+    if let done = UserDefaults.standard.array(forKey: "myDoneHabits") as? [String] {
+        return done
+    } else {
+        return nil
+    }
+}
+
+func addDoneHabit(habit: String) {
+    if habit != "" {
+        doneHabits!.append(habit)
+        UserDefaults.standard.set(doneHabits, forKey: "myDoneHabits")
     }
 }
 
@@ -37,6 +57,10 @@ func deleteHabit(deletedHabit: String) {
         print("nothing was deleted")
     }
     UserDefaults.standard.set(habits, forKey: "myHabits")
+}
+
+func clearDoneHabits () {
+    saveDoneHabitsData(doneHabits: [])
 }
 
 //habits cell
@@ -69,7 +93,17 @@ class HabitsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         myHabits.delegate = self
         myHabits.dataSource = self
-
+        /*
+        print(myHabits.numberOfRows(inSection: 0))
+        for cell in myHabits.visibleCells as? HabitsTableViewCell {
+            let text = habits![myHabits.indexPath(for: cell)!.row]
+            if doneHabits!.contains(text) {
+                cell = HabitsTableViewCell
+                cell.isUserInteractionEnabled = false
+                cell.myHabit.text.isOpaque = true
+            }
+        }
+        */
         myHabits.tableFooterView = UIView(frame: .zero)
         myHabits.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: myHabits.frame.size.width, height: 1))
     }
@@ -92,6 +126,10 @@ class HabitsViewController: UIViewController, UITableViewDelegate, UITableViewDa
             fatalError("This cell is not an HabitsTableViewCell")
         }
         cell.myHabit.text = habits![indexPath.row]
+        if doneHabits!.contains(habits![indexPath.row]) {
+            cell.isUserInteractionEnabled = false
+            cell.myHabit.isEnabled = false
+        }
         return cell
     }
     
@@ -100,6 +138,7 @@ class HabitsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         addHistory(hist: habit)
         points! = points! + 1
         UserDefaults.standard.set(points!, forKey: "myPoints")
+        addDoneHabit(habit: habit)
         self.performSegue(withIdentifier: "HabitsToPoints", sender: self)
     }
     
@@ -114,19 +153,25 @@ class HabitsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let alert = UIAlertController(title: "Add Habit", message: nil, preferredStyle: .alert)
         alert.addTextField { (habitTF) in
             habitTF.placeholder = "Enter Habit"
-            habitTF.borderStyle = .roundedRect
+            //habitTF.borderStyle = .roundedRect
+        }
+        let cancel = UIAlertAction(title: "Cancel", style: .default) { (_) in
+            return
         }
         let action = UIAlertAction(title: "Add", style: .default) { (_) in
             guard let habit = alert.textFields?.first?.text else { return }
             self.add(habit: habit)
         }
+        alert.addAction(cancel)
         alert.addAction(action)
         present(alert, animated: true)
     }
     
     func add(habit: String) {
-        addHabit(habit: habit)
-        myHabits.insertRows(at: [IndexPath(row: habits!.count - 1, section: 0)], with: .automatic)
+        if (habit != "") {
+            addHabit(habit: habit)
+            myHabits.insertRows(at: [IndexPath(row: habits!.count - 1, section: 0)], with: .automatic)
+        }
     }
     
 }
