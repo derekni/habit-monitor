@@ -101,6 +101,7 @@ class ResolutionsViewController: UIViewController, UITableViewDelegate, UITableV
         let alert = UIAlertController(title: "Add Resolution", message: nil, preferredStyle: .alert)
         alert.addTextField { (resolutionTF) in
             resolutionTF.placeholder = "Enter Resolution"
+            resolutionTF.maxLength = 25
             //resolutionTF.borderStyle = .roundedRect
         }
         let cancel = UIAlertAction(title: "Cancel", style: .default) { (_) in

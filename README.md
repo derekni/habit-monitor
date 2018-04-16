@@ -1,3 +1,3 @@
-Habit Monitor is an iOS app to help monitor habits and keep the user on track of tasks and resolutions.
+Healthy Habits is an iOS app to help monitor habits and keep the user on track of tasks and resolutions.
 
 This app uses a system of points and rewards to motivate the user to follow healthy habits and curb unhealthy ones. It rewards points when the user accomplishes a task on a To-Do list or follows a healthy habit. These points can be used to earn 'rewards' that the user can add in the rewards section, such as watching TV, going out to drink bubble tea, or buying clothes. The app can also track resolutions that the user has added, which the users can check to see if they are following their resolutions. Users can see their past accomplishments and rewards through the history tab of the app, and users can save their points in a savings tab to save up for bigger rewards.

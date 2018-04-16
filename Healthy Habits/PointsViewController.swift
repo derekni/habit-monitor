@@ -45,6 +45,10 @@ class PointsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func optionsTapped(_ sender: Any) {
+    
+    }
+    
 }
 
 

@@ -14,7 +14,6 @@
 		7D5955ED2049D3DF008E2C9C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D5955EB2049D3DF008E2C9C /* Main.storyboard */; };
 		7D5955EF2049D3DF008E2C9C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D5955EE2049D3DF008E2C9C /* Assets.xcassets */; };
 		7D5955F22049D3DF008E2C9C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D5955F02049D3DF008E2C9C /* LaunchScreen.storyboard */; };
-		7D5955FD2049D3DF008E2C9C /* Habit_MonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5955FC2049D3DF008E2C9C /* Habit_MonitorTests.swift */; };
 		7D7382F6206C04E8002FE875 /* Formatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7382F5206C04E8002FE875 /* Formatting.swift */; };
 		7D7382FA206DDDE3002FE875 /* HabitsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7382F9206DDDE3002FE875 /* HabitsViewController.swift */; };
 		7D94DD6920586066002724AE /* SavingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D94DD6820586066002724AE /* SavingsViewController.swift */; };
@@ -39,16 +38,14 @@
 /* Begin PBXFileReference section */
 		7D2E9EF3205508D900F81311 /* OptionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionTableViewController.swift; sourceTree = "<group>"; };
 		7D2E9EF52055166B00F81311 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		7D5955E42049D3DF008E2C9C /* Habit Monitor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Habit Monitor.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7D5955E42049D3DF008E2C9C /* Healthy Habits.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Healthy Habits.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D5955E72049D3DF008E2C9C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7D5955E92049D3DF008E2C9C /* PointsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointsViewController.swift; sourceTree = "<group>"; };
 		7D5955EC2049D3DF008E2C9C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7D5955EE2049D3DF008E2C9C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7D5955F12049D3DF008E2C9C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7D5955F32049D3DF008E2C9C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7D5955F82049D3DF008E2C9C /* Habit MonitorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Habit MonitorTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		7D5955FC2049D3DF008E2C9C /* Habit_MonitorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Habit_MonitorTests.swift; sourceTree = "<group>"; };
-		7D5955FE2049D3DF008E2C9C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7D5955F82049D3DF008E2C9C /* Healthy HabitsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Healthy HabitsTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D7382F5206C04E8002FE875 /* Formatting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Formatting.swift; sourceTree = "<group>"; };
 		7D7382F9206DDDE3002FE875 /* HabitsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitsViewController.swift; sourceTree = "<group>"; };
 		7D94DD6820586066002724AE /* SavingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavingsViewController.swift; sourceTree = "<group>"; };
@@ -82,7 +79,7 @@
 			isa = PBXGroup;
 			children = (
 				7D2E9EF52055166B00F81311 /* README.md */,
-				7D5955E62049D3DF008E2C9C /* Habit Monitor */,
+				7D5955E62049D3DF008E2C9C /* Healthy Habits */,
 				7D5955E52049D3DF008E2C9C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -90,13 +87,13 @@
 		7D5955E52049D3DF008E2C9C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				7D5955E42049D3DF008E2C9C /* Habit Monitor.app */,
-				7D5955F82049D3DF008E2C9C /* Habit MonitorTests.xctest */,
+				7D5955E42049D3DF008E2C9C /* Healthy Habits.app */,
+				7D5955F82049D3DF008E2C9C /* Healthy HabitsTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		7D5955E62049D3DF008E2C9C /* Habit Monitor */ = {
+		7D5955E62049D3DF008E2C9C /* Healthy Habits */ = {
 			isa = PBXGroup;
 			children = (
 				7D5955F02049D3DF008E2C9C /* LaunchScreen.storyboard */,
@@ -113,28 +110,18 @@
 				7DA81AC42063716800266224 /* ResolutionsTableViewController.swift */,
 				7DA81AC620640D2F00266224 /* AboutViewController.swift */,
 				7D7382F5206C04E8002FE875 /* Formatting.swift */,
-				7D5955FB2049D3DF008E2C9C /* Habit MonitorTests */,
 				7D5955EE2049D3DF008E2C9C /* Assets.xcassets */,
 				7D5955F32049D3DF008E2C9C /* Info.plist */,
 			);
-			path = "Habit Monitor";
-			sourceTree = "<group>";
-		};
-		7D5955FB2049D3DF008E2C9C /* Habit MonitorTests */ = {
-			isa = PBXGroup;
-			children = (
-				7D5955FC2049D3DF008E2C9C /* Habit_MonitorTests.swift */,
-				7D5955FE2049D3DF008E2C9C /* Info.plist */,
-			);
-			path = "Habit MonitorTests";
+			path = "Healthy Habits";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		7D5955E32049D3DF008E2C9C /* Habit Monitor */ = {
+		7D5955E32049D3DF008E2C9C /* Healthy Habits */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7D5956012049D3DF008E2C9C /* Build configuration list for PBXNativeTarget "Habit Monitor" */;
+			buildConfigurationList = 7D5956012049D3DF008E2C9C /* Build configuration list for PBXNativeTarget "Healthy Habits" */;
 			buildPhases = (
 				7D5955E02049D3DF008E2C9C /* Sources */,
 				7D5955E12049D3DF008E2C9C /* Frameworks */,
@@ -144,14 +131,14 @@
 			);
 			dependencies = (
 			);
-			name = "Habit Monitor";
+			name = "Healthy Habits";
 			productName = "Habit Monitor";
-			productReference = 7D5955E42049D3DF008E2C9C /* Habit Monitor.app */;
+			productReference = 7D5955E42049D3DF008E2C9C /* Healthy Habits.app */;
 			productType = "com.apple.product-type.application";
 		};
-		7D5955F72049D3DF008E2C9C /* Habit MonitorTests */ = {
+		7D5955F72049D3DF008E2C9C /* Healthy HabitsTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7D5956042049D3DF008E2C9C /* Build configuration list for PBXNativeTarget "Habit MonitorTests" */;
+			buildConfigurationList = 7D5956042049D3DF008E2C9C /* Build configuration list for PBXNativeTarget "Healthy HabitsTests" */;
 			buildPhases = (
 				7D5955F42049D3DF008E2C9C /* Sources */,
 				7D5955F52049D3DF008E2C9C /* Frameworks */,
@@ -162,9 +149,9 @@
 			dependencies = (
 				7D5955FA2049D3DF008E2C9C /* PBXTargetDependency */,
 			);
-			name = "Habit MonitorTests";
+			name = "Healthy HabitsTests";
 			productName = "Habit MonitorTests";
-			productReference = 7D5955F82049D3DF008E2C9C /* Habit MonitorTests.xctest */;
+			productReference = 7D5955F82049D3DF008E2C9C /* Healthy HabitsTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -174,7 +161,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = NiLabs;
 				TargetAttributes = {
 					7D5955E32049D3DF008E2C9C = {
@@ -188,7 +175,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 7D5955DF2049D3DF008E2C9C /* Build configuration list for PBXProject "Habit Monitor" */;
+			buildConfigurationList = 7D5955DF2049D3DF008E2C9C /* Build configuration list for PBXProject "Healthy Habits" */;
 			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -201,8 +188,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				7D5955E32049D3DF008E2C9C /* Habit Monitor */,
-				7D5955F72049D3DF008E2C9C /* Habit MonitorTests */,
+				7D5955E32049D3DF008E2C9C /* Healthy Habits */,
+				7D5955F72049D3DF008E2C9C /* Healthy HabitsTests */,
 			);
 		};
 /* End PBXProject section */
@@ -252,7 +239,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7D5955FD2049D3DF008E2C9C /* Habit_MonitorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,7 +247,7 @@
 /* Begin PBXTargetDependency section */
 		7D5955FA2049D3DF008E2C9C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 7D5955E32049D3DF008E2C9C /* Habit Monitor */;
+			target = 7D5955E32049D3DF008E2C9C /* Healthy Habits */;
 			targetProxy = 7D5955F92049D3DF008E2C9C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -300,6 +286,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -307,6 +294,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -334,7 +322,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -357,6 +345,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -364,6 +353,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -385,7 +375,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -399,10 +389,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4HA626TXG6;
-				INFOPLIST_FILE = "Habit Monitor/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Healthy Habits/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.ni-labs.Habit-Monitor";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ni-labs.Healthy-Habits";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -415,10 +405,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4HA626TXG6;
-				INFOPLIST_FILE = "Habit Monitor/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Healthy Habits/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.ni-labs.Habit-Monitor";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ni-labs.Healthy-Habits";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -437,7 +427,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Habit Monitor.app/Habit Monitor";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Healthy Habits.app/Healthy Habits";
 			};
 			name = Debug;
 		};
@@ -453,14 +443,14 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Habit Monitor.app/Habit Monitor";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Healthy Habits.app/Healthy Habits";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		7D5955DF2049D3DF008E2C9C /* Build configuration list for PBXProject "Habit Monitor" */ = {
+		7D5955DF2049D3DF008E2C9C /* Build configuration list for PBXProject "Healthy Habits" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7D5955FF2049D3DF008E2C9C /* Debug */,
@@ -469,7 +459,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7D5956012049D3DF008E2C9C /* Build configuration list for PBXNativeTarget "Habit Monitor" */ = {
+		7D5956012049D3DF008E2C9C /* Build configuration list for PBXNativeTarget "Healthy Habits" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7D5956022049D3DF008E2C9C /* Debug */,
@@ -478,7 +468,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7D5956042049D3DF008E2C9C /* Build configuration list for PBXNativeTarget "Habit MonitorTests" */ = {
+		7D5956042049D3DF008E2C9C /* Build configuration list for PBXNativeTarget "Healthy HabitsTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7D5956052049D3DF008E2C9C /* Debug */,

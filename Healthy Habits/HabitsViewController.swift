@@ -93,17 +93,7 @@ class HabitsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         myHabits.delegate = self
         myHabits.dataSource = self
-        /*
-        print(myHabits.numberOfRows(inSection: 0))
-        for cell in myHabits.visibleCells as? HabitsTableViewCell {
-            let text = habits![myHabits.indexPath(for: cell)!.row]
-            if doneHabits!.contains(text) {
-                cell = HabitsTableViewCell
-                cell.isUserInteractionEnabled = false
-                cell.myHabit.text.isOpaque = true
-            }
-        }
-        */
+
         myHabits.tableFooterView = UIView(frame: .zero)
         myHabits.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: myHabits.frame.size.width, height: 1))
     }
@@ -139,7 +129,7 @@ class HabitsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         points! = points! + 1
         UserDefaults.standard.set(points!, forKey: "myPoints")
         addDoneHabit(habit: habit)
-        self.performSegue(withIdentifier: "HabitsToPoints", sender: self)
+        myHabits.reloadData()
     }
     
     func tableView(_ myHabits: UITableView, commit commitEditingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
@@ -153,6 +143,7 @@ class HabitsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let alert = UIAlertController(title: "Add Habit", message: nil, preferredStyle: .alert)
         alert.addTextField { (habitTF) in
             habitTF.placeholder = "Enter Habit"
+            habitTF.maxLength = 20
             //habitTF.borderStyle = .roundedRect
         }
         let cancel = UIAlertAction(title: "Cancel", style: .default) { (_) in

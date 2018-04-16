@@ -37,7 +37,7 @@ func addHistory(hist: String) {
         histValue.append(data)
         history!.insert(histValue, at: 0)
         
-        if (history!.count == 50) {
+        if (history!.count == 100) {
             history!.removeLast()
         }
         
