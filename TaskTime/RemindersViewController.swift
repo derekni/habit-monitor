@@ -56,6 +56,7 @@ class RemindersViewController: UIViewController, UITableViewDelegate, UITableVie
 
     //MARK: Properties
     @IBOutlet weak var reminderTable: UITableView!
+    @IBOutlet weak var myTitle: UIButton!
     let cellIdentifier = "RemindersTableViewCell"
     
     override func viewDidLoad() {
@@ -67,6 +68,9 @@ class RemindersViewController: UIViewController, UITableViewDelegate, UITableVie
         
         reminderTable.tableFooterView = UIView(frame: .zero)
         reminderTable.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: reminderTable.frame.size.width, height: 1))
+        
+        let longPress = UILongPressGestureRecognizer(target: self, action: #selector(RemindersViewController.longPress))
+        myTitle.addGestureRecognizer(longPress)
     }
     
     override func didReceiveMemoryWarning() {
@@ -93,6 +97,39 @@ class RemindersViewController: UIViewController, UITableViewDelegate, UITableVie
     func tableView(_ reminderTable: UITableView, didSelectRowAt indexPath: IndexPath) {
         deleteReminderData(completedReminder: String(describing: reminders![indexPath.row]))
         reminderTable.deleteRows(at: [indexPath], with: .right)
+    }
+    
+    func tableView(_ reminderTable: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
+        return false
+    }
+    
+    func tableView(_ reminderTable: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
+        if (reminderTable.isEditing == true) {
+            return UITableViewCellEditingStyle.none
+        } else {
+            return UITableViewCellEditingStyle.delete
+        }
+    }
+    
+    func tableView(_ reminderTable: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ reminderTable: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath)
+    {
+        reminders!.insert(reminders!.remove(at: sourceIndexPath.row), at: destinationIndexPath.row)
+        saveReminderData(reminders: reminders)
+        reminderTable.reloadData()
+    }
+    
+    @objc func longPress(press: UILongPressGestureRecognizer) {
+        if (press.state == UIGestureRecognizerState.began) {
+            if (reminderTable.isEditing == true) {
+                reminderTable.setEditing(false, animated: true)
+            } else {
+                reminderTable.setEditing(true, animated: true)
+            }
+        }
     }
     
     @IBAction func composeTapped(_ sender: Any) {

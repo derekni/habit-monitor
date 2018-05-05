@@ -87,6 +87,7 @@ class HabitsViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
     // MARK: Properties
     @IBOutlet weak var myHabits: UITableView!
+    @IBOutlet weak var myTitle: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -96,6 +97,9 @@ class HabitsViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
         myHabits.tableFooterView = UIView(frame: .zero)
         myHabits.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: myHabits.frame.size.width, height: 1))
+        
+        let longPress = UILongPressGestureRecognizer(target: self, action: #selector(HabitsViewController.longPress))
+        myTitle.addGestureRecognizer(longPress)
     }
 
     override func didReceiveMemoryWarning() {
@@ -117,25 +121,61 @@ class HabitsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
         cell.myHabit.text = habits![indexPath.row]
         if doneHabits!.contains(habits![indexPath.row]) {
-            cell.isUserInteractionEnabled = false
             cell.myHabit.isEnabled = false
+        } else {
+            cell.myHabit.isEnabled = true
         }
         return cell
     }
     
     func tableView(_ myHabits: UITableView, didSelectRowAt indexPath: IndexPath) {
         let habit = habits![indexPath.row]
-        addHistory(hist: habit)
-        points! = points! + 1
-        UserDefaults.standard.set(points!, forKey: "myPoints")
-        addDoneHabit(habit: habit)
-        myHabits.reloadData()
+        if (!doneHabits!.contains(habit)) {
+            addHistory(hist: habit)
+            points! = points! + 1
+            UserDefaults.standard.set(points!, forKey: "myPoints")
+            addDoneHabit(habit: habit)
+            myHabits.reloadData()
+        }
     }
     
     func tableView(_ myHabits: UITableView, commit commitEditingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if commitEditingStyle == .delete {
             deleteHabit(deletedHabit: String(describing: habits![indexPath.row]))
             myHabits.deleteRows(at: [indexPath], with: UITableViewRowAnimation.left)
+        }
+    }
+    
+    func tableView(_ myHabits: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
+        if (myHabits.isEditing == true) {
+            return UITableViewCellEditingStyle.none
+        } else {
+            return UITableViewCellEditingStyle.delete
+        }
+    }
+    
+    func tableView(_ myHabits: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
+        return false
+    }
+    
+    func tableView(_ myHabits: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ myHabits: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath)
+    {
+        habits!.insert(habits!.remove(at: sourceIndexPath.row), at: destinationIndexPath.row)
+        saveHabitsData(habits: habits)
+        myHabits.reloadData()
+    }
+    
+    @objc func longPress(press: UILongPressGestureRecognizer) {
+        if (press.state == UIGestureRecognizerState.began) {
+            if (myHabits.isEditing == true) {
+                myHabits.setEditing(false, animated: true)
+            } else {
+                myHabits.setEditing(true, animated: true)
+            }
         }
     }
     

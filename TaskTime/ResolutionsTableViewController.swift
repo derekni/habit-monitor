@@ -52,10 +52,11 @@ class ResolutionsTableViewCell: UITableViewCell {
 }
 
 //resolution controller
-class ResolutionsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ResolutionsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIGestureRecognizerDelegate {
     
     // MARK: Properties
     @IBOutlet weak var myResolutions: UITableView!
+    @IBOutlet weak var myTitle: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,6 +66,9 @@ class ResolutionsViewController: UIViewController, UITableViewDelegate, UITableV
         
         myResolutions.tableFooterView = UIView(frame: .zero)
         myResolutions.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: myResolutions.frame.size.width, height: 1))
+        
+        let longPress = UILongPressGestureRecognizer(target: self, action: #selector(ResolutionsViewController.longPress))
+        myTitle.addGestureRecognizer(longPress)
     }
     
     override func didReceiveMemoryWarning() {
@@ -96,7 +100,41 @@ class ResolutionsViewController: UIViewController, UITableViewDelegate, UITableV
             myResolutions.deleteRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
         }
     }
+
+    func tableView(_ myResolutions: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
+        return false
+    }
     
+    func tableView(_ myResolutions: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
+        if (myResolutions.isEditing == true) {
+            return UITableViewCellEditingStyle.none
+        } else {
+            return UITableViewCellEditingStyle.delete
+        }
+    }
+ 
+    func tableView(_ myResolutions: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool
+    {
+        return true
+    }
+ 
+    func tableView(_ myResolutions: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath)
+    {
+        resolutions!.insert(resolutions!.remove(at: sourceIndexPath.row), at: destinationIndexPath.row)
+        saveResolutionData(resolutions: resolutions)
+        myResolutions.reloadData()
+    }
+ 
+    @objc func longPress(press: UILongPressGestureRecognizer) {
+        if (press.state == UIGestureRecognizerState.began){
+            if (myResolutions.isEditing) {
+                myResolutions.setEditing(false, animated: true)
+            } else {
+                myResolutions.setEditing(true, animated: true)
+            }
+        }
+    }
+ 
     @IBAction func composeTapped(_ sender: Any) {
         let alert = UIAlertController(title: "Add Resolution", message: nil, preferredStyle: .alert)
         alert.addTextField { (resolutionTF) in

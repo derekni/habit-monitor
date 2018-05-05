@@ -112,6 +112,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if premiumRewards?.count == 0 {
             premiumRewards = ["Purchase"]
         }
+        if !(premiumRewards?.contains("Purchase"))! {
+            premiumRewards?.append("Purchase")
+        }
         
         //premium rewards dict
         if let premiumRewardDict = fetchPremiumRewardsDictData() {

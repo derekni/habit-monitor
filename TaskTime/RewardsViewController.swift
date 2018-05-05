@@ -156,6 +156,7 @@ class RewardsViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     // MARK: Properties
     @IBOutlet weak var myRewards: UITableView!
+    @IBOutlet weak var myTitle: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -165,6 +166,9 @@ class RewardsViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         myRewards.tableFooterView = UIView(frame: .zero)
         myRewards.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: myRewards.frame.size.width, height: 1))
+        
+        let longPress = UILongPressGestureRecognizer(target: self, action: #selector(RewardsViewController.longPress))
+        myTitle.addGestureRecognizer(longPress)
     }
     
     override func didReceiveMemoryWarning() {
@@ -198,32 +202,43 @@ class RewardsViewController: UIViewController, UITableViewDelegate, UITableViewD
                 fatalError("cell isnt a reward cell")
             }
             cell.myRewards.text = rewards![indexPath.row]
-            cell.rewardCost.text = String(findValue(text: rewards![indexPath.row], section: 0))
-            cell.rewardCost.bounds = CGRect(x: 0.0, y: 0.0, width: 34, height: 34)
-            cell.rewardCost.layer.cornerRadius = 34 / 2
-            cell.rewardCost.layer.borderWidth = 1.5
+            if (myRewards.isEditing == false) {
+                cell.rewardCost.text = String(findValue(text: rewards![indexPath.row], section: 0))
+                cell.rewardCost.bounds = CGRect(x: 0.0, y: 0.0, width: 34, height: 34)
+                cell.rewardCost.layer.cornerRadius = 34 / 2
+                cell.rewardCost.layer.borderWidth = 1.5
+            } else {
+                cell.rewardCost.text = ""
+                cell.rewardCost.layer.borderWidth = 0
+            }
             return cell
         } else if indexPath.section == 1 {
             guard let cell = myRewards.dequeueReusableCell(withIdentifier: "PremiumRewardsTableViewCell", for: indexPath) as? PremiumRewardsTableViewCell else {
                 fatalError("cell isnt a premium reward cell")
             }
             cell.myPremiumReward.text = premiumRewards![indexPath.row]
-            if (premiumRewards![indexPath.row] != "Purchase") {
-                let text = String(findValue(text: premiumRewards![indexPath.row], section: 1))
-                if (text == "0") {
-                    cell.rewardCost.text = "☆"
+            if (myRewards.isEditing == false) {
+                if (premiumRewards![indexPath.row] != "Purchase") {
+                    let text = String(findValue(text: premiumRewards![indexPath.row], section: 1))
+                    if (text == "0") {
+                        cell.rewardCost.text = "☆"
+                    } else {
+                        cell.rewardCost.text = String(findValue(text: premiumRewards![indexPath.row], section: 1))
+                    }
+                    cell.rewardCost.bounds = CGRect(x: 0.0, y: 0.0, width: 34, height: 34)
+                    cell.rewardCost.layer.cornerRadius = 34 / 2
+                    cell.rewardCost.layer.borderWidth = 1.5
+                    return cell
                 } else {
-                    cell.rewardCost.text = String(findValue(text: premiumRewards![indexPath.row], section: 1))
+                    cell.rewardCost.text = "?"
+                    cell.rewardCost.bounds = CGRect(x: 0.0, y: 0.0, width: 34, height: 34)
+                    cell.rewardCost.layer.cornerRadius = 34 / 2
+                    cell.rewardCost.layer.borderWidth = 1.5
+                    return cell
                 }
-                cell.rewardCost.bounds = CGRect(x: 0.0, y: 0.0, width: 34, height: 34)
-                cell.rewardCost.layer.cornerRadius = 34 / 2
-                cell.rewardCost.layer.borderWidth = 1.5
-                return cell
             } else {
-                cell.rewardCost.text = "?"
-                cell.rewardCost.bounds = CGRect(x: 0.0, y: 0.0, width: 34, height: 34)
-                cell.rewardCost.layer.cornerRadius = 34 / 2
-                cell.rewardCost.layer.borderWidth = 1.5
+                cell.rewardCost.text = ""
+                cell.rewardCost.layer.borderWidth = 0
                 return cell
             }
         }
@@ -285,6 +300,46 @@ class RewardsViewController: UIViewController, UITableViewDelegate, UITableViewD
                 deletePremiumReward(premiumReward: String(describing: premiumRewards![indexPath.row]))
             }
             myRewards.deleteRows(at: [indexPath], with: .automatic)
+        }
+    }
+    
+    func tableView(_ myRewards: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
+        return false
+    }
+    
+    func tableView(_ myRewards: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
+        if (myRewards.isEditing == true) {
+            return UITableViewCellEditingStyle.none
+        } else {
+            return UITableViewCellEditingStyle.delete
+        }
+    }
+    
+    func tableView(_ myRewards: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool
+    {
+        return true
+    }
+    
+    func tableView(_ myRewards: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath)
+    {
+        if (sourceIndexPath.section == 0 && destinationIndexPath.section == 0) {
+            rewards!.insert(rewards!.remove(at: sourceIndexPath.row), at: destinationIndexPath.row)
+            saveRewardsData(rewards: rewards)
+        } else if (sourceIndexPath.section == 1 && destinationIndexPath.section == 1) {
+            premiumRewards!.insert(premiumRewards!.remove(at: sourceIndexPath.row), at: destinationIndexPath.row)
+            savePremiumRewardsData(premiumRewards: premiumRewards)
+        }
+        myRewards.reloadData()
+    }
+    
+    @objc func longPress(press: UILongPressGestureRecognizer) {
+        if (press.state == UIGestureRecognizerState.began){
+            if (myRewards.isEditing) {
+                myRewards.setEditing(false, animated: true)
+            } else {
+                myRewards.setEditing(true, animated: true)
+            }
+            myRewards.reloadData()
         }
     }
     

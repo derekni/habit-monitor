@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Contacts
+import MobileCoreServices
 
 //tasks
 var tasks:[String]?
@@ -57,6 +59,7 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
     //MARK: Properties
     let cellIdentifier = "TaskTableViewCell"
     @IBOutlet weak var taskTable: UITableView!
+    @IBOutlet weak var myTitle: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,16 +75,8 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
         taskTable.tableFooterView = UIView(frame: .zero)
         taskTable.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: taskTable.frame.size.width, height: 1))
         
-        if #available(iOS 11.0, *) {
-            taskTable.dragDelegate = self as? UITableViewDragDelegate
-        } else {
-            // Fallback on earlier versions
-        }
-        if #available(iOS 11.0, *) {
-            taskTable.dropDelegate = self as? UITableViewDropDelegate
-        } else {
-            // Fallback on earlier versions
-        }
+        let longPress = UILongPressGestureRecognizer(target: self, action: #selector(TaskViewController.longPress))
+        myTitle.addGestureRecognizer(longPress)
     }
 
     override func didReceiveMemoryWarning() {
@@ -120,12 +115,41 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
             taskTable.deleteRows(at: [indexPath], with: .automatic)
         }
     }
-    /*
-    @available(iOS 11.0, *)
-    func tableView(_ taskTable: UITableView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
-        return model.dragItems(for: indexPath)
+    
+    func tableView(_ taskTable: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
+        if (taskTable.isEditing == true) {
+            return UITableViewCellEditingStyle.none
+        } else {
+            return UITableViewCellEditingStyle.delete
+        }
     }
-    */
+    
+    func tableView(_ taskTable: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
+        return false
+    }
+    
+    func tableView(_ taskTable: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool
+    {
+        return true
+    }
+    
+    func tableView(_ taskTable: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath)
+    {
+        tasks!.insert(tasks!.remove(at: sourceIndexPath.row), at: destinationIndexPath.row)
+        saveTaskData(tasks: tasks)
+        taskTable.reloadData()
+    }
+ 
+    @objc func longPress(press: UILongPressGestureRecognizer) {
+        if (press.state == UIGestureRecognizerState.began) {
+            if (taskTable.isEditing == true) {
+                taskTable.setEditing(false, animated: true)
+            } else {
+                taskTable.setEditing(true, animated: true)
+            }
+        }
+    }
+    
     @IBAction func composeTapped(_ sender: Any) {
         let alert = UIAlertController(title: "Add To-Do", message: nil, preferredStyle: .alert)
         alert.addTextField { (taskTF) in
@@ -154,3 +178,40 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
 }
+/*
+extension TaskViewController: UITableViewDragDelegate, UITableViewDropDelegate {
+    
+    func tableView(_ tableView: UITableView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
+        return model.dragItems(for: indexPath)
+    }
+    
+    func tableView(_ tableView: UITableView, performDropWith coordinator: UITableViewDropCoordinator) {
+        let destinationIndexPath: IndexPath
+        
+        if let indexPath = coordinator.destinationIndexPath {
+            destinationIndexPath = indexPath
+        } else {
+            // Get last index path of table view.
+            let section = tableView.numberOfSections - 1
+            let row = tableView.numberOfRows(inSection: section)
+            destinationIndexPath = IndexPath(row: row, section: section)
+        }
+        
+        coordinator.session.loadObjects(ofClass: NSString.self) { items in
+            // Consume drag items.
+            let stringItems = items as! [String]
+            
+            var indexPaths = [IndexPath]()
+            for (index, item) in stringItems.enumerated() {
+                let indexPath = IndexPath(row: destinationIndexPath.row + index, section: destinationIndexPath.section)
+                self.model.addItem(item, at: indexPath.row)
+                indexPaths.append(indexPath)
+            }
+            
+            tableView.insertRows(at: indexPaths, with: .automatic)
+        }
+    }
+    
+}
+*/
+
