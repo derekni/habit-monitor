@@ -91,8 +91,6 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
         guard let cell = myHistory.dequeueReusableCell(withIdentifier: "HistoryTableViewCell", for: indexPath) as? HistoryTableViewCell else {
             fatalError("Cell is not a HistoryTableViewCell")
         }
-        
-        // Configure the cell...
         cell.activityLabel.text = history![indexPath.row][0]
         cell.dateLabel.text = history![indexPath.row][1]
         

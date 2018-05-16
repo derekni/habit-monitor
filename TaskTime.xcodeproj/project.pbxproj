@@ -22,7 +22,7 @@
 		7DA81ABB205C925200266224 /* RewardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA81ABA205C925200266224 /* RewardsViewController.swift */; };
 		7DA81ABF206362CC00266224 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA81ABE206362CC00266224 /* HistoryViewController.swift */; };
 		7DA81AC52063716800266224 /* ResolutionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA81AC42063716800266224 /* ResolutionsTableViewController.swift */; };
-		7DA81AC720640D2F00266224 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA81AC620640D2F00266224 /* AboutViewController.swift */; };
+		7DBFA53520A66D2900B2F3C6 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DBFA53420A66D2900B2F3C6 /* SettingsTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,7 +54,7 @@
 		7DA81ABA205C925200266224 /* RewardsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardsViewController.swift; sourceTree = "<group>"; };
 		7DA81ABE206362CC00266224 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		7DA81AC42063716800266224 /* ResolutionsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResolutionsTableViewController.swift; sourceTree = "<group>"; };
-		7DA81AC620640D2F00266224 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		7DBFA53420A66D2900B2F3C6 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,7 +108,7 @@
 				7DA81ABE206362CC00266224 /* HistoryViewController.swift */,
 				7D94DD6820586066002724AE /* SavingsViewController.swift */,
 				7DA81AC42063716800266224 /* ResolutionsTableViewController.swift */,
-				7DA81AC620640D2F00266224 /* AboutViewController.swift */,
+				7DBFA53420A66D2900B2F3C6 /* SettingsTableViewController.swift */,
 				7D7382F5206C04E8002FE875 /* Formatting.swift */,
 				7D5955EE2049D3DF008E2C9C /* Assets.xcassets */,
 				7D5955F32049D3DF008E2C9C /* Info.plist */,
@@ -224,8 +224,8 @@
 				7DA81AC52063716800266224 /* ResolutionsTableViewController.swift in Sources */,
 				7D5955EA2049D3DF008E2C9C /* PointsViewController.swift in Sources */,
 				7D7382F6206C04E8002FE875 /* Formatting.swift in Sources */,
-				7DA81AC720640D2F00266224 /* AboutViewController.swift in Sources */,
 				7DA81ABF206362CC00266224 /* HistoryViewController.swift in Sources */,
+				7DBFA53520A66D2900B2F3C6 /* SettingsTableViewController.swift in Sources */,
 				7D2E9EF4205508D900F81311 /* OptionTableViewController.swift in Sources */,
 				7DA81ABB205C925200266224 /* RewardsViewController.swift in Sources */,
 				7D94DD6D205AE8EA002724AE /* RemindersViewController.swift in Sources */,

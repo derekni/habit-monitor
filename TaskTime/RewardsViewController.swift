@@ -379,11 +379,48 @@ class AddRewardViewController: UIViewController {
         let cost = Int(rewardCost.text!)
         let type = rewardType.titleForSegment(at: rewardType.selectedSegmentIndex)
         if (type == "Reward") {
-            addReward(reward: name!, value: cost!)
+            if (name != nil && cost != nil) {
+                if (!rewards!.contains(name!)) {
+                    addReward(reward: name!, value: cost!)
+                    self.performSegue(withIdentifier: "AddToRewards", sender: self)
+                } else {
+                    let alert = UIAlertController(title: "Cannot add reward", message: "Reward already exists as a reward", preferredStyle: .alert)
+                    let cancel = UIAlertAction(title: "Got it", style: .default) { (_) in
+                        return
+                    }
+                    alert.addAction(cancel)
+                    present(alert, animated: true)
+                }
+            } else {
+                let alert = UIAlertController(title: "Cannot add reward", message: "Reward must have a name and a value", preferredStyle: .alert)
+                let cancel = UIAlertAction(title: "Got it", style: .default) { (_) in
+                    return
+                }
+                alert.addAction(cancel)
+                present(alert, animated: true)
+            }
         } else {
-            addPremiumReward(premiumReward: name!, value: cost!)
+            if (name != nil && cost != nil){
+                if (!premiumRewards!.contains(name!)) {
+                    addPremiumReward(premiumReward: name!, value: cost!)
+                    self.performSegue(withIdentifier: "AddToRewards", sender: self)
+                } else {
+                    let alert = UIAlertController(title: "Cannot add reward", message: "Reward already exists as a premium reward", preferredStyle: .alert)
+                    let cancel = UIAlertAction(title: "Got it", style: .default) { (_) in
+                        return
+                    }
+                    alert.addAction(cancel)
+                    present(alert, animated: true)
+                }
+            } else {
+                let alert = UIAlertController(title: "Cannot add reward", message: "Reward must have a name and a value", preferredStyle: .alert)
+                let cancel = UIAlertAction(title: "Got it", style: .default) { (_) in
+                    return
+                }
+                alert.addAction(cancel)
+                present(alert, animated: true)
+            }
         }
-        self.performSegue(withIdentifier: "AddToRewards", sender: self)
     }
     
 }

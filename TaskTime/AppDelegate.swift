@@ -14,7 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-
+        
         //check if new day
         let currentDate = getCurrentDate()
         if (currentDate > fetchDateData()!) {
@@ -25,6 +25,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //color
         
+        
+        //sound
+        if let soundVal = fetchSoundVal() {
+            sound = soundVal
+        } else {
+            sound = true
+        }
         
         //point val
         if let val = fetchPointVal() {

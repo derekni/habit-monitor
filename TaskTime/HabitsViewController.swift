@@ -183,7 +183,7 @@ class HabitsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let alert = UIAlertController(title: "Add Habit", message: nil, preferredStyle: .alert)
         alert.addTextField { (habitTF) in
             habitTF.placeholder = "Enter Habit"
-            habitTF.maxLength = 20
+            habitTF.maxLength = 25
             //habitTF.borderStyle = .roundedRect
         }
         let cancel = UIAlertAction(title: "Cancel", style: .default) { (_) in
@@ -199,9 +199,16 @@ class HabitsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func add(habit: String) {
-        if (habit != "") {
+        if (habit != "" && !habits!.contains(habit)) {
             addHabit(habit: habit)
             myHabits.insertRows(at: [IndexPath(row: habits!.count - 1, section: 0)], with: .automatic)
+        } else {
+            let alert = UIAlertController(title: "Cannot add habit", message: "Habit already exists as a habit", preferredStyle: .alert)
+            let cancel = UIAlertAction(title: "Got it", style: .default) { (_) in
+                return
+            }
+            alert.addAction(cancel)
+            present(alert, animated: true)
         }
     }
     
