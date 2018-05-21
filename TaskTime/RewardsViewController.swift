@@ -157,9 +157,12 @@ class RewardsViewController: UIViewController, UITableViewDelegate, UITableViewD
     // MARK: Properties
     @IBOutlet weak var myRewards: UITableView!
     @IBOutlet weak var myTitle: UIButton!
+    @IBOutlet weak var navigationBar: UINavigationBar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationBar.barTintColor = UIColor(hex: fetchColorCode()!)
         
         myRewards.delegate = self
         myRewards.dataSource = self
@@ -292,15 +295,47 @@ class RewardsViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
     }
     
-    func tableView(_ myRewards: UITableView, commit commitEditingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if commitEditingStyle == .delete {
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let editRowAction = UITableViewRowAction(style: UITableViewRowActionStyle.default, title: "Edit", handler:{action, indexpath in
+            let alert = UIAlertController(title: "Edit Resolution", message: nil, preferredStyle: .alert)
+            alert.addTextField { (rewardsTF) in
+                if (indexPath.section == 0) {
+                    rewardsTF.text = rewards![indexPath.row]
+                } else {
+                    rewardsTF.text = premiumRewards![indexPath.row]
+                }
+                rewardsTF.maxLength = 25
+            }
+            let cancel = UIAlertAction(title: "Cancel", style: .default) { (_) in
+                return
+            }
+            let action = UIAlertAction(title: "Edit", style: .default) { (_) in
+                guard let reward = alert.textFields?.first?.text else { return }
+                if (indexPath.section == 0) {
+                    rewards![indexPath.row] = reward
+                    saveRewardsData(rewards: rewards)
+                } else {
+                    premiumRewards![indexPath.row] = reward
+                    savePremiumRewardsData(premiumRewards: premiumRewards)
+                }
+                tableView.reloadData()
+            }
+            alert.addAction(cancel)
+            alert.addAction(action)
+            self.present(alert, animated: true)
+        });
+        editRowAction.backgroundColor = UIColor.lightGray;
+        
+        let deleteRowAction = UITableViewRowAction(style: UITableViewRowActionStyle.default, title: "Delete", handler:{action, indexpath in
             if (indexPath.section == 0) {
                 deleteReward(reward: String(describing: rewards![indexPath.row]))
             } else {
                 deletePremiumReward(premiumReward: String(describing: premiumRewards![indexPath.row]))
             }
-            myRewards.deleteRows(at: [indexPath], with: .automatic)
-        }
+            self.myRewards.deleteRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
+        });
+        
+        return [deleteRowAction, editRowAction];
     }
     
     func tableView(_ myRewards: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
@@ -362,11 +397,15 @@ class AddRewardViewController: UIViewController {
     @IBOutlet weak var rewardType: UISegmentedControl!
     @IBOutlet weak var rewardName: UITextField!
     @IBOutlet weak var rewardCost: CurrencyField!
+    @IBOutlet weak var navigationBar: UINavigationBar!
+    @IBOutlet weak var addButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
+        navigationBar.barTintColor = UIColor(hex: fetchColorCode()!)
+        rewardType.tintColor = UIColor(hex: fetchColorCode()!)
+        addButton.backgroundColor = UIColor(hex: fetchColorCode()!)
     }
     
     override func didReceiveMemoryWarning() {
@@ -431,11 +470,14 @@ class CustomRewardViewController: UIViewController {
     // MARK: Properties
     @IBOutlet weak var myReward: UITextField!
     @IBOutlet weak var myCost: CurrencyField!
+    @IBOutlet weak var navigationBar: UINavigationBar!
+    @IBOutlet weak var redeemButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
+        navigationBar.barTintColor = UIColor(hex: fetchColorCode()!)
+        redeemButton.backgroundColor = UIColor(hex: fetchColorCode()!)
     }
     
     override func didReceiveMemoryWarning() {

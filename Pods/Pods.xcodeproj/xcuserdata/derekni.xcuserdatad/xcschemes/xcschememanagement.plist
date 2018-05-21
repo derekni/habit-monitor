@@ -4,21 +4,29 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Habit Monitor.xcscheme</key>
+		<key>MGSwipeTableCell.xcscheme</key>
 		<dict>
+			<key>isShown</key>
+			<false/>
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
-		<key>Healthy Habits.xcscheme</key>
+		<key>Pods-TaskTime.xcscheme</key>
 		<dict>
+			<key>isShown</key>
+			<false/>
 			<key>orderHint</key>
-			<integer>0</integer>
+			<integer>1</integer>
 		</dict>
-		<key>TaskTime.xcscheme</key>
+		<key>Pods-TaskTimeTests.xcscheme</key>
 		<dict>
+			<key>isShown</key>
+			<false/>
 			<key>orderHint</key>
-			<integer>3</integer>
+			<integer>2</integer>
 		</dict>
 	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict/>
 </dict>
 </plist>

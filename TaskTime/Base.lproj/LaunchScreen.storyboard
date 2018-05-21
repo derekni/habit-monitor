@@ -24,7 +24,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TaskTime" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ow7-FR-5Kg">
-                                <rect key="frame" x="50" y="150" width="275" height="387"/>
+                                <rect key="frame" x="78.5" y="305" width="218" height="57.5"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="48"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -33,13 +33,7 @@
                         <color key="backgroundColor" red="0.0039215686269999999" green="0.47450980390000003" blue="0.43529411759999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Ow7-FR-5Kg" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="59k-KS-iOo"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Ow7-FR-5Kg" secondAttribute="bottom" constant="130" id="ER6-Ar-dyb"/>
-                            <constraint firstItem="Ow7-FR-5Kg" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="130" id="axq-qn-5aW"/>
-                            <constraint firstItem="Ow7-FR-5Kg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="hlc-PQ-VM0"/>
                             <constraint firstItem="Ow7-FR-5Kg" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="mj8-QW-KPr"/>
-                            <constraint firstItem="Ow7-FR-5Kg" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="10" id="sqA-c0-o6A"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Ow7-FR-5Kg" secondAttribute="trailing" constant="50" id="yHL-LI-Tyw"/>
-                            <constraint firstItem="Ow7-FR-5Kg" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" constant="10" id="zQR-5G-Asu"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>

@@ -63,9 +63,12 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     // MARK: Properties
     @IBOutlet weak var myHistory: UITableView!
+    @IBOutlet weak var navigationBar: UINavigationBar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationBar.barTintColor = UIColor(hex: fetchColorCode()!)
         
         myHistory.delegate = self
         myHistory.dataSource = self

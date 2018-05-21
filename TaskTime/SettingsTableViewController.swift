@@ -19,13 +19,48 @@ func saveSoundVal(isOn: Bool) {
     UserDefaults.standard.set(isOn, forKey: "isSoundOn")
 }
 
+//color functions
+var color:String?
+var colorCodes = [
+    "Sacramento Green": "#043927",
+    "Hunter Green": "#3f704d",
+    "Forest Green": "#0b6623",
+    "Pine Green": "#01796F",
+    "Jade Green": "#00A86B",
+    "Teal": "#008081",
+    "Space Blue": "#1D2951",
+    "Prussian Blue": "#003152",
+    "Royal Blue": "#111E6C",
+    "Navy Blue": "#000080",
+    "Yale Blue": "#0E4D92",
+    "Egyptian Blue": "#1034A6",
+    "Sapphire Blue": "#0F52BA",
+    "Steel Blue": "#468284",
+    "Baby Blue": "#89CFF0",
+    "Sky Blue": "#95C8D8"
+]
+
+func fetchColorVal() -> String? {
+    return UserDefaults.standard.string(forKey: "colorName")
+}
+
+func saveColorVal(name: String) {
+    UserDefaults.standard.set(name, forKey: "colorName")
+}
+
+func fetchColorCode() -> String? {
+    return colorCodes[fetchColorVal()!]
+}
+
 class SettingsViewController: UIViewController {
+    
+    // MARK: Properties
+    @IBOutlet weak var navigationBar: UINavigationBar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
-    }
+        navigationBar.barTintColor = UIColor(hex: fetchColorCode()!)    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -35,8 +70,6 @@ class SettingsViewController: UIViewController {
 }
 
 class SettingsTableViewController: UITableViewController {
-
-    // MARK: Properties
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -109,27 +142,20 @@ class SettingsTableViewController: UITableViewController {
 
 class AboutViewController: UIViewController {
     
+    // MARK: Properties
+    @IBOutlet weak var navigationBar: UINavigationBar!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
+        navigationBar.barTintColor = UIColor(hex: fetchColorCode()!)
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
+
 }
 
 class CustomizeViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
@@ -139,15 +165,19 @@ class CustomizeViewController: UIViewController, UIPickerViewDataSource, UIPicke
     @IBOutlet weak var pointLabel: UILabel!
     @IBOutlet weak var pickerView: UIPickerView!
     @IBOutlet weak var soundSwitch: UISwitch!
-    let colors = ["Hunter Green", "Forest Green", "Pine Green", "Jade Green"]
+    @IBOutlet weak var navigationBar: UINavigationBar!
+    let colors = ["Sacramento Green", "Hunter Green", "Forest Green", "Pine Green", "Jade Green", "Teal", "Space Blue", "Prussian Blue", "Royal Blue", "Navy Blue", "Yale Blue", "Egyptian Blue", "Sapphire Blue", "Steel Blue", "Baby Blue", "Sky Blue"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationBar.barTintColor = UIColor(hex: fetchColorCode()!)
         
         pointLabel.text = "$" + String(pointVal!)
         pointStepper.value = Double(pointVal!)
         
         pickerView.delegate = self
+        pickerView.selectRow(colors.index(of: color!)!, inComponent: 0, animated: true)
     }
     
     override func didReceiveMemoryWarning() {
@@ -163,7 +193,6 @@ class CustomizeViewController: UIViewController, UIPickerViewDataSource, UIPicke
         pointVal = Int(pointStepper.value)
         savePointVal(pointVal: pointVal)
         pointLabel.text = "$" + String(pointVal!)
-        print(pointVal)
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
@@ -175,13 +204,14 @@ class CustomizeViewController: UIViewController, UIPickerViewDataSource, UIPicke
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        //row selected in pickerView
+        color = colors[row]
+        saveColorVal(name: colors[row])
+        navigationBar.barTintColor = UIColor(hex: fetchColorCode()!)
     }
     
     @IBAction func soundChanged(_ sender: Any) {
         sound = soundSwitch.isOn
         saveSoundVal(isOn: soundSwitch.isOn)
-        print(sound)
     }
     
 }

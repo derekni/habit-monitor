@@ -57,12 +57,14 @@ class RemindersViewController: UIViewController, UITableViewDelegate, UITableVie
     //MARK: Properties
     @IBOutlet weak var reminderTable: UITableView!
     @IBOutlet weak var myTitle: UIButton!
+    @IBOutlet weak var navigationBar: UINavigationBar!
     let cellIdentifier = "RemindersTableViewCell"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
+        navigationBar.barTintColor = UIColor(hex: fetchColorCode()!)
+        
         reminderTable.delegate = self
         reminderTable.dataSource = self
         
@@ -97,6 +99,36 @@ class RemindersViewController: UIViewController, UITableViewDelegate, UITableVie
     func tableView(_ reminderTable: UITableView, didSelectRowAt indexPath: IndexPath) {
         deleteReminderData(completedReminder: String(describing: reminders![indexPath.row]))
         reminderTable.deleteRows(at: [indexPath], with: .right)
+    }
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let editRowAction = UITableViewRowAction(style: UITableViewRowActionStyle.default, title: "Edit", handler:{action, indexpath in
+            let alert = UIAlertController(title: "Edit Reminder", message: nil, preferredStyle: .alert)
+            alert.addTextField { (remindersTF) in
+                remindersTF.text = reminders![indexPath.row]
+                remindersTF.maxLength = 25
+            }
+            let cancel = UIAlertAction(title: "Cancel", style: .default) { (_) in
+                return
+            }
+            let action = UIAlertAction(title: "Edit", style: .default) { (_) in
+                guard let reminder = alert.textFields?.first?.text else { return }
+                reminders![indexPath.row] = reminder
+                saveReminderData(reminders: reminders)
+                tableView.reloadData()
+            }
+            alert.addAction(cancel)
+            alert.addAction(action)
+            self.present(alert, animated: true)
+        });
+        editRowAction.backgroundColor = UIColor.lightGray;
+        
+        let deleteRowAction = UITableViewRowAction(style: UITableViewRowActionStyle.default, title: "Delete", handler:{action, indexpath in
+            deleteReminderData(completedReminder: String(describing: reminders![indexPath.row]))
+            self.reminderTable.deleteRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
+        });
+        
+        return [deleteRowAction, editRowAction];
     }
     
     func tableView(_ reminderTable: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
@@ -137,7 +169,6 @@ class RemindersViewController: UIViewController, UITableViewDelegate, UITableVie
         alert.addTextField { (reminderTF) in
             reminderTF.placeholder = "Enter Reminder"
             reminderTF.maxLength = 30
-            //reminderTF.borderStyle = .roundedRect
         }
         let cancel = UIAlertAction(title: "Cancel", style: .default) { (_) in
             return

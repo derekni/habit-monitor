@@ -88,9 +88,12 @@ class HabitsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     // MARK: Properties
     @IBOutlet weak var myHabits: UITableView!
     @IBOutlet weak var myTitle: UIButton!
+    @IBOutlet weak var navigationBar: UINavigationBar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationBar.barTintColor = UIColor(hex: fetchColorCode()!)
         
         myHabits.delegate = self
         myHabits.dataSource = self
@@ -139,11 +142,34 @@ class HabitsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
     }
     
-    func tableView(_ myHabits: UITableView, commit commitEditingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if commitEditingStyle == .delete {
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let editRowAction = UITableViewRowAction(style: UITableViewRowActionStyle.default, title: "Edit", handler:{action, indexpath in
+            let alert = UIAlertController(title: "Edit Habit", message: nil, preferredStyle: .alert)
+            alert.addTextField { (habitsTF) in
+                habitsTF.text = habits![indexPath.row]
+                habitsTF.maxLength = 25
+            }
+            let cancel = UIAlertAction(title: "Cancel", style: .default) { (_) in
+                return
+            }
+            let action = UIAlertAction(title: "Edit", style: .default) { (_) in
+                guard let habit = alert.textFields?.first?.text else { return }
+                habits![indexPath.row] = habit
+                saveHabitsData(habits: habits)
+                tableView.reloadData()
+            }
+            alert.addAction(cancel)
+            alert.addAction(action)
+            self.present(alert, animated: true)
+        });
+        editRowAction.backgroundColor = UIColor.lightGray;
+        
+        let deleteRowAction = UITableViewRowAction(style: UITableViewRowActionStyle.default, title: "Delete", handler:{action, indexpath in
             deleteHabit(deletedHabit: String(describing: habits![indexPath.row]))
-            myHabits.deleteRows(at: [indexPath], with: UITableViewRowAnimation.left)
-        }
+            self.myHabits.deleteRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
+        });
+        
+        return [deleteRowAction, editRowAction];
     }
     
     func tableView(_ myHabits: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
@@ -184,7 +210,6 @@ class HabitsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         alert.addTextField { (habitTF) in
             habitTF.placeholder = "Enter Habit"
             habitTF.maxLength = 25
-            //habitTF.borderStyle = .roundedRect
         }
         let cancel = UIAlertAction(title: "Cancel", style: .default) { (_) in
             return

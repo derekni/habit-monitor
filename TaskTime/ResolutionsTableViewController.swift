@@ -57,9 +57,12 @@ class ResolutionsViewController: UIViewController, UITableViewDelegate, UITableV
     // MARK: Properties
     @IBOutlet weak var myResolutions: UITableView!
     @IBOutlet weak var myTitle: UIButton!
+    @IBOutlet weak var navigationBar: UINavigationBar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationBar.barTintColor = UIColor(hex: fetchColorCode()!)
         
         myResolutions.delegate = self
         myResolutions.dataSource = self
@@ -90,15 +93,38 @@ class ResolutionsViewController: UIViewController, UITableViewDelegate, UITableV
         }
         
         cell.myResolution.text = resolutions![indexPath.row]
-        
+
         return cell
     }
-    
-    func tableView(_ myResolutions: UITableView, commit commitEditingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if commitEditingStyle == .delete {
+
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let editRowAction = UITableViewRowAction(style: UITableViewRowActionStyle.default, title: "Edit", handler:{action, indexpath in
+            let alert = UIAlertController(title: "Edit Resolution", message: nil, preferredStyle: .alert)
+            alert.addTextField { (resolutionTF) in
+                resolutionTF.text = resolutions![indexPath.row]
+                resolutionTF.maxLength = 25
+            }
+            let cancel = UIAlertAction(title: "Cancel", style: .default) { (_) in
+                return
+            }
+            let action = UIAlertAction(title: "Edit", style: .default) { (_) in
+                guard let resolution = alert.textFields?.first?.text else { return }
+                resolutions![indexPath.row] = resolution
+                saveResolutionData(resolutions: resolutions)
+                tableView.reloadData()
+            }
+            alert.addAction(cancel)
+            alert.addAction(action)
+            self.present(alert, animated: true)
+        });
+        editRowAction.backgroundColor = UIColor.lightGray;
+        
+        let deleteRowAction = UITableViewRowAction(style: UITableViewRowActionStyle.default, title: "Delete", handler:{action, indexpath in
             deleteResolution(deletedResolution: String(describing: resolutions![indexPath.row]))
-            myResolutions.deleteRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
-        }
+            self.myResolutions.deleteRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
+        });
+        
+        return [deleteRowAction, editRowAction];
     }
 
     func tableView(_ myResolutions: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
@@ -124,7 +150,7 @@ class ResolutionsViewController: UIViewController, UITableViewDelegate, UITableV
         saveResolutionData(resolutions: resolutions)
         myResolutions.reloadData()
     }
- 
+    
     @objc func longPress(press: UILongPressGestureRecognizer) {
         if (press.state == UIGestureRecognizerState.began){
             if (myResolutions.isEditing) {
@@ -140,7 +166,6 @@ class ResolutionsViewController: UIViewController, UITableViewDelegate, UITableV
         alert.addTextField { (resolutionTF) in
             resolutionTF.placeholder = "Enter Resolution"
             resolutionTF.maxLength = 25
-            //resolutionTF.borderStyle = .roundedRect
         }
         let cancel = UIAlertAction(title: "Cancel", style: .default) { (_) in
             return

@@ -31,13 +31,10 @@ class PointsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+
+        self.view.backgroundColor = UIColor(hex: fetchColorCode()!)
+        
         label.text = String(points!)
-        // forest self.view.backgroundColor = UIColor(red: 11/255, green: 102/255, blue: 35/255, alpha: 1)
-        // pine self.view.backgroundColor = UIColor(red: 1/255, green: 121/255, blue: 111/255, alpha: 1)
-        // sage self.view.backgroundColor = UIColor(red: 157/255, green: 193/255, blue: 131/255, alpha: 1)
-        //navigationItem.hidesBackButton = true
-        //navigationController?.setNavigationBarHidden(true, animated: false)
     }
 
     override func didReceiveMemoryWarning() {

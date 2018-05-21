@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="heE-n7-tCC">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -21,7 +21,7 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="PointsViewController" customModule="TaskTime" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fyh-Wi-SBf">
@@ -163,6 +163,7 @@
                     <connections>
                         <outlet property="myResolutions" destination="dyF-kP-Kha" id="qXw-Aa-efy"/>
                         <outlet property="myTitle" destination="UIM-pP-BZg" id="oZc-Xg-jxA"/>
+                        <outlet property="navigationBar" destination="z8x-4O-dOQ" id="J4Q-IE-7FX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6at-vM-x1N" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -224,6 +225,9 @@ This app was made by Derek Ni.</string>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vDq-Zz-3ye"/>
                     </view>
+                    <connections>
+                        <outlet property="navigationBar" destination="dNe-PA-oug" id="Bz4-MV-fWY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aEj-NA-e8W" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -297,6 +301,7 @@ This app was made by Derek Ni.</string>
                         <viewLayoutGuide key="safeArea" id="NpG-Zs-Xrs"/>
                     </view>
                     <connections>
+                        <outlet property="navigationBar" destination="352-bK-Rmy" id="n2f-Wq-hSX"/>
                         <segue destination="BYZ-38-t0r" kind="presentation" identifier="SettingsToPoints" modalTransitionStyle="crossDissolve" id="42O-JD-HBI"/>
                     </connections>
                 </viewController>
@@ -363,13 +368,6 @@ This app was made by Derek Ni.</string>
                                     <action selector="pointValueChanged:" destination="heE-n7-tCC" eventType="valueChanged" id="eiQ-QW-bAJ"/>
                                 </connections>
                             </stepper>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Value" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NIG-8A-QRi">
-                                <rect key="frame" x="157" y="66" width="60" height="28"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="24"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Color Scheme:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MBn-nk-UXY">
                                 <rect key="frame" x="16" y="112" width="164" height="39"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -381,6 +379,13 @@ This app was made by Derek Ni.</string>
                                 <rect key="frame" x="16" y="159" width="343" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Value" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NIG-8A-QRi">
+                                <rect key="frame" x="144" y="65" width="60" height="28"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -396,6 +401,7 @@ This app was made by Derek Ni.</string>
                         <viewLayoutGuide key="safeArea" id="orL-fP-ANF"/>
                     </view>
                     <connections>
+                        <outlet property="navigationBar" destination="PJv-Th-FnQ" id="tCw-Uq-yaE"/>
                         <outlet property="pickerView" destination="IZO-ut-qBP" id="rcw-Na-5rF"/>
                         <outlet property="pointLabel" destination="NIG-8A-QRi" id="5c8-mx-eTx"/>
                         <outlet property="pointStepper" destination="Yv5-2K-bDr" id="dCJ-YN-9R9"/>
@@ -919,6 +925,7 @@ This app was made by Derek Ni.</string>
                     </view>
                     <connections>
                         <outlet property="myHistory" destination="vEq-49-Y1K" id="Y09-XA-xeL"/>
+                        <outlet property="navigationBar" destination="Z6Y-vO-AMa" id="w7k-cF-CUn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yaL-M2-7zU" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1040,6 +1047,7 @@ This app was made by Derek Ni.</string>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="myTitle" destination="dui-eF-8Ce" id="kZI-ZN-0zF"/>
+                        <outlet property="navigationBar" destination="wFA-2t-YCW" id="90p-0E-pP7"/>
                         <outlet property="taskTable" destination="hsW-da-cBo" id="hRG-Hf-bEW"/>
                     </connections>
                 </viewController>
@@ -1143,6 +1151,7 @@ This app was made by Derek Ni.</string>
                     </tabBarItem>
                     <connections>
                         <outlet property="myTitle" destination="Jk8-xA-3Al" id="mEc-oF-edp"/>
+                        <outlet property="navigationBar" destination="7Qz-9p-ds4" id="XhM-4R-Gt4"/>
                         <outlet property="reminderTable" destination="oxf-4k-voD" id="yXU-eq-chL"/>
                     </connections>
                 </viewController>
@@ -1240,6 +1249,7 @@ This app was made by Derek Ni.</string>
                     <connections>
                         <outlet property="myHabits" destination="lO1-xr-4Db" id="DDz-rD-MDQ"/>
                         <outlet property="myTitle" destination="DVk-Xj-5yA" id="mUg-of-mK1"/>
+                        <outlet property="navigationBar" destination="Hol-Kq-I9z" id="Cly-rT-dpe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n5j-6D-cFz" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1392,6 +1402,7 @@ This app was made by Derek Ni.</string>
                     <connections>
                         <outlet property="myRewards" destination="7py-pf-je5" id="uhH-C7-VKD"/>
                         <outlet property="myTitle" destination="ZPh-N5-jJM" id="f5i-Uq-kr6"/>
+                        <outlet property="navigationBar" destination="rGn-h8-MQm" id="BkK-eV-kx0"/>
                         <segue destination="MCW-YR-Lia" kind="presentation" identifier="PremiumRewardsToSavings" modalTransitionStyle="crossDissolve" id="51C-4n-TYe"/>
                         <segue destination="BYZ-38-t0r" kind="presentation" identifier="RewardsToPoints" modalTransitionStyle="crossDissolve" id="KHx-I2-9DE"/>
                         <segue destination="YCY-I0-etV" kind="custom" identifier="PremiumRewardsToAdd" customClass="SegueFromRight" customModule="TaskTime" customModuleProvider="target" id="d2Q-7A-EBF"/>
@@ -1527,6 +1538,8 @@ This app was made by Derek Ni.</string>
                         <viewLayoutGuide key="safeArea" id="NtK-Yv-Lai"/>
                     </view>
                     <connections>
+                        <outlet property="addButton" destination="GAw-0R-Tpr" id="mPg-SW-EfN"/>
+                        <outlet property="navigationBar" destination="a73-pn-Cs2" id="gZv-Qn-NAc"/>
                         <outlet property="rewardCost" destination="gZU-Zn-dRP" id="5si-FA-EAq"/>
                         <outlet property="rewardName" destination="vL2-XZ-ciP" id="zkh-cG-NVY"/>
                         <outlet property="rewardType" destination="xdk-9U-pOe" id="S3S-7o-Bv7"/>
@@ -1641,6 +1654,8 @@ This app was made by Derek Ni.</string>
                     <connections>
                         <outlet property="myCost" destination="1W3-qq-DqL" id="WQi-KO-CEH"/>
                         <outlet property="myReward" destination="kZu-ex-RdY" id="RWU-re-vDK"/>
+                        <outlet property="navigationBar" destination="9Z3-Zv-3WM" id="Bnk-NP-IAD"/>
+                        <outlet property="redeemButton" destination="4TH-4m-zmi" id="PE4-9a-xdl"/>
                         <segue destination="BYZ-38-t0r" kind="presentation" identifier="CustomRewardToPoints" modalTransitionStyle="crossDissolve" id="iyQ-dg-Asp"/>
                     </connections>
                 </viewController>
@@ -1699,6 +1714,9 @@ This app was made by Derek Ni.</string>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Yu9-DW-XP5"/>
                     </view>
+                    <connections>
+                        <outlet property="navigationBar" destination="7vM-2q-kCm" id="9ii-PP-z2F"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TXh-ST-puX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1715,10 +1733,10 @@ This app was made by Derek Ni.</string>
         <image name="Options" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="gYy-IF-SjD"/>
-        <segue reference="Hxi-TQ-bm7"/>
-        <segue reference="bpS-cR-XTQ"/>
+        <segue reference="AO0-bP-hEw"/>
+        <segue reference="XUj-aZ-Z1q"/>
+        <segue reference="51C-4n-TYe"/>
         <segue reference="L0G-cZ-M6d"/>
-        <segue reference="XXC-8l-ZB5"/>
+        <segue reference="iyQ-dg-Asp"/>
     </inferredMetricsTieBreakers>
 </document>

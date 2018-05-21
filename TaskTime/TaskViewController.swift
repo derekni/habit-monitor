@@ -60,12 +60,12 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
     let cellIdentifier = "TaskTableViewCell"
     @IBOutlet weak var taskTable: UITableView!
     @IBOutlet weak var myTitle: UIButton!
+    @IBOutlet weak var navigationBar: UINavigationBar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-        UINavigationBar.appearance().isTranslucent = false
+        navigationBar.barTintColor = UIColor(hex: fetchColorCode()!)
         
         taskTable.delegate = self
         taskTable.dataSource = self
@@ -109,11 +109,34 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
         taskTable.deleteRows(at: [indexPath], with: .right)
     }
     
-    func tableView(_ taskTable: UITableView, commit commitEditingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if commitEditingStyle == .delete {
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let editRowAction = UITableViewRowAction(style: UITableViewRowActionStyle.default, title: "Edit", handler:{action, indexpath in
+            let alert = UIAlertController(title: "Edit Task", message: nil, preferredStyle: .alert)
+            alert.addTextField { (taskTF) in
+                taskTF.text = tasks![indexPath.row]
+                taskTF.maxLength = 25
+            }
+            let cancel = UIAlertAction(title: "Cancel", style: .default) { (_) in
+                return
+            }
+            let action = UIAlertAction(title: "Edit", style: .default) { (_) in
+                guard let task = alert.textFields?.first?.text else { return }
+                tasks![indexPath.row] = task
+                saveTaskData(tasks: tasks)
+                tableView.reloadData()
+            }
+            alert.addAction(cancel)
+            alert.addAction(action)
+            self.present(alert, animated: true)
+        });
+        editRowAction.backgroundColor = UIColor.lightGray;
+        
+        let deleteRowAction = UITableViewRowAction(style: UITableViewRowActionStyle.default, title: "Delete", handler:{action, indexpath in
             deleteTaskData(completedTask: String(describing: tasks![indexPath.row]))
-            taskTable.deleteRows(at: [indexPath], with: .automatic)
-        }
+            self.taskTable.deleteRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
+        });
+        
+        return [deleteRowAction, editRowAction];
     }
     
     func tableView(_ taskTable: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
@@ -155,7 +178,6 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
         alert.addTextField { (taskTF) in
             taskTF.placeholder = "Enter To-Do"
             taskTF.maxLength = 25
-            //taskTF.borderStyle = .roundedRect
         }
         let cancel = UIAlertAction(title: "Cancel", style: .default) { (_) in
             return

@@ -29,8 +29,14 @@ class OptionTableViewCell: UITableViewCell {
 //options view controller
 class OptionsViewController: UIViewController {
     
+    // MARK: Properties
+    @IBOutlet weak var navigationBar: UINavigationBar!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.view.backgroundColor = UIColor(hex: fetchColorCode()!)
+        navigationBar.barTintColor = UIColor(hex: fetchColorCode()!)
     }
     
     override func didReceiveMemoryWarning() {
@@ -47,6 +53,8 @@ class OptionTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //self.view.backgroundColor = UIColor(hex: fetchColorCode()!)
 
         UINavigationBar.appearance().isTranslucent = false
         

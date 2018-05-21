@@ -24,7 +24,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         //color
-        
+        if let colorVal = fetchColorVal() {
+            color = colorVal
+        } else {
+            color = "Pine Green"
+        }
         
         //sound
         if let soundVal = fetchSoundVal() {
@@ -72,7 +76,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             habits = [String]()
         }
         if habits?.count == 0 {
-            habits = ["Work out","Play tennis","Practice piano","Practice ukulele","Duolingo practice","Upload to Github","Be productive","Sleep at 11 PM","Skateboard"]
+            habits = ["Work out"]
             saveHabitsData(habits: habits)
         }
         
@@ -90,7 +94,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             rewards = [String]()
         }
         if rewards?.count == 0 {
-            rewards = ["Watch anime","Watch a movie","Eat ramen","Chillax"]
+            rewards = ["Watch TV"]
             saveRewardsData(rewards: rewards)
         }
         
@@ -102,10 +106,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         if rewardsDict?.count == 0 {
             rewardsDict = [
-                "Watch anime": 1,
-                "Watch a movie": 5,
-                "Eat ramen": 1,
-                "Chillax": 2
+                "Watch TV": 1
             ]
             saveRewardsDictData(rewardsDict: rewardsDict)
         }
