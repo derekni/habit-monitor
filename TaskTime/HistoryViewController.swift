@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 //history
 var history:[[String]]?
@@ -68,6 +69,7 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.view.backgroundColor = UIColor(hex: fetchColorCode()!)
         navigationBar.barTintColor = UIColor(hex: fetchColorCode()!)
         
         myHistory.delegate = self

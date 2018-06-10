@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import AVFoundation
 
 //max length of text field
 private var __maxLengths = [UITextField: Int]()
@@ -201,4 +202,8 @@ extension UIColor {
             blue:  CGFloat((rgb &     0xFF)      )/255.0,
             alpha: alpha)
     }
+}
+
+extension AVAudioPlayer {
+    //override func audio
 }

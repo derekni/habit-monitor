@@ -9,6 +9,7 @@
 import UIKit
 import Contacts
 import MobileCoreServices
+import AVFoundation
 
 //tasks
 var tasks:[String]?
@@ -64,7 +65,8 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        self.view.backgroundColor = UIColor(hex: fetchColorCode()!)
         navigationBar.barTintColor = UIColor(hex: fetchColorCode()!)
         
         taskTable.delegate = self
@@ -161,6 +163,7 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
         tasks!.insert(tasks!.remove(at: sourceIndexPath.row), at: destinationIndexPath.row)
         saveTaskData(tasks: tasks)
         taskTable.reloadData()
+        soundEffect(name: "lip_sound")
     }
  
     @objc func longPress(press: UILongPressGestureRecognizer) {

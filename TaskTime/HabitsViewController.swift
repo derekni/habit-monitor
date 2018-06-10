@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 //habits
 var habits:[String]?
@@ -93,6 +94,7 @@ class HabitsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.view.backgroundColor = UIColor(hex: fetchColorCode()!)
         navigationBar.barTintColor = UIColor(hex: fetchColorCode()!)
         
         myHabits.delegate = self
@@ -193,6 +195,7 @@ class HabitsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         habits!.insert(habits!.remove(at: sourceIndexPath.row), at: destinationIndexPath.row)
         saveHabitsData(habits: habits)
         myHabits.reloadData()
+        soundEffect(name: "lip_sound")
     }
     
     @objc func longPress(press: UILongPressGestureRecognizer) {
@@ -228,12 +231,13 @@ class HabitsViewController: UIViewController, UITableViewDelegate, UITableViewDa
             addHabit(habit: habit)
             myHabits.insertRows(at: [IndexPath(row: habits!.count - 1, section: 0)], with: .automatic)
         } else {
-            let alert = UIAlertController(title: "Cannot add habit", message: "Habit already exists as a habit", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Cannot add habit", message: "Habit already exists!", preferredStyle: .alert)
             let cancel = UIAlertAction(title: "Got it", style: .default) { (_) in
                 return
             }
             alert.addAction(cancel)
             present(alert, animated: true)
+            soundEffect(name: "selection_deny")
         }
     }
     

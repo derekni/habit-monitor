@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 //points
 var points:Int?
@@ -40,10 +41,6 @@ class PointsViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-
-    @IBAction func optionsTapped(_ sender: Any) {
-    
     }
     
 }

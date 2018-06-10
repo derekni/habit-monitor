@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 //point val
 var pointVal:Int?
@@ -162,6 +163,7 @@ class RewardsViewController: UIViewController, UITableViewDelegate, UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.view.backgroundColor = UIColor(hex: fetchColorCode()!)
         navigationBar.barTintColor = UIColor(hex: fetchColorCode()!)
         
         myRewards.delegate = self
@@ -312,11 +314,17 @@ class RewardsViewController: UIViewController, UITableViewDelegate, UITableViewD
             let action = UIAlertAction(title: "Edit", style: .default) { (_) in
                 guard let reward = alert.textFields?.first?.text else { return }
                 if (indexPath.section == 0) {
+                    rewardsDict![reward] = rewardsDict![rewards![indexPath.row]]
+                    rewardsDict![rewards![indexPath.row]] = nil
                     rewards![indexPath.row] = reward
                     saveRewardsData(rewards: rewards)
+                    saveRewardsDictData(rewardsDict: rewardsDict)
                 } else {
+                    premiumRewardsDict![reward] = premiumRewardsDict![premiumRewards![indexPath.row]]
+                    premiumRewardsDict![premiumRewards![indexPath.row]] = nil
                     premiumRewards![indexPath.row] = reward
                     savePremiumRewardsData(premiumRewards: premiumRewards)
+                    savePremiumRewardsDictData(premiumRewardsDict: premiumRewardsDict)
                 }
                 tableView.reloadData()
             }
@@ -365,6 +373,7 @@ class RewardsViewController: UIViewController, UITableViewDelegate, UITableViewD
             savePremiumRewardsData(premiumRewards: premiumRewards)
         }
         myRewards.reloadData()
+        soundEffect(name: "lip_sound")
     }
     
     @objc func longPress(press: UILongPressGestureRecognizer) {
@@ -423,12 +432,13 @@ class AddRewardViewController: UIViewController {
                     addReward(reward: name!, value: cost!)
                     self.performSegue(withIdentifier: "AddToRewards", sender: self)
                 } else {
-                    let alert = UIAlertController(title: "Cannot add reward", message: "Reward already exists as a reward", preferredStyle: .alert)
+                    let alert = UIAlertController(title: "Cannot add reward", message: "Reward already exists!", preferredStyle: .alert)
                     let cancel = UIAlertAction(title: "Got it", style: .default) { (_) in
                         return
                     }
                     alert.addAction(cancel)
                     present(alert, animated: true)
+                    soundEffect(name: "selection_deny")
                 }
             } else {
                 let alert = UIAlertController(title: "Cannot add reward", message: "Reward must have a name and a value", preferredStyle: .alert)
@@ -437,6 +447,7 @@ class AddRewardViewController: UIViewController {
                 }
                 alert.addAction(cancel)
                 present(alert, animated: true)
+                soundEffect(name: "selection_deny")
             }
         } else {
             if (name != nil && cost != nil){
@@ -444,12 +455,13 @@ class AddRewardViewController: UIViewController {
                     addPremiumReward(premiumReward: name!, value: cost!)
                     self.performSegue(withIdentifier: "AddToRewards", sender: self)
                 } else {
-                    let alert = UIAlertController(title: "Cannot add reward", message: "Reward already exists as a premium reward", preferredStyle: .alert)
+                    let alert = UIAlertController(title: "Cannot add reward", message: "Premium reward already exists!", preferredStyle: .alert)
                     let cancel = UIAlertAction(title: "Got it", style: .default) { (_) in
                         return
                     }
                     alert.addAction(cancel)
                     present(alert, animated: true)
+                    soundEffect(name: "selection_deny")
                 }
             } else {
                 let alert = UIAlertController(title: "Cannot add reward", message: "Reward must have a name and a value", preferredStyle: .alert)
@@ -458,6 +470,7 @@ class AddRewardViewController: UIViewController {
                 }
                 alert.addAction(cancel)
                 present(alert, animated: true)
+                soundEffect(name: "selection_deny")
             }
         }
     }
@@ -498,6 +511,7 @@ class CustomRewardViewController: UIViewController {
             }
             alert.addAction(cancel)
             present(alert, animated: true)
+            soundEffect(name: "selection_deny")
         } else {
             addHistory(hist: reward!)
             points! = points! - val

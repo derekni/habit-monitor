@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 //resolutions
 var resolutions:[String]?
@@ -62,6 +63,7 @@ class ResolutionsViewController: UIViewController, UITableViewDelegate, UITableV
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.view.backgroundColor = UIColor(hex: fetchColorCode()!)
         navigationBar.barTintColor = UIColor(hex: fetchColorCode()!)
         
         myResolutions.delegate = self
@@ -149,6 +151,7 @@ class ResolutionsViewController: UIViewController, UITableViewDelegate, UITableV
         resolutions!.insert(resolutions!.remove(at: sourceIndexPath.row), at: destinationIndexPath.row)
         saveResolutionData(resolutions: resolutions)
         myResolutions.reloadData()
+        soundEffect(name: "lip_sound")
     }
     
     @objc func longPress(press: UILongPressGestureRecognizer) {
@@ -180,10 +183,18 @@ class ResolutionsViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     func add(resolution: String) {
-        if resolution != "" {
+        if (resolution != "" && !resolutions!.contains(resolution)) {
             resolutions!.append(resolution)
             UserDefaults.standard.set(resolutions, forKey: "myResolutions")
             myResolutions.insertRows(at: [IndexPath(row: resolutions!.count - 1, section: 0)], with: .automatic)
+        } else {
+            let alert = UIAlertController(title: "Cannot add resolution", message: "Resolution already exists!", preferredStyle: .alert)
+            let cancel = UIAlertAction(title: "Got it", style: .default) { (_) in
+                return
+            }
+            alert.addAction(cancel)
+            present(alert, animated: true)
+            soundEffect(name: "selection_deny")
         }
     }
     

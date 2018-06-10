@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 //savings
 var savings:Int?
@@ -30,6 +31,7 @@ class SavingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.view.backgroundColor = UIColor(hex: fetchColorCode()!)
         self.view.backgroundColor = UIColor(hex: fetchColorCode()!)
         
         savedLabel.text = String(savings!)
@@ -62,6 +64,7 @@ class SavingsViewController: UIViewController {
             }
             alert.addAction(cancel)
             present(alert, animated: true)
+            soundEffect(name: "selection_deny")
         } else {
             let alert = UIAlertController(title: "Are you sure?", message: "Opening the savings jar will cost five points.", preferredStyle: .alert)
             let cancel = UIAlertAction(title: "Cancel", style: .default) { (_) in

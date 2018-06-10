@@ -7,16 +7,65 @@
 //
 
 import UIKit
+import AVFoundation
 
 //sound functions
-var sound:Bool?
+var backgroundMusicOn:Bool?
+var backgroundMusic: AVAudioPlayer?
+var soundEffectOn: Bool?
+var soundEffect: AVAudioPlayer?
+let playlist = ["above_the_clouds", "banana_tree", "comfort_blanket", "pleasure_drive", "yellow_cafe"]
 
-func fetchSoundVal() -> Bool? {
-    return UserDefaults.standard.bool(forKey: "isSoundOn")
+func fetchBackgroundMusicVal() -> Bool? {
+    return UserDefaults.standard.bool(forKey: "backgroundMusicOn")
 }
 
-func saveSoundVal(isOn: Bool) {
-    UserDefaults.standard.set(isOn, forKey: "isSoundOn")
+func saveBackgroundMusicVal(isOn: Bool) {
+    UserDefaults.standard.set(isOn, forKey: "backgroundMusicOnOn")
+}
+
+func fetchSoundEffectVal() -> Bool? {
+    return UserDefaults.standard.bool(forKey: "soundEffectOn")
+}
+
+func saveSoundEffectVal(isOn: Bool) {
+    UserDefaults.standard.set(isOn, forKey: "soundEffectOn")
+}
+
+func backgroundMusicToOn() {
+    //let index = Int(arc4random_uniform(5))
+    //let songName = playlist[index]
+    let songName = "yellow_cafe"
+    let musicPath = Bundle.main.path(forResource: "Sounds/Background Music/" + songName, ofType: ".mp3")
+    let url = URL(fileURLWithPath: musicPath!)
+    if (backgroundMusicOn!) {
+        do {
+            backgroundMusic = try AVAudioPlayer(contentsOf: url)
+            backgroundMusic?.numberOfLoops = -1
+            backgroundMusic?.play()
+            print(songName + " being played")
+        } catch {
+            print("music could not load")
+        }
+    }
+}
+
+func backgroundMusicToOff() {
+    backgroundMusic?.stop()
+}
+
+func soundEffect(name: String) {
+    let soundPath = Bundle.main.path(forResource: "Sounds/Sound Effects/" + name, ofType: ".mp3")
+    let url = URL(fileURLWithPath: soundPath!)
+    if (soundEffectOn!) {
+        do {
+            soundEffect = try AVAudioPlayer(contentsOf: url)
+            soundEffect?.play()
+            print(name + " being played")
+        } catch {
+            print("sound effect could not load")
+        }
+    }
 }
 
 //color functions
@@ -49,7 +98,11 @@ func saveColorVal(name: String) {
 }
 
 func fetchColorCode() -> String? {
-    return colorCodes[fetchColorVal()!]
+    if fetchColorVal() != nil {
+        return colorCodes[fetchColorVal()!]
+    } else {
+        return colorCodes["Pine Green"]
+    }
 }
 
 class SettingsViewController: UIViewController {
@@ -60,6 +113,7 @@ class SettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.view.backgroundColor = UIColor(hex: fetchColorCode()!)
         navigationBar.barTintColor = UIColor(hex: fetchColorCode()!)    }
     
     override func didReceiveMemoryWarning() {
@@ -148,6 +202,7 @@ class AboutViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.view.backgroundColor = UIColor(hex: fetchColorCode()!)
         navigationBar.barTintColor = UIColor(hex: fetchColorCode()!)
     }
     
@@ -164,13 +219,15 @@ class CustomizeViewController: UIViewController, UIPickerViewDataSource, UIPicke
     @IBOutlet weak var pointStepper: UIStepper!
     @IBOutlet weak var pointLabel: UILabel!
     @IBOutlet weak var pickerView: UIPickerView!
-    @IBOutlet weak var soundSwitch: UISwitch!
+    @IBOutlet weak var backgroundMusicSwitch: UISwitch!
+    @IBOutlet weak var soundEffectsSwitch: UISwitch!
     @IBOutlet weak var navigationBar: UINavigationBar!
     let colors = ["Sacramento Green", "Hunter Green", "Forest Green", "Pine Green", "Jade Green", "Teal", "Space Blue", "Prussian Blue", "Royal Blue", "Navy Blue", "Yale Blue", "Egyptian Blue", "Sapphire Blue", "Steel Blue", "Baby Blue", "Sky Blue"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.view.backgroundColor = UIColor(hex: fetchColorCode()!)
         navigationBar.barTintColor = UIColor(hex: fetchColorCode()!)
         
         pointLabel.text = "$" + String(pointVal!)
@@ -178,6 +235,9 @@ class CustomizeViewController: UIViewController, UIPickerViewDataSource, UIPicke
         
         pickerView.delegate = self
         pickerView.selectRow(colors.index(of: color!)!, inComponent: 0, animated: true)
+        
+        backgroundMusicSwitch.setOn(!backgroundMusicOn!, animated: true)
+        soundEffectsSwitch.setOn(!soundEffectOn!, animated: true)
     }
     
     override func didReceiveMemoryWarning() {
@@ -209,9 +269,19 @@ class CustomizeViewController: UIViewController, UIPickerViewDataSource, UIPicke
         navigationBar.barTintColor = UIColor(hex: fetchColorCode()!)
     }
     
-    @IBAction func soundChanged(_ sender: Any) {
-        sound = soundSwitch.isOn
-        saveSoundVal(isOn: soundSwitch.isOn)
+    @IBAction func backgroundMusicChanged(_ sender: Any) {
+        backgroundMusicOn = backgroundMusicSwitch.isOn
+        saveBackgroundMusicVal(isOn: backgroundMusicOn!)
+        if (backgroundMusicOn!) {
+            backgroundMusicToOn()
+        } else {
+            backgroundMusicToOff()
+        }
+    }
+    
+    @IBAction func soundEffectsChanged(_ sender: Any) {
+        soundEffectOn = soundEffectsSwitch.isOn
+        saveSoundEffectVal(isOn: soundEffectOn!)
     }
     
 }

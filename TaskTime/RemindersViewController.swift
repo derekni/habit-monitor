@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 //reminders
 var reminders:[String]?
@@ -63,6 +64,7 @@ class RemindersViewController: UIViewController, UITableViewDelegate, UITableVie
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.view.backgroundColor = UIColor(hex: fetchColorCode()!)
         navigationBar.barTintColor = UIColor(hex: fetchColorCode()!)
         
         reminderTable.delegate = self
@@ -152,6 +154,7 @@ class RemindersViewController: UIViewController, UITableViewDelegate, UITableVie
         reminders!.insert(reminders!.remove(at: sourceIndexPath.row), at: destinationIndexPath.row)
         saveReminderData(reminders: reminders)
         reminderTable.reloadData()
+        soundEffect(name: "lip_sound")
     }
     
     @objc func longPress(press: UILongPressGestureRecognizer) {
@@ -183,10 +186,18 @@ class RemindersViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func add(reminder: String) {
-        if reminder != "" {
+        if (reminder != "" && !reminders!.contains(reminder)) {
             reminders!.append(reminder)
             UserDefaults.standard.set(reminders, forKey: "reminders")
             reminderTable.insertRows(at: [IndexPath(row: reminders!.count - 1, section: 0)], with: .automatic)
+        } else {
+            let alert = UIAlertController(title: "Cannot add reminder", message: "Reminder already exists!", preferredStyle: .alert)
+            let cancel = UIAlertAction(title: "Got it", style: .default) { (_) in
+                return
+            }
+            alert.addAction(cancel)
+            present(alert, animated: true)
+            soundEffect(name: "selection_deny")
         }
     }
     

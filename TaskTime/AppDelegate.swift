@@ -7,11 +7,14 @@
 //
 
 import UIKit
+import AVFoundation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    //var audioPlayer: AVAudioPlayer = AVAudioPlayer()
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
@@ -31,10 +34,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         //sound
-        if let soundVal = fetchSoundVal() {
-            sound = soundVal
+        if let musicVal = fetchBackgroundMusicVal() {
+            backgroundMusicOn = musicVal
         } else {
-            sound = true
+            backgroundMusicOn = true
+            saveBackgroundMusicVal(isOn: backgroundMusicOn!)
+        }
+        if (backgroundMusicOn!) {
+            backgroundMusicToOn()
+        } else {
+            backgroundMusicToOff()
+        }
+        if let soundEffectVal = fetchSoundEffectVal() {
+            soundEffectOn = soundEffectVal
+        } else {
+            soundEffectOn = true
+            saveSoundEffectVal(isOn: soundEffectOn!)
         }
         
         //point val
@@ -123,7 +138,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if !(premiumRewards?.contains("Purchase"))! {
             premiumRewards?.append("Purchase")
         }
-        
+
         //premium rewards dict
         if let premiumRewardDict = fetchPremiumRewardsDictData() {
             premiumRewardsDict = premiumRewardDict
@@ -133,7 +148,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if premiumRewardsDict?.count == 0 {
             premiumRewardsDict = ["Purchase":0]
         }
-        
+
         //savings
         if let saving = fetchSavingsData() {
             savings = saving

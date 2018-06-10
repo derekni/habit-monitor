@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 //option cell
 class OptionTableViewCell: UITableViewCell {
