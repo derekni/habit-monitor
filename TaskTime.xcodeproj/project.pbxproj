@@ -24,7 +24,7 @@
 		7DA81ABB205C925200266224 /* RewardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA81ABA205C925200266224 /* RewardsViewController.swift */; };
 		7DA81ABF206362CC00266224 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA81ABE206362CC00266224 /* HistoryViewController.swift */; };
 		7DA81AC52063716800266224 /* ResolutionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA81AC42063716800266224 /* ResolutionsTableViewController.swift */; };
-		7DBFA53520A66D2900B2F3C6 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DBFA53420A66D2900B2F3C6 /* SettingsTableViewController.swift */; };
+		7DBFA53520A66D2900B2F3C6 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DBFA53420A66D2900B2F3C6 /* SettingsViewController.swift */; };
 		7DD0FF7A20B49188006A25E7 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DD0FF7920B49188006A25E7 /* AVFoundation.framework */; };
 		D2ACE0BC617A60F3ACEBB46C /* Pods_TaskTimeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03CB5ADCAFE5EEAD03B04AA3 /* Pods_TaskTimeTests.framework */; };
 /* End PBXBuildFile section */
@@ -62,7 +62,7 @@
 		7DA81ABA205C925200266224 /* RewardsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardsViewController.swift; sourceTree = "<group>"; };
 		7DA81ABE206362CC00266224 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		7DA81AC42063716800266224 /* ResolutionsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResolutionsTableViewController.swift; sourceTree = "<group>"; };
-		7DBFA53420A66D2900B2F3C6 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
+		7DBFA53420A66D2900B2F3C6 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		7DD0FF7920B49188006A25E7 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		AA3AEBB195039900A29DBBFC /* Pods-TaskTime.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TaskTime.release.xcconfig"; path = "Pods/Target Support Files/Pods-TaskTime/Pods-TaskTime.release.xcconfig"; sourceTree = "<group>"; };
 		ABCBD013BFB3E4CC21B774B2 /* Pods-TaskTimeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TaskTimeTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TaskTimeTests/Pods-TaskTimeTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -125,7 +125,7 @@
 				7DA81ABE206362CC00266224 /* HistoryViewController.swift */,
 				7D94DD6820586066002724AE /* SavingsViewController.swift */,
 				7DA81AC42063716800266224 /* ResolutionsTableViewController.swift */,
-				7DBFA53420A66D2900B2F3C6 /* SettingsTableViewController.swift */,
+				7DBFA53420A66D2900B2F3C6 /* SettingsViewController.swift */,
 				7D7382F5206C04E8002FE875 /* Formatting.swift */,
 				7D5955EE2049D3DF008E2C9C /* Assets.xcassets */,
 				7D9577AD20B7455E00E17469 /* Sounds */,
@@ -325,7 +325,7 @@
 				7D5955EA2049D3DF008E2C9C /* PointsViewController.swift in Sources */,
 				7D7382F6206C04E8002FE875 /* Formatting.swift in Sources */,
 				7DA81ABF206362CC00266224 /* HistoryViewController.swift in Sources */,
-				7DBFA53520A66D2900B2F3C6 /* SettingsTableViewController.swift in Sources */,
+				7DBFA53520A66D2900B2F3C6 /* SettingsViewController.swift in Sources */,
 				7D2E9EF4205508D900F81311 /* OptionTableViewController.swift in Sources */,
 				7DA81ABB205C925200266224 /* RewardsViewController.swift in Sources */,
 				7D94DD6D205AE8EA002724AE /* RemindersViewController.swift in Sources */,

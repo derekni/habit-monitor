@@ -405,13 +405,14 @@ class AddRewardViewController: UIViewController {
     // MARK: Properties
     @IBOutlet weak var rewardType: UISegmentedControl!
     @IBOutlet weak var rewardName: UITextField!
-    @IBOutlet weak var rewardCost: CurrencyField!
+    @IBOutlet weak var rewardCost: UITextField!
     @IBOutlet weak var navigationBar: UINavigationBar!
     @IBOutlet weak var addButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.view.backgroundColor = UIColor(hex: fetchColorCode()!)
         navigationBar.barTintColor = UIColor(hex: fetchColorCode()!)
         rewardType.tintColor = UIColor(hex: fetchColorCode()!)
         addButton.backgroundColor = UIColor(hex: fetchColorCode()!)
@@ -489,6 +490,7 @@ class CustomRewardViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.view.backgroundColor = UIColor(hex: fetchColorCode()!)
         navigationBar.barTintColor = UIColor(hex: fetchColorCode()!)
         redeemButton.backgroundColor = UIColor(hex: fetchColorCode()!)
     }

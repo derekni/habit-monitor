@@ -100,7 +100,7 @@ extension Decimal {
     var number: NSDecimalNumber { return NSDecimalNumber(decimal: self) }
 }
 
-//date functions
+//date functions for habits
 func getCurrentDate () -> Int {
     let date = Date()
     let dateFormatter = DateFormatter()
@@ -116,6 +116,19 @@ func saveDateData(date:Int?) {
 
 func fetchDateData() -> Int? {
     if let date = UserDefaults.standard.integer(forKey: "myDate") as? Int {
+        return date
+    } else {
+        return 0
+    }
+}
+
+//date functions for savings
+func saveSavingsDateData(date: Int?) {
+    UserDefaults.standard.set(date, forKey: "mySavingsDate")
+}
+
+func fetchSavingsDateData() -> Int? {
+    if let date = UserDefaults.standard.integer(forKey: "mySavingsDate") as? Int {
         return date
     } else {
         return 0
@@ -202,8 +215,4 @@ extension UIColor {
             blue:  CGFloat((rgb &     0xFF)      )/255.0,
             alpha: alpha)
     }
-}
-
-extension AVAudioPlayer {
-    //override func audio
 }

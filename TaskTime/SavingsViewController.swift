@@ -57,29 +57,30 @@ class SavingsViewController: UIViewController {
     }
 
     @IBAction func openSavings(_ sender: Any) {
-        if (savings! < 5) {
-            let alert = UIAlertController(title: "Not enough points", message: "You must have at least five points to open the savings jar.", preferredStyle: .alert)
+        if (getCurrentDate() - fetchSavingsDateData()! > 00000300) {
+            let alert = UIAlertController(title: "Are you sure?", message: "You can only open your savings once every three months.", preferredStyle: .alert)
+            let cancel = UIAlertAction(title: "Cancel", style: .default) { (_) in
+                return
+            }
+            let action = UIAlertAction(title: "Open", style: .default) { (_) in
+                points = points! + savings!
+                savePointsData(points: points!)
+                savings = 0
+                saveSavingsData(savings: savings!)
+                saveSavingsDateData(date: getCurrentDate())
+                self.performSegue(withIdentifier: "SavingsToPoints", sender: self)
+            }
+            alert.addAction(cancel)
+            alert.addAction(action)
+            present(alert, animated: true)
+        } else {
+            let alert = UIAlertController(title: "Cannot open savings", message: "You must wait three months in between opening savings.", preferredStyle: .alert)
             let cancel = UIAlertAction(title: "Got it", style: .default) { (_) in
                 return
             }
             alert.addAction(cancel)
             present(alert, animated: true)
             soundEffect(name: "selection_deny")
-        } else {
-            let alert = UIAlertController(title: "Are you sure?", message: "Opening the savings jar will cost five points.", preferredStyle: .alert)
-            let cancel = UIAlertAction(title: "Cancel", style: .default) { (_) in
-                return
-            }
-            let action = UIAlertAction(title: "Open", style: .default) { (_) in
-                points = points! + savings! - 5
-                savePointsData(points: points!)
-                savings = 0
-                saveSavingsData(savings: savings!)
-                self.performSegue(withIdentifier: "SavingsToPoints", sender: self)
-            }
-            alert.addAction(cancel)
-            alert.addAction(action)
-            present(alert, animated: true)
         }
     }
     

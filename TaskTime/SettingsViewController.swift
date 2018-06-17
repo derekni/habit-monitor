@@ -33,8 +33,6 @@ func saveSoundEffectVal(isOn: Bool) {
 }
 
 func backgroundMusicToOn() {
-    //let index = Int(arc4random_uniform(5))
-    //let songName = playlist[index]
     let songName = "yellow_cafe"
     let musicPath = Bundle.main.path(forResource: "Sounds/Background Music/" + songName, ofType: ".mp3")
     let url = URL(fileURLWithPath: musicPath!)
@@ -105,93 +103,29 @@ func fetchColorCode() -> String? {
     }
 }
 
-class SettingsViewController: UIViewController {
-    
-    // MARK: Properties
-    @IBOutlet weak var navigationBar: UINavigationBar!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        self.view.backgroundColor = UIColor(hex: fetchColorCode()!)
-        navigationBar.barTintColor = UIColor(hex: fetchColorCode()!)    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-}
-
-class SettingsTableViewController: UITableViewController {
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        UINavigationBar.appearance().isTranslucent = false
-
-        tableView.tableFooterView = UIView(frame: .zero)
-        tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 1))
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-    override var prefersStatusBarHidden: Bool {
-        return true
-    }
-    
-    // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 6
-    }
-    
-    @IBAction func resetTapped(_ sender: Any) {
-        let alert = UIAlertController(title: "Are you sure?", message: "Resetting your app cannot be undone.", preferredStyle: .alert)
-        let cancel = UIAlertAction(title: "Cancel", style: .default) { (_) in
-            return
-        }
-        alert.addAction(cancel)
-        let agree = UIAlertAction(title: "I'm sure", style: .default) { (_) in
-            self.resetApp()
-        }
-        alert.addAction(agree)
-        present(alert, animated: true)
-    }
-    
-    func resetApp() {
-        points = 0
-        savePointsData(points: points)
-        tasks = []
-        saveTaskData(tasks: tasks)
-        habits = []
-        saveHabitsData(habits: habits)
-        reminders = []
-        saveReminderData(reminders: reminders)
-        rewards = []
-        saveRewardsData(rewards: rewards)
-        rewardsDict = [:]
-        saveRewardsDictData(rewardsDict: rewardsDict)
-        premiumRewards = ["Purchase"]
-        savePremiumRewardsData(premiumRewards: premiumRewards)
-        premiumRewardsDict = ["Purchase":0]
-        savePremiumRewardsDictData(premiumRewardsDict: premiumRewardsDict)
-        history = []
-        saveHistoryData(history: history)
-        savings = 0
-        saveSavingsData(savings: savings)
-        resolutions = []
-        saveResolutionData(resolutions: resolutions)
-        self.performSegue(withIdentifier: "SettingsToPoints", sender: self)
-    }
-    
+func resetApp() {
+    points = 0
+    savePointsData(points: points)
+    tasks = []
+    saveTaskData(tasks: tasks)
+    habits = []
+    saveHabitsData(habits: habits)
+    reminders = []
+    saveReminderData(reminders: reminders)
+    rewards = []
+    saveRewardsData(rewards: rewards)
+    rewardsDict = [:]
+    saveRewardsDictData(rewardsDict: rewardsDict)
+    premiumRewards = ["Purchase"]
+    savePremiumRewardsData(premiumRewards: premiumRewards)
+    premiumRewardsDict = ["Purchase":0]
+    savePremiumRewardsDictData(premiumRewardsDict: premiumRewardsDict)
+    history = []
+    saveHistoryData(history: history)
+    savings = 0
+    saveSavingsData(savings: savings)
+    resolutions = []
+    saveResolutionData(resolutions: resolutions)
 }
 
 class AboutViewController: UIViewController {
@@ -201,19 +135,16 @@ class AboutViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.view.backgroundColor = UIColor(hex: fetchColorCode()!)
         navigationBar.barTintColor = UIColor(hex: fetchColorCode()!)
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
 }
 
-class CustomizeViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
+class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     
     // MARK: Properties
     @IBOutlet weak var pointStepper: UIStepper!
@@ -235,9 +166,9 @@ class CustomizeViewController: UIViewController, UIPickerViewDataSource, UIPicke
         
         pickerView.delegate = self
         pickerView.selectRow(colors.index(of: color!)!, inComponent: 0, animated: true)
-        
-        backgroundMusicSwitch.setOn(!backgroundMusicOn!, animated: true)
-        soundEffectsSwitch.setOn(!soundEffectOn!, animated: true)
+
+        backgroundMusicSwitch.setOn(backgroundMusicOn!, animated: true)
+        soundEffectsSwitch.setOn(soundEffectOn!, animated: true)
     }
     
     override func didReceiveMemoryWarning() {
@@ -266,6 +197,7 @@ class CustomizeViewController: UIViewController, UIPickerViewDataSource, UIPicke
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         color = colors[row]
         saveColorVal(name: colors[row])
+        self.view.backgroundColor = UIColor(hex: fetchColorCode()!)
         navigationBar.barTintColor = UIColor(hex: fetchColorCode()!)
     }
     
