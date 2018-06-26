@@ -109,6 +109,7 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
         UserDefaults.standard.set(points!, forKey: "myPoints")
         deleteTaskData(completedTask: String(describing: tasks![indexPath.row]))
         taskTable.deleteRows(at: [indexPath], with: .right)
+        soundEffect(name: "closing_effect_sound")
     }
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
@@ -199,44 +200,8 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
             tasks!.append(task)
             UserDefaults.standard.set(tasks, forKey: "tasks")
             taskTable.insertRows(at: [IndexPath(row: tasks!.count - 1, section: 0)], with: .automatic)
+            soundEffect(name: "office_pencil_scribble_out_on_paper")
         }
     }
     
 }
-/*
-extension TaskViewController: UITableViewDragDelegate, UITableViewDropDelegate {
-    
-    func tableView(_ tableView: UITableView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
-        return model.dragItems(for: indexPath)
-    }
-    
-    func tableView(_ tableView: UITableView, performDropWith coordinator: UITableViewDropCoordinator) {
-        let destinationIndexPath: IndexPath
-        
-        if let indexPath = coordinator.destinationIndexPath {
-            destinationIndexPath = indexPath
-        } else {
-            // Get last index path of table view.
-            let section = tableView.numberOfSections - 1
-            let row = tableView.numberOfRows(inSection: section)
-            destinationIndexPath = IndexPath(row: row, section: section)
-        }
-        
-        coordinator.session.loadObjects(ofClass: NSString.self) { items in
-            // Consume drag items.
-            let stringItems = items as! [String]
-            
-            var indexPaths = [IndexPath]()
-            for (index, item) in stringItems.enumerated() {
-                let indexPath = IndexPath(row: destinationIndexPath.row + index, section: destinationIndexPath.section)
-                self.model.addItem(item, at: indexPath.row)
-                indexPaths.append(indexPath)
-            }
-            
-            tableView.insertRows(at: indexPaths, with: .automatic)
-        }
-    }
-    
-}
-*/
-

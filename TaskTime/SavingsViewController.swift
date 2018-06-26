@@ -50,6 +50,7 @@ class SavingsViewController: UIViewController {
             savings! = savings! + 1
             UserDefaults.standard.set(savings!, forKey:"mySavings")
             UserDefaults.standard.set(points!, forKey:"myPoints")
+            soundEffect(name: "coin_drop")
         } else {
             print("not enough points to add to savings")
         }
@@ -68,6 +69,8 @@ class SavingsViewController: UIViewController {
                 savings = 0
                 saveSavingsData(savings: savings!)
                 saveSavingsDateData(date: getCurrentDate())
+                soundEffect(name: "bottle_smash")
+                addHistory(hist: "Opened savings")
                 self.performSegue(withIdentifier: "SavingsToPoints", sender: self)
             }
             alert.addAction(cancel)

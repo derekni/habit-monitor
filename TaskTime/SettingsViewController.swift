@@ -9,6 +9,23 @@
 import UIKit
 import AVFoundation
 
+//checks if first time
+var firstTime:Bool?
+
+func fetchFirstTimeVal() -> Bool? {
+    let val = UserDefaults.standard.bool(forKey: "isFirstTime")
+    if (val != nil){
+        return val
+    } else {
+        saveFirstTimeVal(isFirst: false)
+        return false
+    }
+}
+
+func saveFirstTimeVal(isFirst: Bool) {
+    UserDefaults.standard.set(isFirst, forKey: "isFirstTime")
+}
+
 //sound functions
 var backgroundMusicOn:Bool?
 var backgroundMusic: AVAudioPlayer?
@@ -135,6 +152,7 @@ class AboutViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = UIColor(hex: fetchColorCode()!)
         navigationBar.barTintColor = UIColor(hex: fetchColorCode()!)
     }
     

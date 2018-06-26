@@ -101,6 +101,7 @@ class RemindersViewController: UIViewController, UITableViewDelegate, UITableVie
     func tableView(_ reminderTable: UITableView, didSelectRowAt indexPath: IndexPath) {
         deleteReminderData(completedReminder: String(describing: reminders![indexPath.row]))
         reminderTable.deleteRows(at: [indexPath], with: .right)
+        soundEffect(name: "closing_effect_sound")
     }
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
@@ -190,6 +191,7 @@ class RemindersViewController: UIViewController, UITableViewDelegate, UITableVie
             reminders!.append(reminder)
             UserDefaults.standard.set(reminders, forKey: "reminders")
             reminderTable.insertRows(at: [IndexPath(row: reminders!.count - 1, section: 0)], with: .automatic)
+            soundEffect(name: "office_pencil_scribble_out_on_paper")
         } else {
             let alert = UIAlertController(title: "Cannot add reminder", message: "Reminder already exists!", preferredStyle: .alert)
             let cancel = UIAlertAction(title: "Got it", style: .default) { (_) in

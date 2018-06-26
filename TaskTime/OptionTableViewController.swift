@@ -12,8 +12,6 @@ import AVFoundation
 //option cell
 class OptionTableViewCell: UITableViewCell {
     
-    //MARK: Properties
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

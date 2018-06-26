@@ -265,6 +265,7 @@ class RewardsViewController: UIViewController, UITableViewDelegate, UITableViewD
                 addHistory(hist: reward)
                 points! = points! - val
                 UserDefaults.standard.set(points!, forKey: "myPoints")
+                soundEffect(name: "game_win")
                 self.performSegue(withIdentifier: "RewardsToPoints", sender: self)
             }
         } else if indexPath.section == 1 {
@@ -277,13 +278,16 @@ class RewardsViewController: UIViewController, UITableViewDelegate, UITableViewD
                     addHistory(hist: reward)
                     deletePremiumReward(premiumReward: reward)
                     myRewards.deleteRows(at: [indexPath], with: .right)
+                    soundEffect(name: "game_win")
                 } else {
                     if (points! > 0) {
                         points! = points! - 1
                         UserDefaults.standard.set(points!, forKey: "myPoints")
                         premiumRewardsDict![reward] = val - 1
                         UserDefaults.standard.set(premiumRewardsDict, forKey: "myPremiumRewardsDict")
+                        soundEffect(name: "closing_effect_sound")
                         myRewards.reloadData()
+                        soundEffect(name: "button_blip")
                     } else {
                         let alert = UIAlertController(title: "Not enough points", message: "You must have at least 1 point to save for this reward.", preferredStyle: .alert)
                         let cancel = UIAlertAction(title: "Got it", style: .default) { (_) in
@@ -299,7 +303,7 @@ class RewardsViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let editRowAction = UITableViewRowAction(style: UITableViewRowActionStyle.default, title: "Edit", handler:{action, indexpath in
-            let alert = UIAlertController(title: "Edit Resolution", message: nil, preferredStyle: .alert)
+            let alert = UIAlertController(title: "Edit Reward", message: nil, preferredStyle: .alert)
             alert.addTextField { (rewardsTF) in
                 if (indexPath.section == 0) {
                     rewardsTF.text = rewards![indexPath.row]

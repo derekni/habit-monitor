@@ -18,6 +18,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
+        //check if first time
+        let firstTimeVal = fetchFirstTimeVal()
+        if (firstTimeVal!) {
+            //play slideshow
+        } else {
+            //dont
+        }
+        
         //check if new day
         let currentDate = getCurrentDate()
         if (currentDate > fetchDateData()!) {
@@ -31,6 +39,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             color = colorVal
         } else {
             color = "Pine Green"
+            saveColorVal(name: "Pine Green")
         }
         
         //sound
@@ -82,6 +91,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             tasks = task
         } else {
             tasks = [String]()
+            saveTaskData(tasks: tasks)
         }
         
         //habits
@@ -89,6 +99,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             habits = habit
         } else {
             habits = [String]()
+            saveHabitsData(habits: habits)
         }
         if habits?.count == 0 {
             habits = ["Work out"]
@@ -100,6 +111,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             reminders = reminder
         } else {
             reminders = [String]()
+            saveReminderData(reminders: reminders)
         }
 
         //rewards
@@ -131,12 +143,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             premiumRewards = premiumReward
         } else {
             premiumRewards = [String]()
+            savePremiumRewardsData(premiumRewards: premiumRewards)
         }
         if premiumRewards?.count == 0 {
             premiumRewards = ["Purchase"]
+            savePremiumRewardsData(premiumRewards: premiumRewards)
         }
         if !(premiumRewards?.contains("Purchase"))! {
             premiumRewards?.append("Purchase")
+            savePremiumRewardsData(premiumRewards: premiumRewards)
         }
 
         //premium rewards dict
@@ -144,9 +159,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             premiumRewardsDict = premiumRewardDict
         } else {
             premiumRewardsDict = [String:Int]()
+            savePremiumRewardsDictData(premiumRewardsDict: premiumRewardsDict)
         }
         if premiumRewardsDict?.count == 0 {
             premiumRewardsDict = ["Purchase":0]
+            savePremiumRewardsDictData(premiumRewardsDict: premiumRewardsDict)
         }
 
         //savings
@@ -154,6 +171,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             savings = saving
         } else {
             savings = 0
+            saveSavingsData(savings: savings)
         }
         
         //history
@@ -161,6 +179,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             history = hist
         } else {
             history = [[String]]()
+            saveHistoryData(history: history)
         }
         
         //resolutions
@@ -168,6 +187,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             resolutions = resolution
         } else {
             resolutions = [String]()
+            saveResolutionData(resolutions: resolutions)
         }
 
         return true

@@ -141,6 +141,7 @@ class HabitsViewController: UIViewController, UITableViewDelegate, UITableViewDa
             UserDefaults.standard.set(points!, forKey: "myPoints")
             addDoneHabit(habit: habit)
             myHabits.reloadData()
+            soundEffect(name: "closing_effect_sound")
         }
     }
     
@@ -230,6 +231,7 @@ class HabitsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         if (habit != "" && !habits!.contains(habit)) {
             addHabit(habit: habit)
             myHabits.insertRows(at: [IndexPath(row: habits!.count - 1, section: 0)], with: .automatic)
+            soundEffect(name: "office_pencil_scribble_out_on_paper")
         } else {
             let alert = UIAlertController(title: "Cannot add habit", message: "Habit already exists!", preferredStyle: .alert)
             let cancel = UIAlertAction(title: "Got it", style: .default) { (_) in
