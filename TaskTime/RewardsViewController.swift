@@ -172,8 +172,11 @@ class RewardsViewController: UIViewController, UITableViewDelegate, UITableViewD
         myRewards.tableFooterView = UIView(frame: .zero)
         myRewards.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: myRewards.frame.size.width, height: 1))
         
-        let longPress = UILongPressGestureRecognizer(target: self, action: #selector(RewardsViewController.longPress))
-        myTitle.addGestureRecognizer(longPress)
+        let longPressTitle = UILongPressGestureRecognizer(target: self, action: #selector(RewardsViewController.longPressTitle))
+        myTitle.addGestureRecognizer(longPressTitle)
+        
+        let longPressReward = UILongPressGestureRecognizer(target: self, action: #selector(RewardsViewController.longPressReward))
+        myRewards.addGestureRecognizer(longPressReward)
     }
     
     override func didReceiveMemoryWarning() {
@@ -285,9 +288,8 @@ class RewardsViewController: UIViewController, UITableViewDelegate, UITableViewD
                         UserDefaults.standard.set(points!, forKey: "myPoints")
                         premiumRewardsDict![reward] = val - 1
                         UserDefaults.standard.set(premiumRewardsDict, forKey: "myPremiumRewardsDict")
-                        soundEffect(name: "closing_effect_sound")
-                        myRewards.reloadData()
                         soundEffect(name: "button_blip")
+                        myRewards.reloadData()
                     } else {
                         let alert = UIAlertController(title: "Not enough points", message: "You must have at least 1 point to save for this reward.", preferredStyle: .alert)
                         let cancel = UIAlertAction(title: "Got it", style: .default) { (_) in
@@ -380,7 +382,7 @@ class RewardsViewController: UIViewController, UITableViewDelegate, UITableViewD
         soundEffect(name: "lip_sound")
     }
     
-    @objc func longPress(press: UILongPressGestureRecognizer) {
+    @objc func longPressTitle(press: UILongPressGestureRecognizer) {
         if (press.state == UIGestureRecognizerState.began){
             if (myRewards.isEditing) {
                 myRewards.setEditing(false, animated: true)
@@ -388,6 +390,85 @@ class RewardsViewController: UIViewController, UITableViewDelegate, UITableViewD
                 myRewards.setEditing(true, animated: true)
             }
             myRewards.reloadData()
+        }
+    }
+    
+    @objc func longPressReward(press: UILongPressGestureRecognizer) {
+        if (press.state == UIGestureRecognizerState.began){
+            let touchPoint = press.location(in: myRewards)
+            if let indexPath = myRewards.indexPathForRow(at: touchPoint) {
+                if indexPath.section == 0 {
+                    let alert = UIAlertController(title: "Redeem Reward", message: "How much of " + rewards![indexPath.row] + " do you want to redeem?", preferredStyle: .alert)
+                    alert.addTextField { (rewardsTF) in
+                        rewardsTF.text = "0"
+                        rewardsTF.maxLength = 5
+                        rewardsTF.keyboardType = UIKeyboardType.decimalPad
+                    }
+                    let cancel = UIAlertAction(title: "Cancel", style: .default) { (_) in
+                        return
+                    }
+                    let action = UIAlertAction(title: "Redeem", style: .default) { (_) in
+                        let text = alert.textFields?.first?.text
+                        let amount = Int(text!)
+                        let cost = amount! * rewardsDict![rewards![indexPath.row]]!
+                        if (cost > points!) {
+                            //do nothing
+                        } else {
+                            let reward = rewards![indexPath.row]
+                            for _ in 1 ... amount! {
+                                addHistory(hist: reward)
+                            }
+                            points! = points! - cost
+                            UserDefaults.standard.set(points!, forKey: "myPoints")
+                            soundEffect(name: "game_win")
+                            self.performSegue(withIdentifier: "RewardsToPoints", sender: self)
+                        }
+                    }
+                    alert.addAction(cancel)
+                    alert.addAction(action)
+                    self.present(alert, animated: true)
+                } else {
+                    let alert = UIAlertController(title: "Add to Reward", message: "How much do you want to add to " + premiumRewards![indexPath.row] + "?", preferredStyle: .alert)
+                    alert.addTextField { (rewardsTF) in
+                        rewardsTF.text = "0"
+                        rewardsTF.maxLength = 5
+                        rewardsTF.keyboardType = UIKeyboardType.decimalPad
+                    }
+                    let cancel = UIAlertAction(title: "Cancel", style: .default) { (_) in
+                        return
+                    }
+                    let action = UIAlertAction(title: "Redeem", style: .default) { (_) in
+                        let text = alert.textFields?.first?.text
+                        let amount = Int(text!)
+                        let premiumReward = premiumRewards![indexPath.row]
+                        if (amount! > premiumRewardsDict![premiumReward]!) {
+                            //tell user the amount is too much
+                            print("too much moolah")
+                        } else if (amount! <= 0) {
+                            //do nothing
+                        } else if (amount! > points!) {
+                            //do nothing
+                        } else {
+                            premiumRewardsDict![premiumReward] = premiumRewardsDict![premiumReward]! - amount!
+                            UserDefaults.standard.set(premiumRewardsDict, forKey: "myPremiumRewardsDict")
+                            points! = points! - amount!
+                            UserDefaults.standard.set(points!, forKey: "myPoints")
+                            if (premiumRewardsDict![premiumReward]! == 0) {
+                                addHistory(hist: premiumReward)
+                                deletePremiumReward(premiumReward: premiumReward)
+                                self.myRewards.deleteRows(at: [indexPath], with: .right)
+                                soundEffect(name: "game_win")
+                            } else {
+                                soundEffect(name: "button_blip")
+                                self.myRewards.reloadData()
+                            }
+                        }
+                    }
+                    alert.addAction(cancel)
+                    alert.addAction(action)
+                    self.present(alert, animated: true)
+                }
+            }
         }
     }
     
