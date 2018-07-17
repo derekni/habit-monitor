@@ -189,7 +189,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             resolutions = [String]()
             saveResolutionData(resolutions: resolutions)
         }
-
+        
         return true
     }
 

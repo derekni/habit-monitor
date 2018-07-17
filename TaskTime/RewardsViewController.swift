@@ -307,6 +307,12 @@ class RewardsViewController: UIViewController, UITableViewDelegate, UITableViewD
         let editRowAction = UITableViewRowAction(style: UITableViewRowActionStyle.default, title: "Edit", handler:{action, indexpath in
             let alert = UIAlertController(title: "Edit Reward", message: nil, preferredStyle: .alert)
             alert.addTextField { (rewardsTF) in
+                let label = UILabel(frame: CGRect(x: 0, y: 0, width: 46, height: 20))
+                label.text = "Name:"
+                label.backgroundColor = UIColor.white
+                label.font = UIFont.boldSystemFont(ofSize: 14)
+                rewardsTF.leftViewMode = UITextFieldViewMode.always
+                rewardsTF.leftView = label
                 if (indexPath.section == 0) {
                     rewardsTF.text = rewards![indexPath.row]
                 } else {
@@ -314,23 +320,43 @@ class RewardsViewController: UIViewController, UITableViewDelegate, UITableViewD
                 }
                 rewardsTF.maxLength = 25
             }
+            alert.addTextField { (rewardsCostTF) in
+                let label = UILabel(frame: CGRect(x: 0, y: 0, width: 38, height: 20))
+                label.text = "Cost:"
+                label.backgroundColor = UIColor.white
+                label.font = UIFont.boldSystemFont(ofSize: 14)
+                rewardsCostTF.leftViewMode = UITextFieldViewMode.always
+                rewardsCostTF.leftView = label
+                if (indexPath.section == 0) {
+                    rewardsCostTF.text = String(rewardsDict![rewards![indexPath.row]]!)
+                } else {
+                    rewardsCostTF.text = String(premiumRewardsDict![premiumRewards![indexPath.row]]!)
+                }
+                rewardsCostTF.maxLength = 5
+                rewardsCostTF.keyboardType = UIKeyboardType.decimalPad
+            }
             let cancel = UIAlertAction(title: "Cancel", style: .default) { (_) in
                 return
             }
             let action = UIAlertAction(title: "Edit", style: .default) { (_) in
                 guard let reward = alert.textFields?.first?.text else { return }
+                let cost = Int(alert.textFields![1].text!)
                 if (indexPath.section == 0) {
                     rewardsDict![reward] = rewardsDict![rewards![indexPath.row]]
                     rewardsDict![rewards![indexPath.row]] = nil
                     rewards![indexPath.row] = reward
+                    rewardsDict![reward] = cost
                     saveRewardsData(rewards: rewards)
                     saveRewardsDictData(rewardsDict: rewardsDict)
+                    self.myRewards.reloadData()
                 } else {
                     premiumRewardsDict![reward] = premiumRewardsDict![premiumRewards![indexPath.row]]
                     premiumRewardsDict![premiumRewards![indexPath.row]] = nil
                     premiumRewards![indexPath.row] = reward
+                    premiumRewardsDict![reward] = cost
                     savePremiumRewardsData(premiumRewards: premiumRewards)
                     savePremiumRewardsDictData(premiumRewardsDict: premiumRewardsDict)
+                    self.myRewards.reloadData()
                 }
                 tableView.reloadData()
             }
