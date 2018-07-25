@@ -426,7 +426,7 @@ class RewardsViewController: UIViewController, UITableViewDelegate, UITableViewD
                 if indexPath.section == 0 {
                     let alert = UIAlertController(title: "Redeem Reward", message: "How much of " + rewards![indexPath.row] + " do you want to redeem?", preferredStyle: .alert)
                     alert.addTextField { (rewardsTF) in
-                        rewardsTF.text = "0"
+                        rewardsTF.text = ""
                         rewardsTF.maxLength = 5
                         rewardsTF.keyboardType = UIKeyboardType.decimalPad
                     }
@@ -438,7 +438,23 @@ class RewardsViewController: UIViewController, UITableViewDelegate, UITableViewD
                         let amount = Int(text!)
                         let cost = amount! * rewardsDict![rewards![indexPath.row]]!
                         if (cost > points!) {
-                            //do nothing
+                            //tell the user the cost > points
+                            let errorAlert = UIAlertController(title: "Not enough points", message: "You do not have enough points to complete this action.", preferredStyle: .alert)
+                            let cancel = UIAlertAction(title: "Got it", style: .default) { (_) in
+                                return
+                            }
+                            errorAlert.addAction(cancel)
+                            self.present(errorAlert, animated: true)
+                            soundEffect(name: "selection_deny")
+                        } else if (cost <= 0) {
+                            //tell the user the cost has to be > 0
+                            let errorAlert = UIAlertController(title: "Invalid reward cost", message: "The cost must be greater than zero.", preferredStyle: .alert)
+                            let cancel = UIAlertAction(title: "Got it", style: .default) { (_) in
+                                return
+                            }
+                            errorAlert.addAction(cancel)
+                            self.present(errorAlert, animated: true)
+                            soundEffect(name: "selection_deny")
                         } else {
                             let reward = rewards![indexPath.row]
                             for _ in 1 ... amount! {
@@ -456,7 +472,7 @@ class RewardsViewController: UIViewController, UITableViewDelegate, UITableViewD
                 } else {
                     let alert = UIAlertController(title: "Add to Reward", message: "How much do you want to add to " + premiumRewards![indexPath.row] + "?", preferredStyle: .alert)
                     alert.addTextField { (rewardsTF) in
-                        rewardsTF.text = "0"
+                        rewardsTF.text = ""
                         rewardsTF.maxLength = 5
                         rewardsTF.keyboardType = UIKeyboardType.decimalPad
                     }
@@ -468,12 +484,33 @@ class RewardsViewController: UIViewController, UITableViewDelegate, UITableViewD
                         let amount = Int(text!)
                         let premiumReward = premiumRewards![indexPath.row]
                         if (amount! > premiumRewardsDict![premiumReward]!) {
-                            //tell user the amount is too much
+                            //tell user the amount is more than reward cost
+                            let errorAlert = UIAlertController(title: "Invalid reward cost", message: "The input cost is more than the premium reward cost.", preferredStyle: .alert)
+                            let cancel = UIAlertAction(title: "Got it", style: .default) { (_) in
+                                return
+                            }
+                            errorAlert.addAction(cancel)
+                            self.present(errorAlert, animated: true)
+                            soundEffect(name: "selection_deny")
                             print("too much moolah")
                         } else if (amount! <= 0) {
-                            //do nothing
+                            //tell the user the amount has to be > 0
+                            let errorAlert = UIAlertController(title: "Invalid reward cost", message: "The cost must be greater than zero.", preferredStyle: .alert)
+                            let cancel = UIAlertAction(title: "Got it", style: .default) { (_) in
+                                return
+                            }
+                            errorAlert.addAction(cancel)
+                            self.present(errorAlert, animated: true)
+                            soundEffect(name: "selection_deny")
                         } else if (amount! > points!) {
-                            //do nothing
+                            //tell the user the amount is more than the current points
+                            let errorAlert = UIAlertController(title: "Not enough points", message: "You do not have enough points to complete this action.", preferredStyle: .alert)
+                            let cancel = UIAlertAction(title: "Got it", style: .default) { (_) in
+                                return
+                            }
+                            errorAlert.addAction(cancel)
+                            self.present(errorAlert, animated: true)
+                            soundEffect(name: "selection_deny")
                         } else {
                             premiumRewardsDict![premiumReward] = premiumRewardsDict![premiumReward]! - amount!
                             UserDefaults.standard.set(premiumRewardsDict, forKey: "myPremiumRewardsDict")
