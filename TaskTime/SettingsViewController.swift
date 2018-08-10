@@ -165,8 +165,6 @@ class AboutViewController: UIViewController {
 class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     
     // MARK: Properties
-    @IBOutlet weak var pointStepper: UIStepper!
-    @IBOutlet weak var pointLabel: UILabel!
     @IBOutlet weak var pickerView: UIPickerView!
     @IBOutlet weak var backgroundMusicSwitch: UISwitch!
     @IBOutlet weak var soundEffectsSwitch: UISwitch!
@@ -178,9 +176,6 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
         
         self.view.backgroundColor = UIColor(hex: fetchColorCode()!)
         navigationBar.barTintColor = UIColor(hex: fetchColorCode()!)
-        
-        pointLabel.text = "$" + String(pointVal!)
-        pointStepper.value = Double(pointVal!)
         
         pickerView.delegate = self
         pickerView.selectRow(colors.index(of: color!)!, inComponent: 0, animated: true)
@@ -196,12 +191,6 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
-    }
-    
-    @IBAction func pointValueChanged(_ sender: Any) {
-        pointVal = Int(pointStepper.value)
-        savePointVal(pointVal: pointVal)
-        pointLabel.text = "$" + String(pointVal!)
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {

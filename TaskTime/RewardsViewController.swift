@@ -9,25 +9,6 @@
 import UIKit
 import AVFoundation
 
-//point val
-var pointVal:Int?
-
-func savePointVal(pointVal:Int?) {
-    UserDefaults.standard.set(pointVal, forKey: "myPointVal")
-}
-
-func fetchPointVal() -> Int? {
-    if let val = UserDefaults.standard.integer(forKey: "myPointVal") as? Int {
-        return val
-    } else {
-        return nil
-    }
-}
-
-func changePointVal(newVal:Int) {
-    UserDefaults.standard.set(newVal, forKey: "myPointVal")
-}
-
 //rewards
 var rewards:[String]?
 var rewardsDict:[String:Int]?
@@ -226,7 +207,7 @@ class RewardsViewController: UIViewController, UITableViewDelegate, UITableViewD
             }
             cell.myPremiumReward.text = premiumRewards![indexPath.row]
             if (myRewards.isEditing == false) {
-                if (premiumRewards![indexPath.row] != "Purchase") {
+                if (premiumRewards![indexPath.row] != "Redeem") {
                     let text = String(findValue(text: premiumRewards![indexPath.row], section: 1))
                     if (text == "0") {
                         cell.rewardCost.text = "☆"
@@ -272,7 +253,7 @@ class RewardsViewController: UIViewController, UITableViewDelegate, UITableViewD
                 self.performSegue(withIdentifier: "RewardsToPoints", sender: self)
             }
         } else if indexPath.section == 1 {
-            if (premiumRewards![indexPath.row] == "Purchase") {
+            if (premiumRewards![indexPath.row] == "Redeem") {
                 self.performSegue(withIdentifier:"PremiumRewardsToAdd", sender: self)
             } else {
                 let reward = premiumRewards![indexPath.row]
@@ -631,7 +612,7 @@ class CustomRewardViewController: UIViewController {
     
     // MARK: Properties
     @IBOutlet weak var myReward: UITextField!
-    @IBOutlet weak var myCost: CurrencyField!
+    @IBOutlet weak var myCost: UITextField!
     @IBOutlet weak var navigationBar: UINavigationBar!
     @IBOutlet weak var redeemButton: UIButton!
     
@@ -650,12 +631,10 @@ class CustomRewardViewController: UIViewController {
     
     @IBAction func redeemTapped(_ sender: Any) {
         let reward = myReward.text
-        let cost = myCost.doubleValue
+        let cost = Int(myCost.text!)!
         
-        let val = Int(cost - 0.01) / pointVal! + 1
-        
-        if points! < val {
-            let alert = UIAlertController(title: "Not enough points", message: "You must have at least " + String(val) + " points to redeem this reward.", preferredStyle: .alert)
+        if points! < cost {
+            let alert = UIAlertController(title: "Not enough points", message: "You must have at least " + String(cost) + " points to redeem this reward.", preferredStyle: .alert)
             let cancel = UIAlertAction(title: "Got it", style: .default) { (_) in
                 return
             }
@@ -664,9 +643,9 @@ class CustomRewardViewController: UIViewController {
             soundEffect(name: "selection_deny")
         } else {
             addHistory(hist: reward!)
-            points! = points! - val
+            points! = points! - cost
             UserDefaults.standard.set(points!, forKey: "myPoints")
-            print("reward used: " + reward! + " with value " + String(val))
+            print("reward used: " + reward! + " with value " + String(cost))
             self.performSegue(withIdentifier: "CustomRewardToPoints", sender: self)
         }
     }

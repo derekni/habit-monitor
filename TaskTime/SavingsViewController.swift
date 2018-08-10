@@ -52,7 +52,13 @@ class SavingsViewController: UIViewController {
             UserDefaults.standard.set(points!, forKey:"myPoints")
             soundEffect(name: "coin_drop")
         } else {
-            print("not enough points to add to savings")
+            let alert = UIAlertController(title: "Cannot deposit to savings", message: "You do not have enough points to deposit to savings.", preferredStyle: .alert)
+            let cancel = UIAlertAction(title: "Got it", style: .default) { (_) in
+                return
+            }
+            alert.addAction(cancel)
+            present(alert, animated: true)
+            soundEffect(name: "selection_deny")
         }
         savedLabel.text = String(savings!)
     }

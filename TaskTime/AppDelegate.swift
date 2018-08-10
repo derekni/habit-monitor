@@ -61,17 +61,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             saveSoundEffectVal(isOn: soundEffectOn!)
         }
         
-        //point val
-        if let val = fetchPointVal() {
-            pointVal = val
-        } else {
-            pointVal = 5
-        }
-        if pointVal == 0 {
-            pointVal = 5
-            savePointVal(pointVal: pointVal)
-        }
-        
         //enabled habits
         if let done = fetchDoneHabitsData() {
             doneHabits = done
@@ -146,11 +135,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             savePremiumRewardsData(premiumRewards: premiumRewards)
         }
         if premiumRewards?.count == 0 {
-            premiumRewards = ["Purchase"]
+            premiumRewards = ["Redeem"]
             savePremiumRewardsData(premiumRewards: premiumRewards)
         }
-        if !(premiumRewards?.contains("Purchase"))! {
-            premiumRewards?.append("Purchase")
+        if !(premiumRewards?.contains("Redeem"))! {
+            premiumRewards?.append("Redeem")
             savePremiumRewardsData(premiumRewards: premiumRewards)
         }
 
@@ -162,7 +151,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             savePremiumRewardsDictData(premiumRewardsDict: premiumRewardsDict)
         }
         if premiumRewardsDict?.count == 0 {
-            premiumRewardsDict = ["Purchase":0]
+            premiumRewardsDict = ["Redeem":0]
             savePremiumRewardsDictData(premiumRewardsDict: premiumRewardsDict)
         }
 

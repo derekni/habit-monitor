@@ -25,12 +25,16 @@
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fyh-Wi-SBf">
                                 <rect key="frame" x="80" y="307.5" width="215" height="119.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="I6k-de-JqW"/>
+                                    <constraint firstAttribute="width" constant="215" id="ajO-fV-T79"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="100"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Points" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qag-a2-1aV">
-                                <rect key="frame" x="80" y="140" width="215" height="57.5"/>
+                                <rect key="frame" x="115" y="140" width="145" height="57.5"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="48"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -53,13 +57,11 @@
                         <color key="backgroundColor" red="0.0039215686269999999" green="0.47450980390000003" blue="0.43529411759999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Yyg-lK-egg" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="098-0w-pRO"/>
+                            <constraint firstItem="Fyh-Wi-SBf" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="4q5-ih-BQX"/>
                             <constraint firstItem="Qag-a2-1aV" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="120" id="HfB-Nd-lrE"/>
-                            <constraint firstItem="Qag-a2-1aV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="80" id="Iiw-Tg-GHR"/>
                             <constraint firstItem="Yyg-lK-egg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="PmT-gk-266"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Qag-a2-1aV" secondAttribute="trailing" constant="80" id="qN6-A5-giE"/>
+                            <constraint firstItem="Qag-a2-1aV" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Vbn-Ah-UDo"/>
                             <constraint firstItem="Fyh-Wi-SBf" firstAttribute="top" secondItem="Qag-a2-1aV" secondAttribute="bottom" constant="110" id="sOT-lW-ktt"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Fyh-Wi-SBf" secondAttribute="trailing" constant="80" id="vdC-TY-Pgw"/>
-                            <constraint firstItem="Fyh-Wi-SBf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="80" id="x6Z-0d-WUV"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -127,7 +129,7 @@
                                                 </connections>
                                             </button>
                                         </barButtonItem>
-                                        <button key="titleView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="UIM-pP-BZg">
+                                        <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="UIM-pP-BZg">
                                             <rect key="frame" x="136.5" y="5" width="102" height="34"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
@@ -210,11 +212,11 @@
                                             <constraint firstAttribute="width" constant="343" id="Hq7-nT-uLJ"/>
                                             <constraint firstAttribute="height" constant="485" id="MGs-MV-Lqb"/>
                                         </constraints>
-                                        <string key="text">TaskTime is an iOS app to help monitor habits and keep the user on track of tasks and resolutions.
+                                        <mutableString key="text">TaskTime is an iOS app to help monitor habits and keep the user on track of tasks and resolutions.
 
-This app uses a system of points and rewards to motivate the user to complete tasks and follow healthy habits. It rewards points when the user accomplishes a task on a To-Do list or follows a healthy habit. These points can be used to earn 'rewards' that the user can add in the rewards section, such as watching TV or going out to drink bubble tea. This app can also track resolutions that the user has added. Users can see their past accomplishments and rewards through the history tab of the app, and users can save their points in a savings tab to save up for bigger rewards, which can be opened once every three months.
+This app uses a system of points and rewards to motivate the user to complete tasks and follow healthy habits. It rewards points when the user accomplishes a task on a To-Do list or follows a healthy habit. These points can be used to earn 'rewards' that the user can add in the rewards section, such as watching TV or going out for lunch. This app can also track resolutions that the user has added. Users can see their past accomplishments and rewards through the history tab of the app, and users can save their points in a savings tab to save up for bigger rewards.
 
-Sound effects and music from https://www.zapsplat.com.</string>
+Sound effects and music from https://www.zapsplat.com.</mutableString>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -232,10 +234,9 @@ Sound effects and music from https://www.zapsplat.com.</string>
                         <constraints>
                             <constraint firstItem="vtt-58-Kuf" firstAttribute="top" secondItem="dNe-PA-oug" secondAttribute="bottom" id="7Pl-nX-5jj"/>
                             <constraint firstItem="dNe-PA-oug" firstAttribute="top" secondItem="vDq-Zz-3ye" secondAttribute="top" id="Atp-Hz-YdO"/>
-                            <constraint firstItem="vDq-Zz-3ye" firstAttribute="trailing" secondItem="CW0-BQ-zwS" secondAttribute="trailing" constant="161.5" id="Gwj-YI-lg7"/>
+                            <constraint firstItem="CW0-BQ-zwS" firstAttribute="centerX" secondItem="gbP-BG-lFy" secondAttribute="centerX" id="Wcm-wT-Rpg"/>
                             <constraint firstItem="dNe-PA-oug" firstAttribute="leading" secondItem="vDq-Zz-3ye" secondAttribute="leading" id="a1q-Jj-STg"/>
                             <constraint firstItem="vtt-58-Kuf" firstAttribute="trailing" secondItem="vDq-Zz-3ye" secondAttribute="trailing" id="bJR-gq-szE"/>
-                            <constraint firstItem="CW0-BQ-zwS" firstAttribute="leading" secondItem="vDq-Zz-3ye" secondAttribute="leading" constant="161.5" id="j1i-Cy-Nfo"/>
                             <constraint firstItem="CW0-BQ-zwS" firstAttribute="top" secondItem="vDq-Zz-3ye" secondAttribute="top" constant="11" id="jS8-jO-JBA"/>
                             <constraint firstItem="vtt-58-Kuf" firstAttribute="leading" secondItem="vDq-Zz-3ye" secondAttribute="leading" id="ju7-bO-leP"/>
                             <constraint firstItem="vtt-58-Kuf" firstAttribute="bottom" secondItem="vDq-Zz-3ye" secondAttribute="bottom" id="mYS-Hv-IQK"/>
@@ -289,94 +290,68 @@ Sound effects and music from https://www.zapsplat.com.</string>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q8e-o4-ley">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Point value:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MXc-94-8wp">
-                                                <rect key="frame" x="16" y="24" width="126" height="28"/>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="24"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Value" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e4Q-l0-STE">
-                                                <rect key="frame" x="150" y="24" width="58" height="28"/>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="24"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Color Scheme:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ysa-DE-jbe">
-                                                <rect key="frame" x="16" y="60" width="160" height="28"/>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="24"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Background Music:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1RW-Rx-2vj">
-                                                <rect key="frame" x="16" y="229" width="209" height="28"/>
+                                                <rect key="frame" x="16" y="193" width="209" height="28"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="24"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="C4q-nu-jOh">
-                                                <rect key="frame" x="253" y="24" width="94" height="29"/>
-                                                <connections>
-                                                    <action selector="pointValueChanged:" destination="heE-n7-tCC" eventType="valueChanged" id="Lvt-bo-kQ9"/>
-                                                </connections>
-                                            </stepper>
                                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="veJ-C4-oNY">
-                                                <rect key="frame" x="27" y="96" width="320" height="125"/>
+                                                <rect key="frame" x="27" y="60" width="320" height="125"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="320" id="BHa-xO-hJs"/>
                                                     <constraint firstAttribute="height" constant="125" id="gPr-JU-DdW"/>
                                                 </constraints>
                                             </pickerView>
                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S4n-2K-0nb">
-                                                <rect key="frame" x="182" y="267" width="51" height="31"/>
+                                                <rect key="frame" x="182" y="231" width="51" height="31"/>
                                                 <connections>
                                                     <action selector="soundEffectsChanged:" destination="heE-n7-tCC" eventType="valueChanged" id="Pro-1b-3iQ"/>
                                                 </connections>
                                             </switch>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GWy-vh-cwK">
-                                                <rect key="frame" x="166" y="328" width="42" height="30"/>
+                                                <rect key="frame" x="166" y="292" width="42" height="30"/>
                                                 <state key="normal" title="About"/>
                                                 <connections>
                                                     <segue destination="OnZ-BN-Pl5" kind="presentation" identifier="SettingsToAbout" modalTransitionStyle="coverVertical" id="vGB-pU-xP6"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sound Effects:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="obb-tz-mVX">
-                                                <rect key="frame" x="16" y="268" width="158" height="28"/>
+                                                <rect key="frame" x="16" y="232" width="158" height="28"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="24"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ull-Cu-0fE">
-                                                <rect key="frame" x="233" y="229" width="51" height="31"/>
+                                                <rect key="frame" x="233" y="193" width="51" height="31"/>
                                                 <connections>
                                                     <action selector="backgroundMusicChanged:" destination="heE-n7-tCC" eventType="valueChanged" id="ZFD-dH-HHO"/>
                                                 </connections>
                                             </switch>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Color Scheme:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ysa-DE-jbe">
+                                                <rect key="frame" x="16" y="24" width="160" height="28"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="24"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="veJ-C4-oNY" firstAttribute="top" secondItem="ysa-DE-jbe" secondAttribute="bottom" constant="8" id="0UM-Dc-5rJ"/>
-                                            <constraint firstItem="MXc-94-8wp" firstAttribute="leading" secondItem="Q8e-o4-ley" secondAttribute="leading" constant="16" id="24Q-wa-4nC"/>
-                                            <constraint firstItem="C4q-nu-jOh" firstAttribute="top" secondItem="Q8e-o4-ley" secondAttribute="top" constant="24" id="4jh-Py-1Mg"/>
                                             <constraint firstAttribute="height" constant="1000" id="7xo-ll-Bcw"/>
-                                            <constraint firstItem="GWy-vh-cwK" firstAttribute="leading" secondItem="Q8e-o4-ley" secondAttribute="leading" constant="166.5" id="EpA-MG-ARd"/>
-                                            <constraint firstAttribute="trailing" secondItem="C4q-nu-jOh" secondAttribute="trailing" constant="28" id="FJ2-BV-HJv"/>
-                                            <constraint firstItem="e4Q-l0-STE" firstAttribute="top" secondItem="Q8e-o4-ley" secondAttribute="top" constant="24" id="GEw-xM-or6"/>
+                                            <constraint firstItem="ysa-DE-jbe" firstAttribute="leading" secondItem="Q8e-o4-ley" secondAttribute="leading" constant="16" id="B6n-Qh-31K"/>
+                                            <constraint firstItem="GWy-vh-cwK" firstAttribute="centerX" secondItem="Q8e-o4-ley" secondAttribute="centerX" id="GEf-Gi-sDC"/>
                                             <constraint firstItem="1RW-Rx-2vj" firstAttribute="top" secondItem="veJ-C4-oNY" secondAttribute="bottom" constant="8" id="HjV-NC-ftl"/>
                                             <constraint firstItem="obb-tz-mVX" firstAttribute="top" secondItem="1RW-Rx-2vj" secondAttribute="bottom" constant="11" id="LWx-y6-Bpj"/>
                                             <constraint firstItem="Ull-Cu-0fE" firstAttribute="leading" secondItem="1RW-Rx-2vj" secondAttribute="trailing" constant="8" id="Lla-Kw-eWl"/>
                                             <constraint firstAttribute="trailing" secondItem="ysa-DE-jbe" secondAttribute="trailing" constant="199" id="PpZ-t3-SSl"/>
-                                            <constraint firstItem="ysa-DE-jbe" firstAttribute="top" secondItem="MXc-94-8wp" secondAttribute="bottom" constant="8" id="QUF-V8-bgH"/>
-                                            <constraint firstAttribute="trailing" secondItem="GWy-vh-cwK" secondAttribute="trailing" constant="166.5" id="SCF-cv-2mI"/>
+                                            <constraint firstItem="ysa-DE-jbe" firstAttribute="top" secondItem="Q8e-o4-ley" secondAttribute="top" constant="24" id="QUF-V8-bgH"/>
                                             <constraint firstAttribute="trailing" secondItem="veJ-C4-oNY" secondAttribute="trailing" constant="27.5" id="SLy-Fw-S9J"/>
                                             <constraint firstItem="veJ-C4-oNY" firstAttribute="leading" secondItem="Q8e-o4-ley" secondAttribute="leading" constant="27.5" id="UfG-kt-AIB"/>
                                             <constraint firstItem="obb-tz-mVX" firstAttribute="leading" secondItem="Q8e-o4-ley" secondAttribute="leading" constant="16" id="V2e-GK-jyk"/>
-                                            <constraint firstItem="e4Q-l0-STE" firstAttribute="leading" secondItem="MXc-94-8wp" secondAttribute="trailing" constant="8" id="gqC-LU-WpM"/>
                                             <constraint firstItem="S4n-2K-0nb" firstAttribute="leading" secondItem="obb-tz-mVX" secondAttribute="trailing" constant="8" id="ikb-44-ehu"/>
                                             <constraint firstItem="Ull-Cu-0fE" firstAttribute="top" secondItem="veJ-C4-oNY" secondAttribute="bottom" constant="8" id="lvY-wz-6Ld"/>
-                                            <constraint firstItem="C4q-nu-jOh" firstAttribute="leading" secondItem="e4Q-l0-STE" secondAttribute="trailing" constant="45" id="nu7-yh-Oce"/>
                                             <constraint firstItem="S4n-2K-0nb" firstAttribute="top" secondItem="1RW-Rx-2vj" secondAttribute="bottom" constant="10" id="oNq-Pf-ehu"/>
-                                            <constraint firstItem="ysa-DE-jbe" firstAttribute="top" secondItem="e4Q-l0-STE" secondAttribute="bottom" constant="8" id="rHd-y8-Lmh"/>
-                                            <constraint firstItem="MXc-94-8wp" firstAttribute="top" secondItem="Q8e-o4-ley" secondAttribute="top" constant="24" id="rof-HQ-W6W"/>
                                             <constraint firstItem="GWy-vh-cwK" firstAttribute="top" secondItem="S4n-2K-0nb" secondAttribute="bottom" constant="30" id="wfO-L5-udS"/>
                                             <constraint firstItem="1RW-Rx-2vj" firstAttribute="leading" secondItem="Q8e-o4-ley" secondAttribute="leading" constant="16" id="xyP-oP-MSt"/>
                                         </constraints>
@@ -395,8 +370,7 @@ Sound effects and music from https://www.zapsplat.com.</string>
                         <constraints>
                             <constraint firstItem="8Cc-dH-Kmg" firstAttribute="top" secondItem="PJv-Th-FnQ" secondAttribute="bottom" id="6BU-QS-sK5"/>
                             <constraint firstItem="PJv-Th-FnQ" firstAttribute="trailing" secondItem="orL-fP-ANF" secondAttribute="trailing" id="6rN-1V-4tx"/>
-                            <constraint firstItem="wj7-8e-15f" firstAttribute="leading" secondItem="orL-fP-ANF" secondAttribute="leading" constant="144" id="IZj-8h-Y1j"/>
-                            <constraint firstItem="orL-fP-ANF" firstAttribute="trailing" secondItem="wj7-8e-15f" secondAttribute="trailing" constant="144" id="KVr-8O-QzJ"/>
+                            <constraint firstItem="wj7-8e-15f" firstAttribute="centerX" secondItem="vQd-Si-Npl" secondAttribute="centerX" id="ILu-br-I4C"/>
                             <constraint firstItem="8Cc-dH-Kmg" firstAttribute="bottom" secondItem="orL-fP-ANF" secondAttribute="bottom" id="Ncz-MU-Jls"/>
                             <constraint firstItem="PJv-Th-FnQ" firstAttribute="leading" secondItem="orL-fP-ANF" secondAttribute="leading" id="Uap-8K-hL6"/>
                             <constraint firstItem="8Cc-dH-Kmg" firstAttribute="trailing" secondItem="orL-fP-ANF" secondAttribute="trailing" id="aU2-Vj-Aqj"/>
@@ -410,8 +384,6 @@ Sound effects and music from https://www.zapsplat.com.</string>
                         <outlet property="backgroundMusicSwitch" destination="Ull-Cu-0fE" id="ect-aB-5cg"/>
                         <outlet property="navigationBar" destination="PJv-Th-FnQ" id="tCw-Uq-yaE"/>
                         <outlet property="pickerView" destination="veJ-C4-oNY" id="TF0-lz-cCV"/>
-                        <outlet property="pointLabel" destination="e4Q-l0-STE" id="A46-0Y-I3j"/>
-                        <outlet property="pointStepper" destination="C4q-nu-jOh" id="LDb-ts-vTL"/>
                         <outlet property="soundEffectsSwitch" destination="S4n-2K-0nb" id="dtF-A5-GSA"/>
                     </connections>
                 </viewController>
@@ -442,7 +414,7 @@ Sound effects and music from https://www.zapsplat.com.</string>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Savings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RNz-15-c8t">
-                                <rect key="frame" x="66" y="100" width="243" height="57.5"/>
+                                <rect key="frame" x="97.5" y="100" width="180" height="57.5"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="48"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -490,22 +462,19 @@ Sound effects and music from https://www.zapsplat.com.</string>
                         </subviews>
                         <color key="backgroundColor" red="0.0039215686269999999" green="0.47450980390000003" blue="0.43529411759999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="RNz-15-c8t" firstAttribute="centerX" secondItem="4WW-hS-SZn" secondAttribute="centerX" id="44y-Uw-hvz"/>
                             <constraint firstItem="vRY-dZ-qTM" firstAttribute="leading" secondItem="xnG-wF-AFh" secondAttribute="leading" constant="80" id="484-ib-QOP"/>
                             <constraint firstItem="3MZ-6g-OO0" firstAttribute="top" secondItem="RNz-15-c8t" secondAttribute="bottom" constant="25" id="4Qa-OZ-hue"/>
                             <constraint firstItem="vRY-dZ-qTM" firstAttribute="top" secondItem="RNz-15-c8t" secondAttribute="bottom" constant="165" id="4bd-yl-oUa"/>
-                            <constraint firstItem="Gi4-qi-URG" firstAttribute="leading" secondItem="xnG-wF-AFh" secondAttribute="leading" constant="155" id="98s-bD-n2Y"/>
-                            <constraint firstItem="RNz-15-c8t" firstAttribute="leading" secondItem="xnG-wF-AFh" secondAttribute="leading" constant="66" id="9WD-K0-hCc"/>
+                            <constraint firstItem="Gi4-qi-URG" firstAttribute="centerX" secondItem="4WW-hS-SZn" secondAttribute="centerX" id="PcX-n4-74x"/>
                             <constraint firstItem="xnG-wF-AFh" firstAttribute="trailing" secondItem="vRY-dZ-qTM" secondAttribute="trailing" constant="80" id="S99-aU-10U"/>
-                            <constraint firstItem="xnG-wF-AFh" firstAttribute="trailing" secondItem="3MZ-6g-OO0" secondAttribute="trailing" constant="65" id="SFW-iz-mYI"/>
+                            <constraint firstItem="3MZ-6g-OO0" firstAttribute="centerX" secondItem="4WW-hS-SZn" secondAttribute="centerX" id="WDV-ll-2OJ"/>
                             <constraint firstItem="hbu-3Z-5RY" firstAttribute="leading" secondItem="xnG-wF-AFh" secondAttribute="leading" constant="20" id="XcI-hq-rLZ"/>
                             <constraint firstItem="UlS-xR-L6E" firstAttribute="top" secondItem="xnG-wF-AFh" secondAttribute="top" constant="16" id="ZmB-D4-SHO"/>
                             <constraint firstItem="xnG-wF-AFh" firstAttribute="bottom" secondItem="Gi4-qi-URG" secondAttribute="bottom" constant="50" id="eCb-e0-BSa"/>
                             <constraint firstItem="hbu-3Z-5RY" firstAttribute="top" secondItem="xnG-wF-AFh" secondAttribute="top" constant="20" id="gGA-oL-VMI"/>
-                            <constraint firstItem="3MZ-6g-OO0" firstAttribute="leading" secondItem="xnG-wF-AFh" secondAttribute="leading" constant="65" id="lug-NV-rZ0"/>
                             <constraint firstItem="RNz-15-c8t" firstAttribute="top" secondItem="xnG-wF-AFh" secondAttribute="top" constant="80" id="pOe-wM-a2p"/>
-                            <constraint firstItem="xnG-wF-AFh" firstAttribute="trailing" secondItem="RNz-15-c8t" secondAttribute="trailing" constant="66" id="pnl-01-ZRX"/>
                             <constraint firstAttribute="trailing" secondItem="UlS-xR-L6E" secondAttribute="trailing" constant="20" id="yLc-LB-l37"/>
-                            <constraint firstItem="xnG-wF-AFh" firstAttribute="trailing" secondItem="Gi4-qi-URG" secondAttribute="trailing" constant="155" id="z74-d0-u35"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="xnG-wF-AFh"/>
                     </view>
@@ -736,9 +705,12 @@ Sound effects and music from https://www.zapsplat.com.</string>
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Time label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w0o-H8-14u">
-                                                    <rect key="frame" x="261" y="25" width="98" height="16"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w0o-H8-14u">
+                                                    <rect key="frame" x="259" y="25" width="100" height="16"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="100" id="80O-aW-NyE"/>
+                                                        <constraint firstAttribute="height" constant="16" id="fzI-AV-ZD6"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -751,6 +723,11 @@ Sound effects and music from https://www.zapsplat.com.</string>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="w0o-H8-14u" secondAttribute="bottom" constant="2.5" id="1aM-0N-WFy"/>
+                                                <constraint firstItem="w0o-H8-14u" firstAttribute="top" secondItem="dnT-W7-zdg" secondAttribute="top" constant="25" id="58E-v5-ERP"/>
+                                                <constraint firstAttribute="trailing" secondItem="w0o-H8-14u" secondAttribute="trailing" constant="16" id="8M9-nX-Rwk"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="activityLabel" destination="keh-vS-b7k" id="sNL-vn-Lpb"/>
@@ -772,8 +749,7 @@ Sound effects and music from https://www.zapsplat.com.</string>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="59o-zv-Mkk" firstAttribute="leading" secondItem="S6B-R9-E6g" secondAttribute="leading" constant="156.5" id="0Sl-16-2Lc"/>
-                            <constraint firstItem="S6B-R9-E6g" firstAttribute="trailing" secondItem="59o-zv-Mkk" secondAttribute="trailing" constant="156.5" id="CS2-Wo-zxm"/>
+                            <constraint firstItem="59o-zv-Mkk" firstAttribute="centerX" secondItem="rSM-C3-JbL" secondAttribute="centerX" id="9cm-WX-NTb"/>
                             <constraint firstItem="vEq-49-Y1K" firstAttribute="bottom" secondItem="S6B-R9-E6g" secondAttribute="bottom" id="HSh-rw-UdH"/>
                             <constraint firstItem="Z6Y-vO-AMa" firstAttribute="trailing" secondItem="S6B-R9-E6g" secondAttribute="trailing" id="N3J-cD-5qq"/>
                             <constraint firstItem="vEq-49-Y1K" firstAttribute="top" secondItem="Z6Y-vO-AMa" secondAttribute="bottom" id="PkM-ls-k6d"/>
@@ -855,7 +831,7 @@ Sound effects and music from https://www.zapsplat.com.</string>
                                                 </connections>
                                             </button>
                                         </barButtonItem>
-                                        <button key="titleView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="dui-eF-8Ce">
+                                        <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="dui-eF-8Ce">
                                             <rect key="frame" x="161.5" y="5" width="52" height="34"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
@@ -974,7 +950,7 @@ Sound effects and music from https://www.zapsplat.com.</string>
                                                 </connections>
                                             </button>
                                         </barButtonItem>
-                                        <button key="titleView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Jk8-xA-3Al">
+                                        <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Jk8-xA-3Al">
                                             <rect key="frame" x="141" y="5" width="93" height="34"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
@@ -1128,7 +1104,7 @@ Sound effects and music from https://www.zapsplat.com.</string>
                                                 </connections>
                                             </button>
                                         </barButtonItem>
-                                        <button key="titleView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="DVk-Xj-5yA">
+                                        <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="DVk-Xj-5yA">
                                             <rect key="frame" x="159.5" y="5" width="56" height="34"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
@@ -1216,14 +1192,22 @@ Sound effects and music from https://www.zapsplat.com.</string>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JTG-15-XFj">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JTG-15-XFj">
                                                     <rect key="frame" x="326" y="5" width="34" height="34"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="34" id="2qE-hA-C3Z"/>
+                                                        <constraint firstAttribute="height" constant="34" id="LBg-9t-a8U"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="JTG-15-XFj" secondAttribute="trailing" constant="15" id="sbX-bZ-f2l"/>
+                                                <constraint firstAttribute="bottom" secondItem="JTG-15-XFj" secondAttribute="bottom" constant="4.5" id="xd3-1K-0Q5"/>
+                                                <constraint firstItem="JTG-15-XFj" firstAttribute="top" secondItem="BJi-qS-q8r" secondAttribute="top" constant="5" id="zKm-AB-faY"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="myRewards" destination="rQa-vk-U3r" id="dn5-eE-TUf"/>
@@ -1244,14 +1228,22 @@ Sound effects and music from https://www.zapsplat.com.</string>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dWG-r2-axS">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dWG-r2-axS">
                                                     <rect key="frame" x="326" y="5" width="34" height="34"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="34" id="1hZ-QB-LSn"/>
+                                                        <constraint firstAttribute="height" constant="34" id="ElI-W1-ygq"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="dWG-r2-axS" secondAttribute="bottom" constant="4.5" id="GB2-pR-fqn"/>
+                                                <constraint firstAttribute="trailing" secondItem="dWG-r2-axS" secondAttribute="trailing" constant="15" id="TNG-f2-Chy"/>
+                                                <constraint firstItem="dWG-r2-axS" firstAttribute="top" secondItem="3yE-Qr-bHe" secondAttribute="top" constant="5" id="epY-QW-hjP"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="myPremiumReward" destination="5dB-4U-emV" id="WEY-ef-CzN"/>
@@ -1281,7 +1273,7 @@ Sound effects and music from https://www.zapsplat.com.</string>
                                                 </connections>
                                             </button>
                                         </barButtonItem>
-                                        <button key="titleView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ZPh-N5-jJM">
+                                        <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ZPh-N5-jJM">
                                             <rect key="frame" x="149.5" y="5" width="76" height="34"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
@@ -1434,19 +1426,19 @@ Sound effects and music from https://www.zapsplat.com.</string>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="k7D-Ij-gLq" firstAttribute="leading" secondItem="Kbf-1j-Iry" secondAttribute="leading" constant="155" id="3O1-ia-8zb"/>
+                                    <constraint firstItem="k7D-Ij-gLq" firstAttribute="centerX" secondItem="Kbf-1j-Iry" secondAttribute="centerX" id="1xr-fH-Us1"/>
                                     <constraint firstItem="k7D-Ij-gLq" firstAttribute="top" secondItem="M73-0G-qo8" secondAttribute="bottom" constant="90" id="9XO-Cf-n4s"/>
                                     <constraint firstItem="eDF-l9-3ul" firstAttribute="top" secondItem="Cid-Ym-WaC" secondAttribute="bottom" constant="33.5" id="AXY-aA-dwM"/>
                                     <constraint firstAttribute="trailing" secondItem="QKw-Ch-bz4" secondAttribute="trailing" constant="221" id="Aas-Mx-9dJ"/>
+                                    <constraint firstItem="M73-0G-qo8" firstAttribute="leading" secondItem="Cid-Ym-WaC" secondAttribute="trailing" constant="8" id="Bm8-vy-tm1"/>
+                                    <constraint firstItem="D7A-ma-iKi" firstAttribute="centerX" secondItem="Kbf-1j-Iry" secondAttribute="centerX" id="Ffq-i7-Fry"/>
                                     <constraint firstItem="D7A-ma-iKi" firstAttribute="top" secondItem="Kbf-1j-Iry" secondAttribute="top" constant="43" id="Idr-ta-que"/>
                                     <constraint firstItem="Cid-Ym-WaC" firstAttribute="top" secondItem="D7A-ma-iKi" secondAttribute="bottom" constant="43" id="U48-kb-Ebd"/>
                                     <constraint firstItem="QKw-Ch-bz4" firstAttribute="top" secondItem="M73-0G-qo8" secondAttribute="bottom" constant="27" id="UjI-T7-gLR"/>
-                                    <constraint firstAttribute="trailing" secondItem="k7D-Ij-gLq" secondAttribute="trailing" constant="156" id="bbJ-uD-XKF"/>
+                                    <constraint firstItem="eDF-l9-3ul" firstAttribute="leading" secondItem="Kbf-1j-Iry" secondAttribute="leading" constant="23" id="YDv-if-iTC"/>
                                     <constraint firstItem="QKw-Ch-bz4" firstAttribute="leading" secondItem="eDF-l9-3ul" secondAttribute="trailing" constant="8" id="flP-M5-mUR"/>
-                                    <constraint firstItem="D7A-ma-iKi" firstAttribute="leading" secondItem="Kbf-1j-Iry" secondAttribute="leading" constant="72.5" id="loC-WS-ifM"/>
                                     <constraint firstItem="Cid-Ym-WaC" firstAttribute="leading" secondItem="Kbf-1j-Iry" secondAttribute="leading" constant="23" id="plO-Sh-Tlu"/>
                                     <constraint firstItem="M73-0G-qo8" firstAttribute="leading" secondItem="Cid-Ym-WaC" secondAttribute="trailing" constant="8" id="q2V-Ly-a7H"/>
-                                    <constraint firstAttribute="trailing" secondItem="D7A-ma-iKi" secondAttribute="trailing" constant="72.5" id="u6U-Xm-ruB"/>
                                     <constraint firstAttribute="trailing" secondItem="M73-0G-qo8" secondAttribute="trailing" constant="50" id="uso-BD-Trb"/>
                                     <constraint firstItem="M73-0G-qo8" firstAttribute="top" secondItem="D7A-ma-iKi" secondAttribute="bottom" constant="39" id="yCz-Ax-GNh"/>
                                 </constraints>
@@ -1454,8 +1446,7 @@ Sound effects and music from https://www.zapsplat.com.</string>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="ozJ-7k-pvJ" firstAttribute="leading" secondItem="NtK-Yv-Lai" secondAttribute="leading" constant="170" id="0cs-oT-iZc"/>
-                            <constraint firstItem="NtK-Yv-Lai" firstAttribute="trailing" secondItem="ozJ-7k-pvJ" secondAttribute="trailing" constant="170" id="5xY-Kw-i8M"/>
+                            <constraint firstItem="ozJ-7k-pvJ" firstAttribute="centerX" secondItem="qXg-v2-PVy" secondAttribute="centerX" id="4YR-wl-VL8"/>
                             <constraint firstItem="a73-pn-Cs2" firstAttribute="trailing" secondItem="NtK-Yv-Lai" secondAttribute="trailing" id="AeW-d4-WJh"/>
                             <constraint firstItem="Kbf-1j-Iry" firstAttribute="trailing" secondItem="NtK-Yv-Lai" secondAttribute="trailing" id="Hbm-Dr-PZI"/>
                             <constraint firstItem="ozJ-7k-pvJ" firstAttribute="top" secondItem="NtK-Yv-Lai" secondAttribute="top" constant="11" id="Oj9-0V-IQf"/>
@@ -1505,8 +1496,8 @@ Sound effects and music from https://www.zapsplat.com.</string>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Purchase" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Tn-ck-1Hn">
-                                <rect key="frame" x="147" y="31" width="81" height="22"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Redeem" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Tn-ck-1Hn">
+                                <rect key="frame" x="152" y="31" width="71.5" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="22" id="WdM-GU-jvx"/>
                                 </constraints>
@@ -1547,7 +1538,7 @@ Sound effects and music from https://www.zapsplat.com.</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="c8T-F6-dIH" customClass="CurrencyField" customModule="TaskTime" customModuleProvider="target">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="c8T-F6-dIH">
                                         <rect key="frame" x="79" y="120" width="75" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="75" id="jkp-IF-5P5"/>
@@ -1581,9 +1572,7 @@ Sound effects and music from https://www.zapsplat.com.</string>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="c8T-F6-dIH" firstAttribute="leading" secondItem="fdJ-9z-OpP" secondAttribute="trailing" constant="8" id="1w7-EH-eKq"/>
-                                    <constraint firstItem="kg0-CQ-fN2" firstAttribute="leading" secondItem="v0c-dN-57d" secondAttribute="leading" constant="142" id="4fy-H4-GM0"/>
                                     <constraint firstItem="c8T-F6-dIH" firstAttribute="top" secondItem="S1b-xA-IIM" secondAttribute="bottom" constant="39" id="Cib-W6-jkk"/>
-                                    <constraint firstAttribute="trailing" secondItem="kg0-CQ-fN2" secondAttribute="trailing" constant="143" id="Dl2-lV-Kbh"/>
                                     <constraint firstItem="1yl-sG-Mf1" firstAttribute="top" secondItem="v0c-dN-57d" secondAttribute="top" constant="54" id="Lvd-N3-Tf7"/>
                                     <constraint firstItem="fdJ-9z-OpP" firstAttribute="leading" secondItem="v0c-dN-57d" secondAttribute="leading" constant="23" id="PnS-VA-jB4"/>
                                     <constraint firstItem="fdJ-9z-OpP" firstAttribute="top" secondItem="1yl-sG-Mf1" secondAttribute="bottom" constant="45" id="VeO-R1-La6"/>
@@ -1592,6 +1581,7 @@ Sound effects and music from https://www.zapsplat.com.</string>
                                     <constraint firstAttribute="trailing" secondItem="c8T-F6-dIH" secondAttribute="trailing" constant="221" id="ecd-La-494"/>
                                     <constraint firstItem="c8T-F6-dIH" firstAttribute="top" secondItem="1yl-sG-Mf1" secondAttribute="bottom" constant="42" id="gNn-rB-GBJ"/>
                                     <constraint firstItem="kg0-CQ-fN2" firstAttribute="top" secondItem="c8T-F6-dIH" secondAttribute="bottom" constant="43" id="idE-Jg-4Kg"/>
+                                    <constraint firstItem="kg0-CQ-fN2" firstAttribute="centerX" secondItem="v0c-dN-57d" secondAttribute="centerX" id="j30-D0-ZWM"/>
                                     <constraint firstItem="1yl-sG-Mf1" firstAttribute="leading" secondItem="v0c-dN-57d" secondAttribute="leading" constant="23" id="jvL-Wc-MZQ"/>
                                     <constraint firstItem="S1b-xA-IIM" firstAttribute="top" secondItem="v0c-dN-57d" secondAttribute="top" constant="51" id="v9S-rP-DJc"/>
                                 </constraints>
@@ -1599,14 +1589,13 @@ Sound effects and music from https://www.zapsplat.com.</string>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="8Tn-ck-1Hn" firstAttribute="leading" secondItem="tAk-aj-2r8" secondAttribute="leading" constant="147" id="2Ng-DM-gPj"/>
                             <constraint firstItem="9Z3-Zv-3WM" firstAttribute="top" secondItem="tAk-aj-2r8" secondAttribute="top" id="2Rf-zg-OHO"/>
                             <constraint firstItem="9Z3-Zv-3WM" firstAttribute="trailing" secondItem="tAk-aj-2r8" secondAttribute="trailing" id="5WY-4t-M7x"/>
                             <constraint firstItem="v0c-dN-57d" firstAttribute="top" secondItem="9Z3-Zv-3WM" secondAttribute="bottom" id="6vc-6C-8Sy"/>
                             <constraint firstItem="9Z3-Zv-3WM" firstAttribute="leading" secondItem="tAk-aj-2r8" secondAttribute="leading" id="OX0-wb-EAK"/>
                             <constraint firstItem="8Tn-ck-1Hn" firstAttribute="top" secondItem="tAk-aj-2r8" secondAttribute="top" constant="11" id="QjH-hX-hJA"/>
                             <constraint firstItem="v0c-dN-57d" firstAttribute="leading" secondItem="tAk-aj-2r8" secondAttribute="leading" id="UEd-DF-ApX"/>
-                            <constraint firstItem="tAk-aj-2r8" firstAttribute="trailing" secondItem="8Tn-ck-1Hn" secondAttribute="trailing" constant="147" id="gZn-fn-xur"/>
+                            <constraint firstItem="8Tn-ck-1Hn" firstAttribute="centerX" secondItem="bJ8-LO-zTH" secondAttribute="centerX" id="es2-2J-z0y"/>
                             <constraint firstItem="v0c-dN-57d" firstAttribute="bottom" secondItem="tAk-aj-2r8" secondAttribute="bottom" id="qpE-vg-WNU"/>
                             <constraint firstItem="v0c-dN-57d" firstAttribute="trailing" secondItem="tAk-aj-2r8" secondAttribute="trailing" id="tC4-gC-LKo"/>
                         </constraints>
@@ -1662,12 +1651,11 @@ Sound effects and music from https://www.zapsplat.com.</string>
                             <constraint firstItem="98t-hR-bRO" firstAttribute="top" secondItem="7vM-2q-kCm" secondAttribute="bottom" id="4Qf-6F-d6t"/>
                             <constraint firstItem="7vM-2q-kCm" firstAttribute="top" secondItem="Yu9-DW-XP5" secondAttribute="top" id="JT9-wu-9sS"/>
                             <constraint firstItem="yno-7a-Fh7" firstAttribute="top" secondItem="Yu9-DW-XP5" secondAttribute="top" constant="11" id="JWB-v6-aKI"/>
-                            <constraint firstItem="Yu9-DW-XP5" firstAttribute="trailing" secondItem="yno-7a-Fh7" secondAttribute="trailing" constant="153.5" id="Tky-cq-cxE"/>
+                            <constraint firstItem="yno-7a-Fh7" firstAttribute="centerX" secondItem="ABj-IU-Gjf" secondAttribute="centerX" id="KYe-8f-GFc"/>
                             <constraint firstItem="98t-hR-bRO" firstAttribute="bottom" secondItem="Yu9-DW-XP5" secondAttribute="bottom" id="W09-Bn-H0X"/>
                             <constraint firstItem="98t-hR-bRO" firstAttribute="trailing" secondItem="Yu9-DW-XP5" secondAttribute="trailing" id="fcZ-fX-eDa"/>
                             <constraint firstItem="7vM-2q-kCm" firstAttribute="trailing" secondItem="Yu9-DW-XP5" secondAttribute="trailing" id="jyf-0r-Q0W"/>
                             <constraint firstItem="7vM-2q-kCm" firstAttribute="leading" secondItem="Yu9-DW-XP5" secondAttribute="leading" id="xeu-t7-xpK"/>
-                            <constraint firstItem="yno-7a-Fh7" firstAttribute="leading" secondItem="Yu9-DW-XP5" secondAttribute="leading" constant="153.5" id="xgw-uK-LVR"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Yu9-DW-XP5"/>
                     </view>
@@ -1690,10 +1678,11 @@ Sound effects and music from https://www.zapsplat.com.</string>
         <image name="Options" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="vGB-pU-xP6"/>
         <segue reference="Trb-By-UiB"/>
         <segue reference="hrE-a4-dYq"/>
         <segue reference="51C-4n-TYe"/>
         <segue reference="bE1-A1-H0M"/>
-        <segue reference="kBF-AY-5Vy"/>
+        <segue reference="iyQ-dg-Asp"/>
     </inferredMetricsTieBreakers>
 </document>
