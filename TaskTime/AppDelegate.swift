@@ -79,7 +79,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if let task = fetchTaskData() {
             tasks = task
         } else {
-            tasks = [String]()
+            tasks = [Task]()
             saveTaskData(tasks: tasks)
         }
         
@@ -87,11 +87,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if let habit = fetchHabitsData() {
             habits = habit
         } else {
-            habits = [String]()
+            habits = [Habit]()
             saveHabitsData(habits: habits)
         }
         if habits?.count == 0 {
-            habits = ["Work out"]
+            habits = [Habit(name: "Work out", pointVal: 1)]
             saveHabitsData(habits: habits)
         }
         

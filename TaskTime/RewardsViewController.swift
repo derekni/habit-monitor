@@ -245,12 +245,21 @@ class RewardsViewController: UIViewController, UITableViewDelegate, UITableViewD
                 alert.addAction(cancel)
                 present(alert, animated: true)
             } else {
-                let reward = rewards![indexPath.row]
-                addHistory(hist: reward)
-                points! = points! - val
-                UserDefaults.standard.set(points!, forKey: "myPoints")
-                soundEffect(name: "game_win")
-                self.performSegue(withIdentifier: "RewardsToPoints", sender: self)
+                let alert = UIAlertController(title: "Redeem Reward", message: "Would you like to redeem the reward " + rewards![indexPath.row] + " for " + String(val) + " points?", preferredStyle: .alert)
+                let cancel = UIAlertAction(title: "Cancel", style: .default) { (_) in
+                    return
+                }
+                let action = UIAlertAction(title: "Redeem", style: .default) { (_) in
+                    let reward = rewards![indexPath.row]
+                    addHistory(hist: reward)
+                    points! = points! - val
+                    UserDefaults.standard.set(points!, forKey: "myPoints")
+                    soundEffect(name: "game_win")
+                    self.performSegue(withIdentifier: "RewardsToPoints", sender: self)
+                }
+                alert.addAction(cancel)
+                alert.addAction(action)
+                present(alert, animated: true)
             }
         } else if indexPath.section == 1 {
             if (premiumRewards![indexPath.row] == "Redeem") {
@@ -259,10 +268,19 @@ class RewardsViewController: UIViewController, UITableViewDelegate, UITableViewD
                 let reward = premiumRewards![indexPath.row]
                 let val = findValue(text: reward, section: 1)
                 if (val == 0) {
-                    addHistory(hist: reward)
-                    deletePremiumReward(premiumReward: reward)
-                    myRewards.deleteRows(at: [indexPath], with: .right)
-                    soundEffect(name: "game_win")
+                    let alert = UIAlertController(title: "Redeem Premium Reward", message: "Would you like to redeem the premium reward " + reward + " ?", preferredStyle: .alert)
+                    let cancel = UIAlertAction(title: "Cancel", style: .default) { (_) in
+                        return
+                    }
+                    let action = UIAlertAction(title: "Redeem", style: .default) { (_) in
+                        addHistory(hist: reward)
+                        deletePremiumReward(premiumReward: reward)
+                        myRewards.deleteRows(at: [indexPath], with: .right)
+                        soundEffect(name: "game_win")
+                    }
+                    alert.addAction(cancel)
+                    alert.addAction(action)
+                    present(alert, animated: true)
                 } else {
                     if (points! > 0) {
                         points! = points! - 1
@@ -302,7 +320,7 @@ class RewardsViewController: UIViewController, UITableViewDelegate, UITableViewD
                 rewardsTF.maxLength = 25
             }
             alert.addTextField { (rewardsCostTF) in
-                let label = UILabel(frame: CGRect(x: 0, y: 0, width: 38, height: 20))
+                let label = UILabel(frame: CGRect(x: 0, y: 0, width: 37, height: 20))
                 label.text = "Cost:"
                 label.backgroundColor = UIColor.white
                 label.font = UIFont.boldSystemFont(ofSize: 14)
@@ -314,7 +332,7 @@ class RewardsViewController: UIViewController, UITableViewDelegate, UITableViewD
                     rewardsCostTF.text = String(premiumRewardsDict![premiumRewards![indexPath.row]]!)
                 }
                 rewardsCostTF.maxLength = 5
-                rewardsCostTF.keyboardType = UIKeyboardType.decimalPad
+                rewardsCostTF.keyboardType = UIKeyboardType.numberPad
             }
             let cancel = UIAlertAction(title: "Cancel", style: .default) { (_) in
                 return

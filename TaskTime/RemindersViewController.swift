@@ -99,9 +99,18 @@ class RemindersViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func tableView(_ reminderTable: UITableView, didSelectRowAt indexPath: IndexPath) {
-        deleteReminderData(completedReminder: String(describing: reminders![indexPath.row]))
-        reminderTable.deleteRows(at: [indexPath], with: .right)
-        soundEffect(name: "closing_effect_sound")
+        let alert = UIAlertController(title: "Clear Reminder", message: "Would you like to clear the reminder " + reminders![indexPath.row] + "?", preferredStyle: .alert)
+        let cancel = UIAlertAction(title: "Cancel", style: .default) { (_) in
+            return
+        }
+        let action = UIAlertAction(title: "Clear", style: .default) { (_) in
+            deleteReminderData(completedReminder: String(describing: reminders![indexPath.row]))
+            reminderTable.deleteRows(at: [indexPath], with: .right)
+            soundEffect(name: "closing_effect_sound")
+        }
+        alert.addAction(cancel)
+        alert.addAction(action)
+        present(alert, animated: true)
     }
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {

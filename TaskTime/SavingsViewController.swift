@@ -64,8 +64,8 @@ class SavingsViewController: UIViewController {
     }
 
     @IBAction func openSavings(_ sender: Any) {
-        if (getCurrentDate() - fetchSavingsDateData()! > 00000300) {
-            let alert = UIAlertController(title: "Are you sure?", message: "You can only open your savings once every three months.", preferredStyle: .alert)
+        if (getCurrentDate() - fetchSavingsDateData()! > 00000100) {
+            let alert = UIAlertController(title: "Are you sure?", message: "You can only open your savings once every month.", preferredStyle: .alert)
             let cancel = UIAlertAction(title: "Cancel", style: .default) { (_) in
                 return
             }

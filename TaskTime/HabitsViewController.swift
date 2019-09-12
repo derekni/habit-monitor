@@ -10,54 +10,86 @@ import UIKit
 import AVFoundation
 
 //habits
-var habits:[String]?
-var doneHabits:[String]?
+var habits:[Habit]?
+var doneHabits:[Habit]?
 
-func saveHabitsData(habits:[String]?) {
-    UserDefaults.standard.set(habits, forKey: "myHabits")
-}
-
-func saveDoneHabitsData(doneHabits:[String]?) {
-    UserDefaults.standard.set(doneHabits, forKey: "myDoneHabits")
-}
-
-func fetchHabitsData() -> [String]? {
-    if let habit = UserDefaults.standard.array(forKey: "myHabits") as? [String] {
-        return habit
-    } else {
-        return nil
+class Habit: NSObject, NSCoding {
+    
+    var name: String
+    var pointVal: Int
+    
+    init(name: String, pointVal: Int) {
+        self.name = name
+        self.pointVal = pointVal
+    }
+    
+    static func ==(lhs: Habit, rhs: Habit) -> Bool {
+        return lhs.name == rhs.name && lhs.pointVal == rhs.pointVal
+    }
+    
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(name, forKey: "name")
+        aCoder.encode(pointVal, forKey: "pointVal")
+    }
+    
+    required convenience init?(coder aDecoder: NSCoder) {
+        let name = aDecoder.decodeObject(forKey: "name") as! String
+        let pointVal = aDecoder.decodeInteger(forKey: "pointVal")
+        self.init(name: name, pointVal: pointVal)
+    }
+    
+    override func isEqual(_ object: Any?) -> Bool {
+        if let object = object as? Habit {
+            return name == object.name
+        } else {
+            return false
+        }
     }
 }
 
-func fetchDoneHabitsData() -> [String]? {
-    if let done = UserDefaults.standard.array(forKey: "myDoneHabits") as? [String] {
-        return done
-    } else {
-        return nil
-    }
+func saveHabitsData(habits:[Habit]?) {
+    let habitsData: Data = NSKeyedArchiver.archivedData(withRootObject: habits!)
+    UserDefaults.standard.set(habitsData, forKey: "myHabits")
 }
 
-func addDoneHabit(habit: String) {
-    if habit != "" {
+func saveDoneHabitsData(doneHabits:[Habit]?) {
+    let habitsData: Data = NSKeyedArchiver.archivedData(withRootObject: doneHabits!)
+    UserDefaults.standard.set(habitsData, forKey: "myDoneHabits")
+}
+
+func fetchHabitsData() -> [Habit]? {
+    let decoded = UserDefaults.standard.data(forKey: "myHabits")
+    let decodedHabits = NSKeyedUnarchiver.unarchiveObject(with: decoded!) as! [Habit]
+    return decodedHabits
+}
+
+func fetchDoneHabitsData() -> [Habit]? {
+    let decoded = UserDefaults.standard.data(forKey: "myDoneHabits")
+    let decodedDoneHabits = NSKeyedUnarchiver.unarchiveObject(with: decoded!) as! [Habit]
+    return decodedDoneHabits
+}
+
+func addDoneHabit(habit: Habit) {
+    if habit.name != "" {
         doneHabits!.append(habit)
-        UserDefaults.standard.set(doneHabits, forKey: "myDoneHabits")
+        saveDoneHabitsData(doneHabits: doneHabits!)
     }
 }
 
-func addHabit(habit: String) {
-    if habit != "" {
+func addHabit(habit: Habit) {
+    if habit.name != "" {
         habits!.append(habit)
-        UserDefaults.standard.set(habits!, forKey: "myHabits")
+        saveHabitsData(habits: habits)
     }
 }
 
-func deleteHabit(deletedHabit: String) {
+func deleteHabit(deletedHabit: Habit) {
     if let index = habits?.index(of: deletedHabit) {
         habits!.remove(at: index)
     } else {
         print("nothing was deleted")
     }
-    UserDefaults.standard.set(habits, forKey: "myHabits")
+    saveHabitsData(habits: habits)
 }
 
 func clearDoneHabits () {
@@ -124,7 +156,7 @@ class HabitsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         guard let cell = myHabits.dequeueReusableCell(withIdentifier: "HabitsTableViewCell", for: indexPath) as? HabitsTableViewCell else {
             fatalError("This cell is not an HabitsTableViewCell")
         }
-        cell.myHabit.text = habits![indexPath.row]
+        cell.myHabit.text = habits![indexPath.row].name
         if doneHabits!.contains(habits![indexPath.row]) {
             cell.myHabit.isEnabled = false
         } else {
@@ -136,12 +168,22 @@ class HabitsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(_ myHabits: UITableView, didSelectRowAt indexPath: IndexPath) {
         let habit = habits![indexPath.row]
         if (!doneHabits!.contains(habit)) {
-            addHistory(hist: habit)
-            points! = points! + 1
-            UserDefaults.standard.set(points!, forKey: "myPoints")
-            addDoneHabit(habit: habit)
-            myHabits.reloadData()
-            soundEffect(name: "closing_effect_sound")
+            let alert = UIAlertController(title: "Complete Task", message: "Would you like to complete the habit " + habits![indexPath.row].name + " for " + String(habits![indexPath.row].pointVal) + " points?", preferredStyle: .alert)
+            let cancel = UIAlertAction(title: "Cancel", style: .default) { (_) in
+                return
+            }
+            let action = UIAlertAction(title: "Complete", style: .default) { (_) in
+                let habit = habits![indexPath.row]
+                addHistory(hist: habit.name)
+                points! = points! + habit.pointVal
+                UserDefaults.standard.set(points!, forKey: "myPoints")
+                addDoneHabit(habit: habit)
+                myHabits.reloadData()
+                soundEffect(name: "closing_effect_sound")
+            }
+            alert.addAction(cancel)
+            alert.addAction(action)
+            present(alert, animated: true)
         }
     }
     
@@ -149,15 +191,34 @@ class HabitsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let editRowAction = UITableViewRowAction(style: UITableViewRowActionStyle.default, title: "Edit", handler:{action, indexpath in
             let alert = UIAlertController(title: "Edit Habit", message: nil, preferredStyle: .alert)
             alert.addTextField { (habitsTF) in
-                habitsTF.text = habits![indexPath.row]
+                let label = UILabel(frame: CGRect(x: 0, y: 0, width: 46, height: 20))
+                label.text = "Name:"
+                label.backgroundColor = UIColor.white
+                label.font = UIFont.boldSystemFont(ofSize: 14)
+                habitsTF.leftViewMode = UITextFieldViewMode.always
+                habitsTF.leftView = label
+                habitsTF.text = habits![indexPath.row].name
                 habitsTF.maxLength = 25
+            }
+            alert.addTextField { (pointsTF) in
+                let label = UILabel(frame: CGRect(x: 0, y: 0, width: 81, height: 20))
+                label.text = "Point value:"
+                label.backgroundColor = UIColor.white
+                label.font = UIFont.boldSystemFont(ofSize: 14)
+                pointsTF.leftViewMode = UITextFieldViewMode.always
+                pointsTF.leftView = label
+                pointsTF.keyboardType = .numberPad
+                pointsTF.text = String(habits![indexPath.row].pointVal)
+                pointsTF.maxLength = 2
             }
             let cancel = UIAlertAction(title: "Cancel", style: .default) { (_) in
                 return
             }
             let action = UIAlertAction(title: "Edit", style: .default) { (_) in
-                guard let habit = alert.textFields?.first?.text else { return }
-                habits![indexPath.row] = habit
+                guard let habit = alert.textFields?[0].text else { return }
+                guard let pointVal = alert.textFields?[1].text else { return }
+                habits![indexPath.row].name = habit
+                habits![indexPath.row].pointVal = Int(pointVal)!
                 saveHabitsData(habits: habits)
                 tableView.reloadData()
             }
@@ -168,7 +229,7 @@ class HabitsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         editRowAction.backgroundColor = UIColor.lightGray;
         
         let deleteRowAction = UITableViewRowAction(style: UITableViewRowActionStyle.default, title: "Delete", handler:{action, indexpath in
-            deleteHabit(deletedHabit: String(describing: habits![indexPath.row]))
+            deleteHabit(deletedHabit: habits![indexPath.row])
             self.myHabits.deleteRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
         });
         
@@ -212,23 +273,42 @@ class HabitsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBAction func composeTapped(_ sender: Any) {
         let alert = UIAlertController(title: "Add Habit", message: nil, preferredStyle: .alert)
         alert.addTextField { (habitTF) in
+            let label = UILabel(frame: CGRect(x: 0, y: 0, width: 46, height: 20))
+            label.text = "Name:"
+            label.backgroundColor = UIColor.white
+            label.font = UIFont.boldSystemFont(ofSize: 14)
+            habitTF.leftViewMode = UITextFieldViewMode.always
+            habitTF.leftView = label
             habitTF.placeholder = "Enter Habit"
             habitTF.maxLength = 25
+        }
+        alert.addTextField { (pointsTF) in
+            let label = UILabel(frame: CGRect(x: 0, y: 0, width: 81, height: 20))
+            label.text = "Point value:"
+            label.backgroundColor = UIColor.white
+            label.font = UIFont.boldSystemFont(ofSize: 14)
+            pointsTF.leftViewMode = UITextFieldViewMode.always
+            pointsTF.leftView = label
+            pointsTF.keyboardType = .numberPad
+            pointsTF.placeholder = "Enter point value"
+            pointsTF.maxLength = 2
         }
         let cancel = UIAlertAction(title: "Cancel", style: .default) { (_) in
             return
         }
         let action = UIAlertAction(title: "Add", style: .default) { (_) in
-            guard let habit = alert.textFields?.first?.text else { return }
-            self.add(habit: habit)
+            guard let habit = alert.textFields?[0].text else { return }
+            guard let pointVal = alert.textFields?[1].text else { return }
+            let newHabit = Habit(name: habit, pointVal: Int(pointVal)!)
+            self.add(habit: newHabit)
         }
         alert.addAction(cancel)
         alert.addAction(action)
         present(alert, animated: true)
     }
     
-    func add(habit: String) {
-        if (habit != "" && !habits!.contains(habit)) {
+    func add(habit: Habit) {
+        if (habit.name != "" && !habits!.contains(habit)) {
             addHabit(habit: habit)
             myHabits.insertRows(at: [IndexPath(row: habits!.count - 1, section: 0)], with: .automatic)
             soundEffect(name: "office_pencil_scribble_out_on_paper")
