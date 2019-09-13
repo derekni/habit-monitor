@@ -213,8 +213,10 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
         saveBackgroundMusicVal(isOn: backgroundMusicOn!)
         if (backgroundMusicOn!) {
             backgroundMusicToOn()
+            saveBackgroundMusicVal(isOn: true)
         } else {
             backgroundMusicToOff()
+            saveBackgroundMusicVal(isOn: false)
         }
     }
     
